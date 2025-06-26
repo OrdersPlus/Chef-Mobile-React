@@ -1,0 +1,70 @@
+import { FcViewDetails } from "react-icons/fc";
+
+export const HomeMain = () => {
+  return (
+    <div className="mx-auto p-2 space-y-1">
+      {/* Header Row */}
+      <div
+        className="bg-white text-sm font-medium rounded-t-lg px-4 py-3 grid grid-cols-3"
+        style={{
+          boxShadow: 'inset 0px 0px 3px #d1d1d1, 1px 1px 8px #54545466',
+        }}
+      >
+        <div></div> {/* Empty first column */}
+        <div className="text-orange-500">Product</div>
+        <div className="text-orange-500 text-center">Details</div>
+      </div>
+
+      {/* Product Card */}
+      {[1, 2, 3].map((item, index) => (
+        <div
+          key={index}
+          className="relative bg-white rounded-lg shadow-xl shadow-gray-300 p-4"
+        >
+          {/* Close Button */}
+          <button className="absolute top-0 right-0 z-10 bg-white rounded-full w-8 h-8 grid place-items-center text-gray-500 text-xl leading-none font-bold">
+            &times;
+          </button>
+
+          {/* Grid Layout for Card */}
+          <div className="grid grid-cols-3 gap-4 items-center">
+            {/* Image */}
+            <div className="flex items-center">
+              <div
+                className="w-16 h-16 bg-white border-2 border-gray-300 rounded-lg shadow-xl grid place-items-center"
+                style={{
+                  boxShadow:
+                    'inset 0px 0px 3px #d1d1d1, 1px 1px 8px #54545466',
+                }}
+              >
+                <img
+                  src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/b8eiofak8bph9can0voh"
+                  alt="Beef Tenderloin"
+                  className="w-12 h-12 object-cover rounded-lg"
+                />
+              </div>
+            </div>
+
+            {/* Product Info */}
+            <div>
+              <div className="font-semibold text-black">
+                Beef Tenderloin
+              </div>
+              <div className="text-gray-600 text-sm">$54.00/kg</div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex items-center justify-center gap-4 text-black font-semibold">
+              <button>
+                <FcViewDetails className="text-white h-6 w-6"/>
+              </button>
+              <button>
+                <i className="fi fi-rr-shopping-cart-add"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
