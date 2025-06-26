@@ -39,22 +39,22 @@ const CommonMainAction = () => {
                 setMainMenuOpen(!mainMenuOpen);
                 setActionMenuOpen(false);
               }}
-              className="border-2 bg-orange-500 border-orange-500 shadow-xl shadow-gray-400 text-white px-4 py-2 rounded-md hover:bg-white hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-orange-500 focus:text-white transition"
+              className="border-2 text-orange-500 border-orange-500 bg-white shadow-xl shadow-gray-400 px-4 py-2 rounded-xl transition"
             >
               Main Menu
             </button>
             {mainMenuOpen && (
-              <div className="absolute left-0 mt-2 bg-white border-2 border-orange-500 rounded-md shadow-lg w-48 z-20">
-                <button className="w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100">
+              <div className="absolute left-0 mt-2 bg-white  rounded-md shadow-lg w-36 z-20 space-y-2 p-2">
+                <button className="w-full text-center px-4 py-2 text-orange-500 border-2 rounded-xl">
                   Sections
                 </button>
-                <button className="w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100">
+                <button className="w-full text-center px-4 py-2 text-orange-500 border-2 rounded-xl">
                   Pantry List
                 </button>
-                <button className="w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100">
+                <button className="w-full text-center px-4 py-2 text-orange-500 border-2 rounded-xl">
                   Prep-List
                 </button>
-                <button className="w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100">
+                <button className="w-full text-center px-4 py-2 text-orange-500 border-2 rounded-xl">
                   Supplier
                 </button>
               </div>
@@ -68,19 +68,19 @@ const CommonMainAction = () => {
                 setActionMenuOpen(!actionMenuOpen);
                 setMainMenuOpen(false);
               }}
-              className="border-2 bg-orange-500 shadow-xl shadow-gray-400 border-orange-500 text-white px-4 py-2 rounded-md hover:bg-white hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-orange-500 focus:text-white transition"
+              className="border-2 text-orange-500 border-orange-500 bg-white shadow-xl shadow-gray-400 px-4 py-2 rounded-xl transition"
             >
               Action
             </button>
             {actionMenuOpen && (
-              <div className="absolute left-[-40px] mt-2 bg-white border-2 border-orange-500 rounded-md shadow-lg w-[140px] z-20">
-                <button className="w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100">
+              <div className="absolute right-0 mt-2 bg-white  rounded-md shadow-lg w-42 z-20 space-y-2 p-2">
+                <button className="w-full text-center px-4 py-2 text-orange-500 hover:bg-orange-100 border-2 rounded-xl">
                   Manage Order
                 </button>
-                <button className="w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100">
+                <button className="w-full text-center px-4 py-2 text-orange-500 hover:bg-orange-100 border-2 rounded-xl">
                   Check Delivery
                 </button>
-                <button className="w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100">
+                <button className="w-full text-center px-4 py-2 text-orange-500 hover:bg-orange-100 border-2 rounded-xl">
                   View Orders
                 </button>
               </div>

@@ -9,6 +9,7 @@ import NavButton from "../../components/kitchen/myKitchenSection/NavButton";
 import { SearchPagination } from "../../components/orders/ordersHome/SearchPagination";
 import PrepAddModal from "../../components/kitchen/kitchenModal/PrepAddModal";
 import PrepEditModal from "../../components/kitchen/kitchenModal/PrepEditModal";
+import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 
 export const KitchenPrepList = () => {
   return (
@@ -29,9 +30,17 @@ export const KitchenPrepList = () => {
         </div>
 
         {/* Section Overview */}
-        <div className="p-4 sm:p-6 rounded-md space-y-4 mt-4 overflow-x-auto ">
-          <NavButton />
-
+        <div className="p-4 sm:p-6 rounded-md space-y-4 overflow-x-auto ">
+          <div className="mt-7">
+            <ThreeCommonButton
+              firstBtn="Section"
+              firstUrl="/kitchen/home"
+              secondBtn="Pantry-list"
+              secondUrl="/kitchen/pantry-list"
+              thirdBtn="Prep-list"
+              thirdUrl="/kitchen/prep-list"
+            />
+          </div>
           <div className="overflow-x-auto w-full mt-2">
             <div className="flex space-x-4 p-4 min-w-[1000px]">
               {[

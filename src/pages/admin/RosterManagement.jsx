@@ -1,28 +1,19 @@
-import { useNavigate } from "react-router-dom";
+
+import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 
 export const RosterManagement = () => {
-  const navigate = useNavigate();
-
-  const viewRosterClick = () => {
-    navigate("/admin/roster/hours_controls");
-  };
   return (
     <div>
       <main className="max-w-full mx-auto p-4">
-        <div className="flex bg-gray-200 rounded-lg overflow-hidden shadow-sm mb-6">
-          <button className="flex-1 py-3 text-center text-white font-semibold bg-orange-500 border-b-2 border-white rounded-lg text-sm">
-            Roster Settings
-          </button>
-          <button
-            onClick={viewRosterClick}
-            className="flex-1 py-3 text-center text-gray-600 text-sm"
-          >
-            View Roster
-          </button>
-          <button className="flex-1 py-3 text-center text-gray-600 text-sm">
-            Staff Attendance
-          </button>
-        </div>
+
+        <ThreeCommonButton 
+        firstBtn= "Roster Setting"
+        firstUrl= "/admin/roster"
+        secondBtn= "View Roster"
+        secondUrl= "/admin/roster/view"
+        thirdBtn= "Staff Attendance"
+        thirdUrl= "/admin/roster/staff-attendance"
+        />
 
         <div className="max-h-[50vh] max-w-[100vw] overflow-y-auto  grid grid-cols-1 gap-4 mb-6 shadow-gray-300 shadow-xl">
           <div className="flex justify start">

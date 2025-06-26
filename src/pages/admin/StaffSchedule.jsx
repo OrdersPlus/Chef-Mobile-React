@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Plus, Search, Clock, Users } from 'lucide-react';
-import { Nav } from '../common/Nav';
-import { Footer } from '../common/Footer';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ThreeCommonButton } from '../../components/common/ThreeCommonButton';
 
 
 const StaffSchedule = () => {
@@ -96,18 +95,6 @@ const StaffSchedule = () => {
 
   const navigate = useNavigate(); 
       
-        const rosterClick = () => {
-    navigate('/roster'); 
-  };
-        
-        const viewRosterClick = () => {
-          navigate('/staff-schedule'); 
-        };
-
-        const attendanceClick=() =>{
-          navigate('/attendance')
-        };
-
         const dayClick=() =>{
           navigate('/day-staff')
         };
@@ -116,18 +103,17 @@ const StaffSchedule = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Nav />
       <main className="max-w-full mx-auto p-4">
         
-      <div className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="flex bg-gray-200 rounded-lg overflow-hidden shadow-sm mb-6">
-        <button onClick={ rosterClick}
-         className="flex-1 py-3 text-center text-gray-600 text-sm">Roster Settings</button>
-        <button onClick={viewRosterClick} 
-        className=" flex-1 py-3 text-center text-white font-semibold bg-orange-500 border-b-2 border-white rounded-lg text-sm">View Roster</button>
-        <button onClick={attendanceClick}
-        className="flex-1 py-3 text-center text-gray-600 text-sm">Staff Attendance</button>
-      </div>
+      <div className="bg-white shadow-sm top-0 z-10">
+        <ThreeCommonButton
+        firstBtn= "Roster Setting"
+        firstUrl= "/admin/roster"
+        secondBtn= "View Roster"
+        secondUrl= "/admin/roster/view"
+        thirdBtn= "Staff Attendance"
+        thirdUrl= "/admin/roster/staff-attendance"
+        />
         <div className="px-4 py-4">
           <div class="flex justify start">
   <button onClick={() => document.getElementById('edit_modal').showModal()}
@@ -291,7 +277,6 @@ const StaffSchedule = () => {
         </div>
          
       </div>
-     <Footer />
      </main>
      <dialog id="edit_modal" className="modal">
   <div className="modal-box max-w-4xl">

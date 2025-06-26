@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 
 
 export const EditRoster = () => {
@@ -11,37 +12,14 @@ export const EditRoster = () => {
         <button className="flex-1 py-3 text-center text-gray-600 text-sm">Staff Attendance</button>
       </div> */}
 
-              <div className="flex bg-gray-200 rounded-lg overflow-hidden shadow-sm mb-6">
-       <NavLink
-  to="/admin/roster"
-  className={({ isActive }) =>
-    `flex-1 py-3 text-center ${isActive ? 'bg-orange-500 font-semibold text-white border-b-2 border-orange-500' : 'text-sm'} rounded-lg text-sm`
-}
->
- Roster Settings
-</NavLink>
-
-<NavLink
-  to="/kitchen/pantry-list"
-  className={({ isActive }) =>
-    `flex-1 py-3 text-center ${isActive ? 'bg-orange-500 font-semibold text-white border-b-2 border-orange-500' : 'text-sm'}`
-  }
->
- View Roster
-</NavLink>
-
-<NavLink
-  to="/kitchen/prep-list"
-  className={({ isActive }) =>
-    `flex-1 py-3 text-center ${isActive ? 'bg-orange-500 font-semibold text-white border-b-2 border-orange-500' : 'text-sm'}`
-  }
->
-Staff Attendance
-</NavLink>
-
-
-
-      </div>
+        <ThreeCommonButton 
+        firstBtn= "Roster Setting"
+        firstUrl= "/admin/roster"
+        secondBtn= "View Roster"
+        secondUrl= "/admin/roster/view"
+        thirdBtn= "Staff Attendance"
+        thirdUrl= "/admin/roster/staff-attendance"
+        />
 
       <div className="bg-white rounded-lg shadow-md overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">

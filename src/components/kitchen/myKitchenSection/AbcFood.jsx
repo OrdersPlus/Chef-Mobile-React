@@ -15,11 +15,7 @@ import EditPentryDetailsModal from '../common/modal/EditPentryDetailsModal'
 const AbcFood = () => {
   return (
     <div>
-       
-                <Nav />
          <h1 className="text-xl font-bold text-center mb-2">Add to Pantry</h1>
-
-
 
 <div className='p-4'>
 <NavButton  />
