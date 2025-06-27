@@ -30,7 +30,7 @@ export const KitchenPrepList = () => {
         </div>
 
         {/* Section Overview */}
-        <div className="p-4 sm:p-6 rounded-md space-y-4 overflow-x-auto ">
+        <div className="rounded-md space-y-4 overflow-x-auto">
           <div className="mt-7">
             <ThreeCommonButton
               firstBtn="Section"

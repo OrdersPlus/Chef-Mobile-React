@@ -29,7 +29,7 @@ export const ManageTeam = () => {
 
       <main className="max-w-full mx-auto p-4">
         <div className="flex bg-gray-200 rounded-lg overflow-hidden shadow-sm mb-6">
-          <button className="flex-1 py-3 text-center text-white font-semibold bg-orange-500 border-b-2 border-gray-600 rounded-lg text-sm">
+          <button className="flex-1 py-3 text-center text-white font-semibold bg-orange-500 border-b-2 border-white rounded-lg text-sm">
             Manage Team
           </button>
           <button
