@@ -212,15 +212,15 @@ const Attendance = () => {
   const navigate = useNavigate();
 
   const rosterClick = () => {
-    navigate("/roster");
+    navigate("/admin/roster");
   };
 
   const viewRosterClick = () => {
-    navigate("/staff-schedule");
+    navigate("/admin/roster/view");
   };
 
   const attendanceClick = () => {
-    navigate("/attendance");
+    navigate("/admin/roster/staff-attendance");
   };
 
   return (
@@ -242,7 +242,7 @@ const Attendance = () => {
             </button>
             <button
               onClick={attendanceClick}
-              className="flex-1 py-3 text-center text-white font-semibold bg-orange-500 border-b-2 border-white rounded-lg text-sm"
+              className="flex-1 py-3 text-center text-white font-semibold bg-orange-500 border-b-2 border-white rounded-xl text-sm"
             >
               Staff Attendance
             </button>

@@ -1,6 +1,6 @@
 import React from 'react'
 
- const ScrollableButton = () => {
+ const SuppliersScrollableButton = () => {
   return (
    
         <div className="flex flex-col gap-4">
@@ -47,4 +47,4 @@ import React from 'react'
         </div>
   )
 }
-export default ScrollableButton;
+export default SuppliersScrollableButton;

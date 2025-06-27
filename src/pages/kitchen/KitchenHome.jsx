@@ -6,6 +6,7 @@ import { BiTransfer } from "react-icons/bi";
 import { FiTrash2 } from "react-icons/fi";
 import { Link } from "react-router";
 import {useState} from 'react';
+import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 
 export const KitchenHome = () => {
   const [popUp, setPopUp] = useState(false)
@@ -51,9 +52,19 @@ export const KitchenHome = () => {
           </button>
         </div>
 
+        <div className="mt-7">
+                <ThreeCommonButton 
+                firstBtn= "Section"
+                firstUrl= "/kitchen/home"
+                secondBtn= "Pantry-list"
+                secondUrl= "/kitchen/pantry-list"
+                thirdBtn= "Prep-list"
+                thirdUrl= "/kitchen/prep-list"
+                />
+        </div>
         {/* Section Overview */}
-        <div className="p-4 sm:p-6 rounded-md space-y-4 mt-4 overflow-x-auto ">
-          <NavButton />
+        <div className="p-4 sm:p-6 rounded-md space-y-4 overflow-x-auto ">
+          {/* <NavButton /> */}
 
           <div className="overflow-x-auto w-full mt-2">
             <div className="flex space-x-4 p-4 min-w-[1000px]">

@@ -3,6 +3,7 @@ import { BiChevronDown, BiChevronUp, BiInfoCircle } from "react-icons/bi";
 import { Link } from "react-router";
 import NavButton from "../../components/kitchen/myKitchenSection/NavButton";
 import PantryListDetailsModal from "../../components/kitchen/kitchenModal/PantryListDetailsModal";
+import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 
 export const KitchenPantryList = () => {
   return (
@@ -15,15 +16,26 @@ export const KitchenPantryList = () => {
           <p className="font-bold text-sm sm:text-base">My Kitchen</p>
 
           <Link
-            to="/add-to-pantry"
+            to="/kitchen/add-to-pantry"
             className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm"
           >
             Edit Pantry
           </Link>
         </div>
 
-        <div className="p-4 sm:p-6 rounded-md space-y-4 mt-4">
-          <NavButton />
+                <div className="mt-7">
+                        <ThreeCommonButton 
+                        firstBtn= "Section"
+                        firstUrl= "/kitchen/home"
+                        secondBtn= "Pantry-list"
+                        secondUrl= "/kitchen/pantry-list"
+                        thirdBtn= "Prep-list"
+                        thirdUrl= "/kitchen/prep-list"
+                        />
+                </div>
+
+        <div className="p-4 sm:p-6 rounded-md space-y-4">
+          {/* <NavButton /> */}
 
           <div className="overflow-x-auto w-full mt-2">
             <div className="flex space-x-4 p-4 min-w-[1000px]">

@@ -7,13 +7,12 @@ import { MainLayouts } from "../pages/layouts/MainLayouts";
 import { OrdersHome } from "../pages/orders/OrdersHome";
 import { NewOrderItem } from "../pages/orders/NewOrderItem";
 import { OrderDetails } from "../pages/orders/OrderDetails";
-// import { KitchenSection } from "../pages/kitchen/KitchenSection";
 import { KitchenPantryList } from "../pages/kitchen/KitchenPantryList";
 import { KitchenHome } from "../pages/kitchen/KitchenHome";
 import { KitchenPrepList } from "../pages/kitchen/KitchenPrepList";
 import { KitchenAddPantry } from "../pages/kitchen/KitchenAddPantry";
 import AddToCart from "../pages/AddToCart";
-import { SuppliersHome } from "c:/Users/Asus/Downloads/SuppliersHome/SuppliersHome";
+
 import { SupplierProductList } from "../pages/suppliers/SupplierProductList";
 import { SupplierDetails } from "../pages/suppliers/SupplierDetails";
 import { OrderHistory } from "../pages/orders/OrderHistory";
@@ -26,6 +25,7 @@ import { EditRoster } from "../pages/admin/EditRoster";
 import { AddToCart2 } from "../pages/AddToCart2";
 import Attendance from "../pages/admin/Attendance";
 import StaffSchedule from "../pages/admin/StaffSchedule";
+import { SuppliersHome } from "../pages/suppliers/SuppliersHome";
 
 const router = createBrowserRouter([
     {
@@ -133,10 +133,10 @@ const router = createBrowserRouter([
       path: "/admin/roster/staff-attendance",
       element: <Attendance />
     },
-    {
-      path: "/admin/roster/staff-attendance",
-      element: <Attendance />
-    },
+    // {
+    //   path: "/admin/roster/staff-attendance",
+    //   element: <Attendance />
+    // },
     {
       path: "/admin/roster/view",
        element: <StaffSchedule />
