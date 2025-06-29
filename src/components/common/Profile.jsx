@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import { FiMenu } from 'react-icons/fi';
+import { useState } from "react";
+import { CgProfile } from "react-icons/cg";
+import { FiMenu } from "react-icons/fi";
+import { TbLogout } from "react-icons/tb";
 
 export const Profile = () => {
-
   const [details, setDetails] = useState(false);
   return (
 <div>
@@ -18,23 +19,46 @@ export const Profile = () => {
       <div>
         <h2 className="text-xl font-semibold">Angelo Wilson</h2>
         <p className="text-sm">Head Chef</p>
+
+          </div>
+        </div>
+
+        {/* Hamburger & Dropdown Menu Container */}
+        <div className="relative">
+          {/* Hamburger Button */}
+          <button
+            className={`w-8 h-8 rounded-full ${
+              details ? "bg-orange-500" : "text-orange-500 border-2"
+            }`}
+          >
+            <i
+              className={`fi fi-rr-menu-burger  ${
+                details ? "text-white" : "text-orange-500"
+              }`}
+            ></i>
+          </button>
+
+          {/* Dropdown Menu */}
+          {details && (
+            <div className="absolute right-0 mt-2 w-36  p-2 rounded shadow-md flex flex-col justify-end space-y-2 z-50 bg-white">
+              <a
+                href="#"
+                className="bg-white text-orange-500 flex justify-center rounded-2xl border-2 gap-3"
+              >
+                Profile
+                <span className="flex justify-center items-center"><CgProfile className="w-5 h-5" /></span>
+              </a>
+              <a
+                href="#"
+                className="bg-white text-orange-500 flex justify-center rounded-2xl border-2 gap-3"
+              >
+                Log out
+                <span className="flex justify-center items-center"><TbLogout className="w-5 h-5" /></span>
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </div>
-
-    {/* Hamburger & Dropdown Menu Container */}
-    <div className="relative">
-      {/* Hamburger Button */}
-      <button className={`w-8 h-8 rounded-full ${details ? 'text-orange-500 border-2' : 'bg-orange-500'}`}>
-        <i className={`fi fi-rr-menu-burger  ${details ? 'text-orange-500' : 'text-white'}`}></i>
-      </button>
-
-      {/* Dropdown Menu */}
-      {details && <div className="absolute right-0 mt-2 w-30  p-2 rounded shadow-md flex flex-col justify-end space-y-2 z-50 bg-white">
-        <a href="#" className="bg-white text-orange-500 flex justify-center rounded-2xl border-2">Profile</a>
-        <a href="#" className="bg-white text-orange-500 flex justify-center rounded-2xl border-2">Log out</a>
-      </div>}
-    </div>
-  </div>
-</div>
-  )
-}
+  );
+};

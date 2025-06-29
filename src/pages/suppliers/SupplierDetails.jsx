@@ -1,6 +1,8 @@
 import CommonMainAction from "../../components/suppliers/CommonMainAction";
 import SupplierDetailsBody from "../../components/suppliers/SupplierDetailsBody";
+import SupplierDetailsCard from "../../components/suppliers/SupplierDetailsCard";
 
+import { FaLink } from "react-icons/fa6"
 export const SupplierDetails = () => {
   return (
     <>
@@ -14,6 +16,9 @@ export const SupplierDetails = () => {
           </div>
         </div>
         <SupplierDetailsBody />
+        <SupplierDetailsCard />
+  
+          
       </div>
     </>
   );

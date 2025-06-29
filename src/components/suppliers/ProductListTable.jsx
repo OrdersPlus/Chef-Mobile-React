@@ -14,8 +14,8 @@ const ProductListTable = ({ handleModalOpen }) => {
                 }}>
                     <tr>
                       <th scope="col"  className="px-6 py-3 text-left text-orange-500  tracking-wider whitespace-nowrap"></th>
-                      <th scope="col"  className="px-6 py-3 text-left   tracking-wider whitespace-nowrap">SKU</th>
-                      <th scope="col"  className="px-6 py-3 text-left tracking-wider whitespace-nowrap">Product</th>
+                      <th scope="col"  className="px-6 py-3 text-left   tracking-wider text-orange-500 whitespace-nowrap">SKU</th>
+                      <th scope="col"  className="px-6 py-3 text-left tracking-wider text-orange-500 whitespace-nowrap">Product</th>
                       <th scope="col"  className="px-6 py-3 text-left text-orange-500  tracking-wider whitespace-nowrap">Description</th>
                       <th scope="col"  className="px-6 py-3 text-left text-orange-500  tracking-wider whitespace-nowrap">Sub Category</th>
                       <th scope="col"  className="px-6 py-3 text-left text-orange-500  tracking-wider whitespace-nowrap">Unit Price</th>

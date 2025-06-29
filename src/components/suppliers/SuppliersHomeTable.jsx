@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaClipboardList } from 'react-icons/fa';
-import { FaFolderOpen } from "react-icons/fa";
+import { FaFolder } from "react-icons/fa";
 const SuppliersHomeTable = () => {
   return (
      <div className="container mt-2 p-4 mx-auto overflow-auto ">
@@ -27,7 +27,7 @@ const SuppliersHomeTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poultry</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Joe Blow</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">0404670200</td>
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-green-500">
                   damendeng <br/>2000@gmail.com
                 </td>
                 <td className="py-3">
@@ -35,7 +35,7 @@ const SuppliersHomeTable = () => {
                     
   <Link to="/suppliers/product_list"> {/* Wrap the icon with the Link component */}
       <FaClipboardList
-        className="text-orange-500"
+        className="text-green-500"
         size="2em"
           
       />
@@ -46,7 +46,7 @@ const SuppliersHomeTable = () => {
                   <div className="flex justify-center">
                     
                     <Link to="/suppliers/details"> 
-        <FaFolderOpen className="text-orange-500" size="2em" />
+        <FaFolder className="text-[#FFD700]" size="2em" />
       </Link>
                   </div>
                 </td>
@@ -55,7 +55,7 @@ const SuppliersHomeTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poultry</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Joe Blow</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">0404670200</td>
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-green-500">
                   damendeng <br/>2000@gmail.com
                 </td>
                 <td className="py-3">
@@ -63,7 +63,7 @@ const SuppliersHomeTable = () => {
                    
                          <Link to="/suppliers/product_list"> {/* Wrap the icon with the Link component */}
       <FaClipboardList
-        className="text-orange-500"
+        className="text-green-500"
         size="2em"
           
       />
@@ -74,7 +74,7 @@ const SuppliersHomeTable = () => {
                 <td className="py-3">
                   <div className="flex justify-center">
                             <Link to="/suppliers/details"> {/* Wrap the icon with the Link component */}
-        <FaFolderOpen className="text-orange-500" size="2em" />
+         <FaFolder className="text-[#FFD700]" size="2em" /> 
       </Link>
                   </div>
                 </td>
@@ -83,7 +83,7 @@ const SuppliersHomeTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poultry</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Joe Blow</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">0404670200</td>
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-green-500">
                   damendeng <br/>2000@gmail.com
                 </td>
                 <td className="py-3">
@@ -91,7 +91,7 @@ const SuppliersHomeTable = () => {
                                   
                          <Link to="/suppliers/product_list"> {/* Wrap the icon with the Link component */}
       <FaClipboardList
-        className="text-orange-500"
+        className="text-green-500"
         size="2em"
           
       />
@@ -101,7 +101,7 @@ const SuppliersHomeTable = () => {
                 <td className="py-3">
                   <div className="flex justify-center">
                             <Link to="/suppliers/details"> {/* Wrap the icon with the Link component */}
-        <FaFolderOpen className="text-orange-500" size="2em" />
+        <FaFolder className="text-[#FFD700]" size="2em" />
       </Link>
                   </div>
                 </td>
@@ -110,7 +110,7 @@ const SuppliersHomeTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poutry</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Damen Deng</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">0404670200</td>
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-green-500">
                   damendeng <br/>2000@gmail.com
                 </td>
                 <td className="py-3">
@@ -118,7 +118,7 @@ const SuppliersHomeTable = () => {
                                   
                          <Link to="/suppliers/product_list"> {/* Wrap the icon with the Link component */}
       <FaClipboardList
-        className="text-orange-500"
+        className="text-green-500"
         size="2em"
           
       />
@@ -128,7 +128,7 @@ const SuppliersHomeTable = () => {
                 <td className="py-3">
                   <div className="flex justify-center">
                             <Link to="/suppliers/details"> {/* Wrap the icon with the Link component */}
-        <FaFolderOpen className="text-orange-500" size="2em" />
+<FaFolder className="text-[#FFD700]" size="2em" />
       </Link>
                   </div>
                 </td>
