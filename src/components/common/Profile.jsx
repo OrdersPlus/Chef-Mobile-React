@@ -11,13 +11,13 @@ export const Profile = () => {
     {/* Profile Info */}
     <div className="flex items-center gap-4">
       <img
-        src="https://i.pravatar.cc/100"
+        src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/afrbbciydcc8tgpxgxob"
         alt="Profile"
         className="w-16 h-16 rounded-xl border-2 border-white shadow-sm/10"
       />
       <div>
-        <h2 className="text-xl font-semibold">OrdersPlus is Awesome</h2>
-        <p className="text-sm">Head Chef / Sous Chef</p>
+        <h2 className="text-xl font-semibold">Angelo Wilson</h2>
+        <p className="text-sm">Head Chef</p>
       </div>
     </div>
 

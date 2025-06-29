@@ -16,7 +16,7 @@ export const RosterManagement = () => {
         />
 
         <div className="max-h-[50vh] max-w-[100vw] overflow-y-auto  grid grid-cols-1 gap-4 mb-6 shadow-gray-300 shadow-xl">
-          <div className="flex justify start">
+          <div className="flex justify start p-4">
             <button
               className="flex items-center px-2 py-1 bg-orange-500 text-white rounded-md shadow-md text-xs"
               onClick={() =>
@@ -49,7 +49,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">16:30 - 22:00</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -73,7 +73,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">06:00 - 12:00</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -97,7 +97,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -122,7 +122,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -146,7 +146,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -170,7 +170,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -194,7 +194,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -218,7 +218,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -242,7 +242,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -266,7 +266,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -293,7 +293,7 @@ export const RosterManagement = () => {
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
 
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -317,7 +317,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -341,7 +341,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -365,7 +365,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">14:54 - 18:30</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -390,7 +390,7 @@ export const RosterManagement = () => {
                 </h3>
                 <p className="text-sm text-gray-600">17:00 - 19:00</p>
               </div>
-              <a href="#" className="text-orange-500 hover:text-orange-700">
+              <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
