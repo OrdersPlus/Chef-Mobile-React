@@ -32,6 +32,8 @@ export const SuppliersHome = () => {
         ]}
         />
         </div>
+
+        
         {/* Connect Supplier Button & Modal */}
         <div className="flex justify-center">
           <SuppliersHomeModal />
