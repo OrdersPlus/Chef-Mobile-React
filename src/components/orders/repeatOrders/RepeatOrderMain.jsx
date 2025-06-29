@@ -15,10 +15,15 @@ const RepeatOrderMain = () => {
 
   {/* Card Content */}
   <div className="mt-2 flex flex-col justify-start">
-    <div className="rounded-md bg-white  pl-2 pr-2 space-y-4 mb-1 mt-2">
-      <p className="text-gray-700 ">
-        <strong>Supplier:</strong> Meatup
-      </p>
+    <div className=" rounded-md bg-white  pl-2 pr-2 space-y-4 mb-1 mt-2">
+      <div className='flex gap-2'>
+          <p className="text-gray-700  ">
+        <strong>Supplier:</strong>
+        </p>
+         <input type="text" defaultValue="Meatup" className="border border-gray-200 rounded-md w-[50%] pl-2 pr-2" />
+      
+      </div>
+    
     </div>
 
     <div className="rounded-md bg-white  pl-2 pr-2 space-y-4 mb-1">
