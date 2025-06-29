@@ -1,6 +1,9 @@
+import { FaCartPlus } from "react-icons/fa";
 import EditPantryCartModal from "../../kitchen/kitchenModal/EditPantryCartModal";
 import EditPentryDetailsModal from "../../kitchen/kitchenModal/EditPentryDetailsModal";
 import PantryListDetailsModal from "../../kitchen/kitchenModal/PantryListDetailsModal";
+import { FaBagShopping } from "react-icons/fa6";
+import { IoSearch } from "react-icons/io5";
 
 export const OrdersNewOrderMain = () => {
   return (
@@ -49,22 +52,22 @@ export const OrdersNewOrderMain = () => {
                   <span className="text-gray-600">$54.00/kg</span>
                 </div>
               </div>
-              <div className="w-1/4  text-black pl-4 flex justify-between items-center mt-5 font-semibold ml-15">
+              <div className="w-1/4 text-black flex justify-between items-center font-semibold ml-15">
                 <button onClick={() =>
                         document.getElementById("searchModal").showModal() } >
-                  <i className="fi fi-rr-search"></i>
+                    <IoSearch  className="text-orange-500 h-7 w-7 ml-4" />
                   {/* <PantryListDetailsModal /> */}
                 </button>
                   <EditPentryDetailsModal />
                 <button className="ml-2">
-                  <i className="fi fi-rr-shopping-bag"></i>
+                  <FaBagShopping className="text-blue-300 300 h-7 w-7 ml-4" />
                 </button>
                 <button onClick={() =>
                         document.getElementById("productModal2").showModal()
                       } className="ml-2">
-                  <i className="fi fi-rr-shopping-cart-add"></i>
+                    <FaCartPlus className="text-amber-300 h-7 w-7 ml-4"/>
                 </button>
-                  <EditPantryCartModal />
+                  <EditPantryCartModal className="text-amber-300 h-7 w-7"/>
               </div>
               <div className="w-1/4"></div>
             </div>
@@ -92,15 +95,15 @@ export const OrdersNewOrderMain = () => {
                   <span className="text-gray-600">$54.00/kg</span>
                 </div>
               </div>
-              <div className="w-1/4 text-black pl-4 flex justify-between items-center mt-5 font-semibold ml-15">
+              <div className="w-1/4 text-black flex justify-between items-center font-semibold ml-15">
                 <button>
-                  <i className="fi fi-rr-search"></i>
+                    <IoSearch  className="text-orange-500 h-7 w-7 ml-4" />
                 </button>
                 <button className="ml-2">
-                  <i className="fi fi-rr-shopping-bag"></i>
+                  <FaBagShopping className="text-blue-300 300 h-7 w-7 ml-4" />
                 </button>
                 <button className="ml-2">
-                  <i className="fi fi-rr-shopping-cart-add"></i>
+                    <FaCartPlus className="text-amber-300 h-7 w-7 ml-4"/>
                 </button>
               </div>
               <div className="w-1/4"></div>

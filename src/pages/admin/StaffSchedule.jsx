@@ -126,7 +126,7 @@ const StaffSchedule = () => {
 </div>
 
           
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-4 mt-4">
             
             
             <div className="relative flex-1 mr-4  ">

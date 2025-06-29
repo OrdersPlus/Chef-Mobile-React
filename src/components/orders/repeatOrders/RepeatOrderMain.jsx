@@ -83,7 +83,7 @@ const RepeatOrderMain = () => {
 
   {/* Action Buttons */}
   <div className="mt-4 flex flex-col gap-2 justify-end">
-    <FaEdit className='text-orange-500 text-xl' />
+    <FaEdit className='text-green-500 text-xl' />
     <FaFolderOpen className='text-amber-300 text-xl' />
   </div>
 </div>
@@ -166,7 +166,7 @@ const RepeatOrderMain = () => {
 
   {/* Action Buttons */}
   <div className="mt-4 flex flex-col gap-2 justify-end">
-    <FaEdit className='text-orange-500 text-xl' />
+    <FaEdit className='text-green-500 text-xl' />
     <FaFolderOpen className='text-amber-300 text-xl' />
   </div>
 </div>
