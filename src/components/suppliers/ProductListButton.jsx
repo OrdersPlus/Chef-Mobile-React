@@ -45,7 +45,7 @@ const ProductListButton = () => {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="p-2 rounded-md focus:outline-none"
           >
-            <FiMenu className="bg-orange-500 text-white p-1 rounded-full  text-xl h-7 w-7" />
+            <FiMenu className="bg-white border-2 border-orange-500 text-orange-500 p-1 rounded-full  text-xl h-7 w-7" />
           </button>
 
           {/* Dropdown Menu */}
