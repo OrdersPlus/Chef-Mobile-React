@@ -14,7 +14,7 @@ const RepeatOrderMain = () => {
   </button>
 
   {/* Card Content */}
-  <div className="mt-2 flex flex-col justify-start">
+  <div className="mt-2 space-y-2 flex flex-col justify-start">
     <div className=" rounded-md bg-white  pl-2 pr-2 space-y-4 mb-1 mt-2">
       <div className='flex gap-2'>
           <p className="text-gray-700  ">
@@ -27,9 +27,17 @@ const RepeatOrderMain = () => {
     </div>
 
     <div className="rounded-md bg-white  pl-2 pr-2 space-y-4 mb-1">
-      <p className="text-gray-700 ">
-        <strong>Repeat Cycle:</strong> Weekly
+       <div className='flex gap-2'>
+  <p className="text-gray-700 ">
+        <strong>Repeat Cycle:</strong> 
       </p>
+        <select defaultValue="Weekly" className="border border-gray-200  rounded-md w-[50%] pl-2 pr-2">
+          <option>Daily</option>
+          <option>Weekly</option>
+          <option>Monthly</option>
+        </select>
+       </div>
+    
     </div>
 
     <div className="rounded-md bg-white  pl-2 pr-2 space-y-4 mb-1">
