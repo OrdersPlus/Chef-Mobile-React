@@ -72,7 +72,7 @@ export const KitchenAddPantry = () => {
                   Unit Price
                 </th>
                 <th className="py-2 px-4 text-left text-orange-500">Detail</th>
-                <th className="py-2 px-4 text-left"></th>
+                <th className="py-2 px-4 text-left text-orange-500">Action</th>
                 <th className="py-2 px-4 text-left"></th>
               </tr>
             </thead>

@@ -67,32 +67,32 @@ const ActiveTab = () => {
 
       {/* Tab 2: Assign Staff */}
       <input type="radio" name="my_tabs_3" className="tab" aria-label="Assign Staff To Section" />
-<div className="tab-content bg-base-100 border-base-300 p-6">
+<div className="tab-content bg-base-100 border-base-300 p-0 ">
   <div className="container mx-auto mt-2">
     <div className="shadow-lg rounded-lg bg-white shadow-gray-300 overflow-x-auto">
-      <table className="min-w-[640px] table-auto text-gray-700 shadow-gray-300">
+      <table className="min-w-[440px]  table-auto text-gray-700 shadow-gray-300">
         <thead
           className="bg-white text-sm shadow-gray-300"
           style={{ boxShadow: 'inset 0px 0px 3px #d1d1d1, 1px 1px 8px #54545466' }}
         >
           <tr>
-            <th className="py-2 px-4 text-left"></th>
-            <th className="py-2 px-4 text-left"></th>
-            <th className="py-2 px-4 text-left text-orange-500 ">Full Name</th>
-            <th className="py-2 px-4 text-left text-orange-500">Position</th>
-            <th className="py-2 px-4 text-left text-orange-500">Contract No.</th>
+            <th className="py-2 px-4"><input type="checkbox" className="checkbox checkbox-sm checkbox-warning" /></th>
+            <th className="py-2 px-1 text-left"></th>
+            <th className="py-2 px-1 text-left text-orange-500 ">Full Name</th>
+            <th className="py-2 px-1 text-left text-orange-500">Position</th>
+            <th className="py-2 px-1 text-left text-orange-500">Contract No.</th>
           </tr>
         </thead>
         <tbody className="text-sm ">
           {[1, 2, 3].map((_, index) => (
             <tr key={index} className="rounded-lg shadow-sm shadow-gray-300">
               {/* Checkbox */}
-              <td className="py-3 px-4">
+              <td className="py-2 pl-6">
                 <input type="checkbox" className="checkbox checkbox-sm checkbox-warning" />
               </td>
 
               {/* Profile Image */}
-              <td className="py-3 px-4">
+              <td className="py-2">
                 <img
                   src={`https://randomuser.me/api/portraits/men/${30 + index}.jpg`}
                   alt="User"
@@ -101,10 +101,10 @@ const ActiveTab = () => {
               </td>
 
               {/* Name */}
-              <td className="py-3 font-semibold w-40 text-black px-2">Alex Hales</td>
+              <td className="py-2 font-semibold w-25 text-black px-2">Alex Hales</td>
 
               {/* Position */}
-              <td className="py-2 w-40 text-black px-4">Chef</td>
+              <td className="py-2 w-22 text-black px-4">Chef</td>
 
               {/* Contact */}
               <td className="py-3 px-4">9930633320</td>
