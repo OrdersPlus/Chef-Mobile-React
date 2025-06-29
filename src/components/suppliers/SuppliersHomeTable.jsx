@@ -24,8 +24,8 @@ const SuppliersHomeTable = () => {
             </thead>
             <tbody className="text-sm">
               <tr className="rounded-lg shadow-lg shadow-gray-300">
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poutry</td>
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Damen Deng</td>
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poultry</td>
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Joe Blow</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">0404670200</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-green-500">
                   damendeng <br/>2000@gmail.com
@@ -52,8 +52,8 @@ const SuppliersHomeTable = () => {
                 </td>
               </tr>
               <tr className="rounded-lg shadow-lg shadow-gray-300">
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poutry</td>
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Damen Deng</td>
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poultry</td>
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Joe Blow</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">0404670200</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-green-500">
                   damendeng <br/>2000@gmail.com
@@ -80,8 +80,8 @@ const SuppliersHomeTable = () => {
                 </td>
               </tr>
               <tr className="rounded-lg shadow-lg shadow-gray-300">
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poutry</td>
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Damen Deng</td>
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poultry</td>
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Joe Blow</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">0404670200</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-green-500">
                   damendeng <br/>2000@gmail.com

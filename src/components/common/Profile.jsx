@@ -6,24 +6,20 @@ import { TbLogout } from "react-icons/tb";
 export const Profile = () => {
   const [details, setDetails] = useState(false);
   return (
-    <div>
-      <h2 className="text-xl font-semibold text-center mb-5 text-orange-500">
-        Mixing Pot Restaurant
-      </h2>
-      <div
-        onClick={() => setDetails(!details)}
-        className="relative flex justify-between items-center bg-white rounded-2xl p-5 mb-6 inset-shadow-sm shadow-gray-400 shadow-xl"
-      >
-        {/* Profile Info */}
-        <div className="flex items-center gap-4">
-          <img
-            src="https://i.pravatar.cc/100"
-            alt="Profile"
-            className="w-16 h-16 rounded-xl border-2 border-white shadow-sm/10"
-          />
-          <div>
-            <h2 className="text-xl font-semibold">OrdersPlus is Awesome</h2>
-            <p className="text-sm">Head Chef / Sous Chef</p>
+<div>
+  <h2 className="text-xl font-semibold text-center mb-5 text-orange-500">Mixing Pot Restaurant</h2>
+  <div onClick={()=>setDetails(!details)} className="relative flex justify-between items-center bg-white rounded-2xl p-5 mb-6 inset-shadow-sm shadow-gray-400 shadow-xl">
+    {/* Profile Info */}
+    <div className="flex items-center gap-4">
+      <img
+        src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/afrbbciydcc8tgpxgxob"
+        alt="Profile"
+        className="w-16 h-16 rounded-xl border-2 border-white shadow-sm/10"
+      />
+      <div>
+        <h2 className="text-xl font-semibold">Angelo Wilson</h2>
+        <p className="text-sm">Head Chef</p>
+
           </div>
         </div>
 

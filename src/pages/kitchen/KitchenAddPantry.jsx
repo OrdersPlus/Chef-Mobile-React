@@ -21,7 +21,7 @@ export const KitchenAddPantry = () => {
         <div className="flex gap-2">
           {/* Active Tab */}
           <button className="px-4 py-2 text-sm font-semibold rounded border border-orange-500 bg-orange-500 text-white">
-            ABC Meat & Poultry
+            ABC Meat & Poultry 
           </button>
 
           {/* Inactive Tab */}
