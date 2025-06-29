@@ -4,15 +4,38 @@ import { Link } from "react-router";
 import NavButton from "../../components/kitchen/myKitchenSection/NavButton";
 import PantryListDetailsModal from "../../components/kitchen/kitchenModal/PantryListDetailsModal";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
+import { useState } from "react";
 
 export const KitchenPantryList = () => {
+   const [popUp, setPopUp] = useState(false)
   return (
     <div>
       <div className="pb-24 max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mt-4 flex flex-wrap justify-between gap-2 items-center">
-          <button className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm">
-            Action
-          </button>
+            <button onClick={()=>setPopUp(!popUp)} className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm">
+              Action
+            </button>
+      
+            {popUp && <div className="absolute left-5 top-60 w-36 p-2 rounded shadow-md flex flex-col justify-end space-y-2 z-50 bg-white">
+              <a
+                href="#"
+                className="bg-white text-orange-500 flex justify-center rounded-2xl border-2"
+              >
+                Manage Order
+              </a>
+              <a
+                href="#"
+                className="bg-white text-orange-500 flex justify-center rounded-2xl border-2"
+              >
+              Check Delivery
+              </a>
+              <a
+                href="#"
+                className="bg-white text-orange-500 flex justify-center rounded-2xl border-2"
+              >
+              View Orders
+              </a>
+            </div>}
           <p className="font-bold text-sm sm:text-base">My Kitchen</p>
 
           <Link

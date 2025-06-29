@@ -10,15 +10,38 @@ import { SearchPagination } from "../../components/orders/ordersHome/SearchPagin
 import PrepAddModal from "../../components/kitchen/kitchenModal/PrepAddModal";
 import PrepEditModal from "../../components/kitchen/kitchenModal/PrepEditModal";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
+import { useState } from "react";
 
 export const KitchenPrepList = () => {
+   const [popUp, setPopUp] = useState(false)
   return (
     <div>
       <div className="pb-24 max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mt-4 flex flex-wrap justify-between gap-2 items-center">
-          <button className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm">
-            Action
-          </button>
+            <button onClick={()=>setPopUp(!popUp)} className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm">
+              Action
+            </button>
+      
+            {popUp && <div className="absolute left-5 top-60 w-36 p-2 rounded shadow-md flex flex-col justify-end space-y-2 z-50 bg-white">
+              <a
+                href="#"
+                className="bg-white text-orange-500 flex justify-center rounded-2xl border-2"
+              >
+                Manage Order
+              </a>
+              <a
+                href="#"
+                className="bg-white text-orange-500 flex justify-center rounded-2xl border-2"
+              >
+              Check Delivery
+              </a>
+              <a
+                href="#"
+                className="bg-white text-orange-500 flex justify-center rounded-2xl border-2"
+              >
+              View Orders
+              </a>
+            </div>}
           <p className="font-bold text-sm sm:text-base">My Kitchen</p>
 
           <button
@@ -100,7 +123,7 @@ export const KitchenPrepList = () => {
                   <th className="py-2 px-4 text-left text-orange-500">
                     Time Count
                   </th>
-                  <th className="py-2 px-4 text-left"></th>
+                  <th className="py-2 px-4 text-center text-orange-500">Action</th>
                   <th className="py-2 px-4 text-left"></th>
                 </tr>
               </thead>
@@ -111,7 +134,7 @@ export const KitchenPrepList = () => {
                     className="rounded-lg shadow-xl shadow-gray-300"
                   >
                     <td className="py-3 px-4"></td>
-                    <td className="py-3 font-semibold w-40 text-black px-2">
+                    <td className="py-3 font-semibold w-full text-black px-2">
                       22-05-2024
                     </td>
                     <td className="py-2 w-40 text-black px-4">Alex</td>
@@ -124,14 +147,14 @@ export const KitchenPrepList = () => {
                     </td>
                     <td className="py-3 px-4">3 min</td>
                     <td className="  py-3 px-4">01:21</td>
-                    <td className="py-3 px-4 flex gap-2 my-2">
+                    <td className="py-3 px-4 flex gap-12 my-2">
                       <FaRegEdit
-                        className="text-amber-500 w-4 h-4"
+                        className="text-amber-500 w-5 h-5"
                         onClick={() =>
                           document.getElementById("add_modal2").showModal()
                         }
                       />
-                      <MdDelete className="text-red-500 w-4 h-4" />
+                      <MdDelete className="text-red-500 w-5 h-5" />
                     </td>
                   </tr>
                 ))}
