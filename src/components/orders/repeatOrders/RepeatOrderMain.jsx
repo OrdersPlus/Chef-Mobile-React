@@ -7,7 +7,7 @@ const RepeatOrderMain = () => {
 <div className="bg-white gap-12 p-4 pt-1 pb-1 m-4 rounded-2xl flex items-center relative" style={{ boxShadow: 'inset 0px 0px 3px #d1d1d1, 1px 1px 8px #807e7e66' }}>
 
   {/* Close Button (top-left corner) */}
-  <button className="absolute top-0 right-0 m-2 border-2 rounded-full text-gray-500 hover:text-gray-700">
+  <button className="absolute top-0 right-0 m-2 border-2 rounded-full text-red-500 hover:text-gray-700">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
     </svg>
@@ -61,14 +61,14 @@ const RepeatOrderMain = () => {
 
   {/* Action Buttons */}
   <div className="mt-4 flex flex-col gap-2 justify-end">
-    <FaEdit className='text-orange-500 text-xl' />
+    <FaEdit className='text-green-500 text-xl' />
     <FaFolderOpen className='text-amber-300 text-xl' />
   </div>
 </div>
 <div className="bg-white gap-12 p-4 pt-1 pb-1 m-4 rounded-2xl flex items-center relative" style={{ boxShadow: 'inset 0px 0px 3px #d1d1d1, 1px 1px 8px #807e7e66' }}>
 
   {/* Close Button (top-left corner) */}
-  <button className="absolute top-0 right-0 m-2 border-2 rounded-full text-gray-500 hover:text-gray-700">
+  <button className="absolute top-0 right-0 m-2 border-2 rounded-full text-red-500 hover:text-gray-700">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
     </svg>
@@ -109,7 +109,7 @@ const RepeatOrderMain = () => {
 
   {/* Action Buttons */}
   <div className="mt-4 flex flex-col gap-2 justify-end">
-    <FaEdit className='text-orange-500 text-xl' />
+    <FaEdit className='text-green-500 text-xl' />
     <FaFolderOpen className='text-amber-300 text-xl' />
   </div>
 </div>

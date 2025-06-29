@@ -1,4 +1,4 @@
-import { FcViewDetails } from "react-icons/fc";
+import { FaCartPlus, FaListAlt } from "react-icons/fa";
 
 export const HomeMain = () => {
   return (
@@ -54,12 +54,12 @@ export const HomeMain = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex items-center justify-center gap-4 text-black font-semibold">
+            <div className="flex items-center justify-center gap-8 text-black font-semibold">
               <button>
-                <FcViewDetails className="text-white h-6 w-6"/>
+                <FaListAlt className="text-orange-500 h-7 w-7" />
               </button>
-              <button>
-                <i className="fi fi-rr-shopping-cart-add"></i>
+              <button className="h-7 w-7">
+                <FaCartPlus className="text-amber-300 h-7 w-7"/>
               </button>
             </div>
           </div>
