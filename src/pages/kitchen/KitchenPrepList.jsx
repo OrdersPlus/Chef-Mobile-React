@@ -11,14 +11,15 @@ import PrepAddModal from "../../components/kitchen/kitchenModal/PrepAddModal";
 import PrepEditModal from "../../components/kitchen/kitchenModal/PrepEditModal";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 import { useState } from "react";
+import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
 
 export const KitchenPrepList = () => {
    const [popUp, setPopUp] = useState(false)
   return (
     <div>
-      <div className="pb-24 max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pb-24 max-w-screen-lg mx-auto ">
         <div className="mt-4 flex flex-wrap justify-between gap-2 items-center">
-            <button onClick={()=>setPopUp(!popUp)} className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm">
+            <button onClick={()=>setPopUp(!popUp)} className="text-orange-500 bg-white border-y-orange-500 border-2 px-5 py-2 rounded-lg shadow">
               Action
             </button>
       
@@ -45,7 +46,7 @@ export const KitchenPrepList = () => {
           <p className="font-bold text-sm sm:text-base">My Kitchen</p>
 
           <button
-            className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm"
+            className="text-orange-500 bg-white border-y-orange-500 border-2 px-5 py-2 rounded-lg shadow"
             onClick={() => document.getElementById("add_modal").showModal()}
           >
             Add Task
@@ -64,9 +65,9 @@ export const KitchenPrepList = () => {
               thirdUrl="/kitchen/prep-list"
             />
           </div>
-          <div className="overflow-x-auto w-full mt-2">
-            <div className="flex space-x-4 p-4 min-w-[1000px]">
-              {[
+          <div className="mb-8">
+            <ScrollableButton
+              buttonLabels={[
                 "Pan",
                 "Lader",
                 "Prep-list",
@@ -77,15 +78,8 @@ export const KitchenPrepList = () => {
                 "Prep-list",
                 "Prep-list",
                 "Prep-list",
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="w-20 h-10 bg-orange-500 rounded-md flex items-center justify-center text-white"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
+              ]}
+            />
           </div>
         </div>
 
