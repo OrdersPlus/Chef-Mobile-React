@@ -15,10 +15,15 @@ const RepeatOrderMain = () => {
 
   {/* Card Content */}
   <div className="mt-2 flex flex-col justify-start">
-    <div className="rounded-md bg-white  pl-2 pr-2 space-y-4 mb-1 mt-2">
-      <p className="text-gray-700 ">
-        <strong>Supplier:</strong> Meatup
-      </p>
+    <div className=" rounded-md bg-white  pl-2 pr-2 space-y-4 mb-1 mt-2">
+      <div className='flex gap-2'>
+          <p className="text-gray-700  ">
+        <strong>Supplier:</strong>
+        </p>
+         <input type="text" defaultValue="Meatup" className="border border-gray-200 rounded-md w-[50%] pl-2 pr-2" />
+      
+      </div>
+    
     </div>
 
     <div className="rounded-md bg-white  pl-2 pr-2 space-y-4 mb-1">
@@ -49,7 +54,7 @@ const RepeatOrderMain = () => {
   {/* Action Buttons */}
   <div className="mt-4 flex flex-col gap-2 justify-end">
     <FaEdit className='text-orange-500 text-xl' />
-    <FaFolderOpen className='text-green-500 text-xl' />
+    <FaFolderOpen className='text-amber-300 text-xl' />
   </div>
 </div>
 <div className="bg-white gap-12 p-4 pt-1 pb-1 m-4 rounded-2xl flex items-center relative" style={{ boxShadow: 'inset 0px 0px 3px #d1d1d1, 1px 1px 8px #807e7e66' }}>
@@ -97,7 +102,7 @@ const RepeatOrderMain = () => {
   {/* Action Buttons */}
   <div className="mt-4 flex flex-col gap-2 justify-end">
     <FaEdit className='text-orange-500 text-xl' />
-    <FaFolderOpen className='text-green-500 text-xl' />
+    <FaFolderOpen className='text-amber-300 text-xl' />
   </div>
 </div>
             </div>

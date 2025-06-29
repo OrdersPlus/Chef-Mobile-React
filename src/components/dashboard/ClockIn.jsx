@@ -1,5 +1,6 @@
 import { FiClock } from "react-icons/fi";
 import { useState } from "react";
+import { GiCoffeeCup } from "react-icons/gi";
 
 
 const ClockIn = () => {
@@ -9,7 +10,7 @@ const ClockIn = () => {
       <div onClick={()=>setClock(!clock)} className="flex justify-between items-center inset-shadow-sm shadow-xl/30 mt-5 p-2 rounded-lg">
       {/* <div> */}
         <div>
-          <button className="text-orange-500 bg-white px-4 py-2 rounded-2xl border-2">
+          <button className={`px-4 py-2 rounded-2xl border-2 ${clock ? 'bg-orange-500 text-white' : 'text-orange-500'}`}>
             Change Status
           </button>
         </div>
@@ -30,9 +31,11 @@ const ClockIn = () => {
             <button className="bg-orange-500 text-white px-4 py-2 rounded-2xl">
               Clock In/Out
             </button>
-            <button  className="bg-orange-500 text-white px-4 py-2 rounded-2xl mt-2">
-              Take a Break
-            </button>
+<button className="bg-orange-500 text-white px-4 py-2 rounded-2xl mt-2 inline-flex items-center gap-1">
+  Take a Break
+  <GiCoffeeCup className="w-4 h-4" />
+</button>
+
           </div>
           <div  className="flex justify-center items-center">
             <button  className="text-gray-500 px-4 py-2 rounded-2xl text-lg">

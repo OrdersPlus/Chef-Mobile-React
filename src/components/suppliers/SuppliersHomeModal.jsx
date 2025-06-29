@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { FaWifi } from 'react-icons/fa';
 const SuppliersHomeModal = () => {
   // Declare showModal state to control the visibility of the modal
   const [showModal, setShowModal] = useState(false);
@@ -7,12 +7,15 @@ const SuppliersHomeModal = () => {
   return (
     <>
       {/* This button will trigger the modal */}
-       <button
-            onClick={() => setShowModal(true)}
-            className="bg-orange-500 text-white mt-2 mb-2  shadow-xl shadow-gray-200 px-2 py-2 rounded-full lg:w-2/5 w-64"
-          >
-            Connect Supplier Using Token
-          </button>
+   <button
+      onClick={() => setShowModal(true)}
+      className="bg-green-500 text-white mt-2 mb-2 shadow-xl shadow-gray-200 px-2 py-2 rounded-full lg:w-2/5 w-64 flex items-center justify-center space-x-2"
+    >
+     
+      <span>Connect Supplier Using Token</span> {/* Text */}
+       <FaWifi size={20}  /> {/* Icon */}
+    </button>
+          
 
       {showModal && (
         <div
@@ -30,11 +33,11 @@ const SuppliersHomeModal = () => {
             <input
               type="text"
               placeholder="Enter Token For Verification"
-              className="w-full px-4 py-2 text-gray-600 border-2 border-gray-200 rounded-lg inset-shadow-sm shadow-xl/30 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4 shadow-gray-400"
+              className="w-full px-4 py-2 text-gray-600 border-2 border-white rounded-lg inset-shadow-sm shadow-xl/30 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4 shadow-gray-400"
             />
             <button
               onClick={() => setShowModal(false)}  // This will close the modal
-              className="bg-orange-500 text-white px-6 py-2 rounded-full font-semibold shadow-2xl shadow-orange-700"
+              className="bg-green-500 text-white px-6 py-2 rounded-full font-semibold shadow-2xl shadow-orange-700"
             >
               Verify Token
             </button>

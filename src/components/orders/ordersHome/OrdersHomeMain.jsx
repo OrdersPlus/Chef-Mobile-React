@@ -22,7 +22,7 @@ export const HomeMain = () => {
           className="relative bg-white rounded-lg shadow-xl shadow-gray-300 p-4"
         >
           {/* Close Button */}
-          <button className="absolute top-0 right-0 z-10 bg-white rounded-full w-8 h-8 grid place-items-center text-gray-500 text-xl leading-none font-bold">
+          <button className="absolute top-0 right-0 z-10 bg-white rounded-full w-8 h-8 grid place-items-center text-red-500 text-xl">
             &times;
           </button>
 
