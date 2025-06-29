@@ -2,9 +2,9 @@ import React from 'react'
 
 const SupplierDetailsBody = () => {
   return (
-    <div className='m-4 rounded-md bg-white shadow-md space-y-4 mb-2 mt-3'>
+    <div className='m-2 rounded-md bg-white shadow-md space-y-4 mb-2 mt-3'>
    {/* Supplier Info Cards */}
-        <div className="space-y-4 pt-4 m-4">
+        <div className="space-y-4 pt-4 pb-4  m-4">
           {[
             { label: "Company Name", value: "ABC Meat & Poultry" },
             { label: "Trading Name", value: "Damen" },
@@ -24,6 +24,7 @@ const SupplierDetailsBody = () => {
             </div>
           ))}
         </div>
+       
 </div>
        
   )

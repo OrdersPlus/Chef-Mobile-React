@@ -50,7 +50,8 @@ const ProductListButton = () => {
 
           {/* Dropdown Menu */}
           {mobileOpen && (
-            <div className="absolute top-full -right-5 bg-white shadow-lg rounded-lg  pr-0  w-[350px] mt-2 z-10 grid grid-cols-2 gap-1">
+            
+            <div className="absolute top-full -right-5 bg-white shadow-lg rounded-lg  pr-0  w-[380px] mt-2 z-10 p-4 grid grid-cols-2 gap-1">
               <button className="text-left px-4 py-2 border-2 border-orange-500 text-orange-500 rounded-md hover:bg-orange-500 hover:text-white flex items-center gap-2 focus:outline-none">
                 <FiMenu className="text-orange-500 text-xl" />
                 <span>Standard Prices</span>
