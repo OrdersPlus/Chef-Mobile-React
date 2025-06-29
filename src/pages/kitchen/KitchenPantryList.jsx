@@ -5,14 +5,15 @@ import NavButton from "../../components/kitchen/myKitchenSection/NavButton";
 import PantryListDetailsModal from "../../components/kitchen/kitchenModal/PantryListDetailsModal";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 import { useState } from "react";
+import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
 
 export const KitchenPantryList = () => {
    const [popUp, setPopUp] = useState(false)
   return (
     <div>
-      <div className="pb-24 max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pb-24 max-w-screen-lg mx-auto">
         <div className="mt-4 flex flex-wrap justify-between gap-2 items-center">
-            <button onClick={()=>setPopUp(!popUp)} className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm">
+            <button onClick={()=>setPopUp(!popUp)} className="text-orange-500 bg-white border-y-orange-500 border-2 px-5 py-2 rounded-lg shadow">
               Action
             </button>
       
@@ -40,7 +41,7 @@ export const KitchenPantryList = () => {
 
           <Link
             to="/kitchen/add-to-pantry"
-            className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm"
+            className="text-orange-500 bg-white border-y-orange-500 border-2 px-5 py-2 rounded-lg shadow"
           >
             Edit Pantry
           </Link>
@@ -57,32 +58,25 @@ export const KitchenPantryList = () => {
                         />
                 </div>
 
-        <div className="p-4 sm:p-6 rounded-md space-y-4">
+        <div className="rounded-md space-y-4">
           {/* <NavButton /> */}
 
-          <div className="overflow-x-auto w-full mt-2">
-            <div className="flex space-x-4 p-4 min-w-[1000px]">
-              {[
-                "Pan",
-                "Lader",
-                "Prep-list",
-                "Bar",
-                "Pan",
-                "Prep-list",
-                "Prep-list",
-                "Prep-list",
-                "Prep-list",
-                "Prep-list",
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="w-20 h-10 bg-orange-500 rounded-md flex items-center justify-center text-white"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
+                  <div className="mb-8">
+                    <ScrollableButton
+                      buttonLabels={[
+                        "Pan",
+                        "Lader",
+                        "Prep-list",
+                        "Bar",
+                        "Pan",
+                        "Prep-list",
+                        "Prep-list",
+                        "Prep-list",
+                        "Prep-list",
+                        "Prep-list",
+                      ]}
+                    />
+                  </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between px-4 py-3 gap-3">
             <div className="flex items-center border border-orange-500 rounded-md overflow-hidden bg-gray-50 w-full sm:w-1/3 md:w-1/4 inset-shadow-sm shadow-xl/30">
@@ -118,7 +112,7 @@ export const KitchenPantryList = () => {
             </button>
           </div>
 
-          <div className="mx-auto mt-10 px- sm:px-6 lg:px-8  ">
+          <div className="mx-auto mt-10   ">
             <div className="flex items-center justify-between bg-white p-4 rounded-lg inset-shadow-sm shadow-xl/30 border border-white ">
               <img
                 src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3"
@@ -126,8 +120,8 @@ export const KitchenPantryList = () => {
                 className="w-16 h-16 rounded-md object-cove border border-amber-50 shadow-lg shadow-gray-400 "
               />
 
-              <div className="flex-1 px-3">
-                <p className="font-semibold text-gray-800">Beef Tenderloin </p>
+              <div className="flex-1 px-3 ml-2">
+                <p className="font-semibold text-gray-800 ">Beef Tenderloin </p>
                 <p className="text-sm text-gray-500">5kg </p>
               </div>
 
@@ -136,7 +130,7 @@ export const KitchenPantryList = () => {
                 <p className="text-sm text-red-500">$55.8</p>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-10">
                 <button
                   onClick={() =>
                     document.getElementById("productModal").showModal()
