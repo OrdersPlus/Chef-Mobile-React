@@ -16,7 +16,7 @@ import PrepEditModal from "../common/modal/PrepEditModal";
 const Preplist = () => {
   return (
     <div>
-      <Nav />
+  
       <div className="pb-24 max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mt-4 flex flex-wrap justify-between gap-2 items-center">
           <button className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm">
@@ -135,7 +135,7 @@ const Preplist = () => {
           </div>
         </div>
       </div>
-      <Footer />
+ 
 
       <PrepAddModal />
       <PrepEditModal />

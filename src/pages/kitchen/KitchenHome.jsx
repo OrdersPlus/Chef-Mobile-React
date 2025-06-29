@@ -18,8 +18,7 @@ export const KitchenHome = () => {
             <button onClick={()=>setPopUp(!popUp)} className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm">
               Action
             </button>
-            {/* nijfdvnkjdvf */}
-            {/* Dropdown Menu */}
+      
             {popUp && <div className="absolute left-0 mt-2 w-36 p-2 rounded shadow-md flex flex-col justify-end space-y-2 z-50 bg-white">
               <a
                 href="#"
