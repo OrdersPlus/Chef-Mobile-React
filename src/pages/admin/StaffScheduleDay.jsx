@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Plus, Search, Clock, Users, Edit3, Trash2 } from 'lucide-react';
-import { Nav } from '../common/Nav';
-import { Footer } from '../common/Footer';
 import { useNavigate } from 'react-router-dom';
+
 
 const StaffScheduleDay= () => {
   const [selectedDay, setSelectedDay] = useState(18);
@@ -69,28 +68,24 @@ const StaffScheduleDay= () => {
   const navigate = useNavigate(); 
         
           const rosterClick = () => {
-      navigate('/roster'); 
+      navigate('/admin/roster'); 
     };
           
           const viewRosterClick = () => {
-            navigate('/staff-schedule'); 
+            navigate('/admin/roster/view'); 
           };
   
           const attendanceClick=() =>{
-            navigate('/attendance')
+            navigate('/admin/roster/staff-attendance')
           };
   
-          const dayClick=() =>{
-            navigate('/day-staff')
-          };
           const weekClick=() =>{
-            navigate('/staff-schedule')
+            navigate('/admin/roster/view')
           };
 
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Nav />
       <main className="max-w-full mx-auto p-4">
         
       <div className="bg-white shadow-sm sticky top-0 z-10">
@@ -311,7 +306,6 @@ const StaffScheduleDay= () => {
           </div>
         </div>
       </div>
-      <Footer />
       </main>
     </div>
   );

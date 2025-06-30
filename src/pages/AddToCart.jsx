@@ -63,6 +63,7 @@ const AddToCart = () => {
               placeholder="Enter Order Note"
               className="w-full border border-gray-300 px-2 py-1 rounded bg-blue-300"
               value="Urgent delivery"
+              readOnly
             />
           </div>
         </div>
