@@ -5,6 +5,7 @@ import { FaHeart } from "react-icons/fa";
 import { MdDelete, MdEdit, MdOutlineDeleteOutline } from "react-icons/md";
 
 const AddToCart = () => {
+    const [quantity, setQuantity] = useState(1);
   const [fav, setFav] = useState(false);
   return (
     <div>
@@ -64,91 +65,83 @@ const AddToCart = () => {
         </div>
 
         {/* Product Card */}
-        <div className="border rounded-lg shadow p-4 mb-4 relative">
-          <div className="flex items-center justify-between space-x-4">
-            {/* Left Side - Product Info */}
-            <div className="flex items-center space-x-4">
-              {/* Product Image */}
-              <div
-                className="w-16 h-16 bg-white border-2 border-gray-300 rounded-lg shadow-lg flex items-center justify-center"
-                style={{
-                  boxShadow: "inset 0px 0px 3px #d1d1d1, 1px 1px 8px #54545466",
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3"
-                  alt="Beef Tenderloin"
-                  className="w-12 h-12 object-cover rounded-lg"
-                />
-              </div>
+    <div className="border rounded-lg shadow p-4 mb-4 relative border-gray-300">
+      <div className="flex justify-between items-start">
+        {/* Left Side - Image and Info */}
+        <div className="flex space-x-4">
+          {/* Product Image */}
+          <div
+            className="w-16 h-16 bg-white border-2 border-gray-300 rounded-lg shadow-lg flex items-center justify-center"
+            style={{
+              boxShadow: 'inset 0px 0px 3px #d1d1d1, 1px 1px 8px #54545466',
+            }}
+          >
+            <img
+              src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3"
+              alt="Beef Tenderloin"
+              className="w-12 h-12 object-cover rounded-lg"
+            />
+          </div>
 
-              {/* Product Details */}
-              <div className="ml-2">
-                <p className="font-semibold">Lamb Rack</p>
-                <p className="text-xs">1 kg</p>
-                <p className="text-xs text-gray-500">ABC Meat & Poultry</p>
-                <p className="text-xs text-gray-400">SKU: LMR-89012</p>
-                <p className="text-xs text-green-500">In Stock</p>
-                <p className="text-red-600 font-semibold mt-1">$ 36.00</p>
+          {/* Product Details */}
+          <div>
+            <p className="font-semibold">Lamb Rack</p>
+            <p className="text-xs">1 kg</p>
+            <p className="text-xs text-gray-500">ABC Meat & Poultry</p>
+            <p className="text-xs text-gray-400">SKU: LMR-89012</p>
+            <p className="text-xs text-green-500">In Stock</p>
+            <p className="text-red-600 font-semibold mt-1">$ 36.00</p>
+
+            {/* Quantity Selector */}
+            <div className="mt-2">
+              <label className="text-xs text-gray-600 block mb-1 text-center">
+                Quantity
+              </label>
+              <div className="flex items-center border border-gray-300 rounded">
+                <button
+                  className="px-2 py-1 text-gray-700 hover:bg-gray-200"
+                  onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : 1))}
+                >
+                  -
+                </button>
+                <input
+                  type="text"
+                  value={quantity}
+                  readOnly
+                  className="w-10 text-center border-l border-r border-gray-300"
+                />
+                <button
+                  className="px-2 py-1 text-gray-700 hover:bg-gray-200"
+                  onClick={() => setQuantity((prev) => prev + 1)}
+                >
+                  +
+                </button>
               </div>
             </div>
-
-<div className="flex flex-col justify-between gap-6 items-center">
-  {/* Delete Button */}
-  <MdDelete className="text-red-700 text-lg" />
-
-  {/* Favorite and Edit Buttons */}
-  <div className="flex flex-col gap-2 items-center">
-    <FaHeart
-      onClick={() => setFav(!fav)}
-      className={`${
-        fav ? "text-red-500" : "text-gray-500"
-      } text-lg cursor-pointer`}
-    />
-    <MdEdit className="text-green-400 text-lg cursor-pointer" />
-  </div>
-
-  {/* Quantity Selector */}
-  <div className="w-full">
-    <label className="text-xs text-gray-600 text-center block mb-1">
-      Quantity
-    </label>
-    <div className="flex items-center border border-gray-300 rounded w-full">
-      <button
-        className="px-2 py-1 text-gray-700 hover:bg-gray-200 w-8"
-        onClick={() => {
-          const input = document.getElementById('quantityInput');
-          let value = parseInt(input.value);
-          if (value > 1) input.value = value - 1;
-        }}
-      >
-        -
-      </button>
-      <input
-        id="quantityInput"
-        type="text"
-        defaultValue="1"
-        readOnly
-        className="w-10 text-center border-l border-r border-gray-300"
-      />
-      <button
-        className="px-2 py-1 text-gray-700 hover:bg-gray-200 w-8"
-        onClick={() => {
-          const input = document.getElementById('quantityInput');
-          let value = parseInt(input.value);
-          input.value = value + 1;
-        }}
-      >
-        +
-      </button>
-    </div>
-  </div>
-</div>
           </div>
         </div>
 
+        {/* Right Side - Actions */}
+        <div className="flex flex-col items-center justify-between h-full gap-6">
+          {/* Delete Button */}
+          <MdDelete className="text-red-700 text-lg cursor-pointer mb-4 mt-4" />
+
+          {/* Edit Button */}
+          <MdEdit className="text-green-400 text-lg cursor-pointer mb-4" />
+
+          {/* Favorite Button */}
+          <FaHeart
+            onClick={() => setFav((prev) => !prev)}
+            className={`${
+              fav ? 'text-red-500' : 'text-gray-500'
+            } text-lg cursor-pointer`}
+          />
+        </div>
+      </div>
+    </div>
+
         {/* Order Summary */}
-        <div className="text-sm mb-4 p-2 shadow-2xl">
+        <div className="text-sm mb-4 p-2 shadow-2xl border-1 border-gray-300">
           <h3 className="text-center font-semibold mb-2">ORDER SUMMARY</h3>
           <div className="grid grid-cols-2 gap-y-2">
             <p>Total Amount</p>
