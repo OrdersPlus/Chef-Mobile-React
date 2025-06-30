@@ -58,11 +58,11 @@ const PantryListDetailsModal = () => {
 
     {/* Quantity Selector */}
 
-    <div className="mb-4 gap-4 mr-9">
+    <div className="mb-4 gap-4 mr-9 ">
       <label className="text-sm text-gray-600 flex justify-center">Quantity</label>
-      <div className="flex items-center border border-gray-300 rounded">
+      <div className="flex items-center border border-gray-300 rounded bg-green-500">
         <button
-          className="px-3 py-1 text-gray-700 hover:bg-gray-200"
+          className="px-3 py-1 text-gray-700 hover:bg-gray-200 bg-green-500"
           onClick={() => {
             const input = document.getElementById('quantityInput');
             let value = parseInt(input.value);
@@ -76,10 +76,10 @@ const PantryListDetailsModal = () => {
           type="text"
           defaultValue="1"
           readOnly
-          className="w-10 text-center border-l border-r border-gray-300"
+          className="w-10 text-center border-l border-r border-gray-300 bg-green-500"
         />
         <button
-          className="px-3 py-1 text-gray-700 hover:bg-gray-200"
+          className="px-3 py-1 text-gray-700 hover:bg-gray-200 bg-green-500"
           onClick={() => {
             const input = document.getElementById('quantityInput');
             let value = parseInt(input.value);
