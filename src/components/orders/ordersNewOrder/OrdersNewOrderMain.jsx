@@ -60,12 +60,12 @@ export const OrdersNewOrderMain = () => {
                 </button>
                   <EditPentryDetailsModal />
                 <button className="ml-2">
-                  <FaBagShopping className="text-blue-300 300 h-7 w-7 ml-4" />
+                  <FaBagShopping className="text-amber-400 h-7 w-7 ml-4" />
                 </button>
                 <button onClick={() =>
                         document.getElementById("productModal2").showModal()
                       } className="ml-2">
-                    <FaCartPlus className="text-amber-300 h-7 w-7 ml-4"/>
+                    <FaCartPlus className="text-blue-500 h-7 w-7 ml-4"/>
                 </button>
                   <EditPantryCartModal className="text-amber-300 h-7 w-7"/>
               </div>
@@ -100,10 +100,10 @@ export const OrdersNewOrderMain = () => {
                     <IoSearch  className="text-orange-500 h-7 w-7 ml-4" />
                 </button>
                 <button className="ml-2">
-                  <FaBagShopping className="text-blue-300 300 h-7 w-7 ml-4" />
+                  <FaBagShopping className="text-amber-400 h-7 w-7 ml-4" />
                 </button>
                 <button className="ml-2">
-                    <FaCartPlus className="text-amber-300 h-7 w-7 ml-4"/>
+                    <FaCartPlus className="text-blue-500 h-7 w-7 ml-4"/>
                 </button>
               </div>
               <div className="w-1/4"></div>
