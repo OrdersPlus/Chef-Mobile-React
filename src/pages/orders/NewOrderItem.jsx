@@ -4,7 +4,6 @@ import { SearchPagination } from "../../components/orders/ordersHome/SearchPagin
 import { OrdersNewOrderMain } from "../../components/orders/OrdersNewOrder/OrdersNewOrderMain";
 
 
-
 export const NewOrderItem = () => {
   return (
     <div>
