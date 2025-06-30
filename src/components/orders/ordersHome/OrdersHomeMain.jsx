@@ -1,5 +1,6 @@
 import { FaCartPlus, FaListAlt } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
+import PantryListDetailsModal from "../../kitchen/kitchenModal/PantryListDetailsModal";
 
 export const HomeMain = () => {
   return (
@@ -56,8 +57,9 @@ export const HomeMain = () => {
 
             {/* Action Buttons */}
             <div className="flex items-center justify-center gap-8 text-black font-semibold">
-              <button>
-                <FaListAlt className="text-orange-500 h-7 w-7" />
+              <button onClick={() =>
+                    document.getElementById("productModal").showModal()} >
+                <FaListAlt  className="text-orange-500 h-7 w-7"  />
               </button>
               <button className="h-7 w-7">
                 <FaCartPlus className="text-blue-500 h-7 w-7"/>
@@ -65,7 +67,11 @@ export const HomeMain = () => {
             </div>
           </div>
         </div>
+        
       ))}
+
+      <PantryListDetailsModal />
     </div>
+
   );
 };
