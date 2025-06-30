@@ -5,7 +5,7 @@ import PantryListDetailsModal from "../../kitchen/kitchenModal/PantryListDetails
 import { FaBagShopping } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
 
-export const OrdersNewOrderMain = () => {
+export const NewOrdersMain = () => {
   return (
     <div className="container mx-auto mt-4 mb-25">
       <div className="overflow-x-auto shadow-lg rounded-lg bg-white">

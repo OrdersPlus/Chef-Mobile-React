@@ -1,7 +1,8 @@
+import { NewOrdersMain } from "../../components/orders/newOrders/NewOrdersMain";
 import { HomeMain } from "../../components/orders/ordersHome/OrdersHomeMain";
 import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
 import { SearchPagination } from "../../components/orders/ordersHome/SearchPagination";
-import { OrdersNewOrderMain } from "../../components/orders/OrdersNewOrder/OrdersNewOrderMain";
+
 
 
 export const NewOrderItem = () => {
@@ -33,7 +34,7 @@ export const NewOrderItem = () => {
         ]}
       />
       <SearchPagination />
-      <OrdersNewOrderMain />
+      <NewOrdersMain />
     </div>
   );
 };
