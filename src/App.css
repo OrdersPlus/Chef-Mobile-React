@@ -1,2 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@theme{
+    --primary-color:'#f97316';
+    --scrollable-color:'#ffffff';
+    --text-primary:'#f97316';
+    --text-active:'#ffffff';
+    --text-inactive:'#e5e7eb';
+    --border-color:'#f97316';
+    --icon-color:'#f97316';
+    
+}

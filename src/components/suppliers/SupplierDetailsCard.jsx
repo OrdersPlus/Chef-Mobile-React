@@ -20,10 +20,12 @@ const SupplierDetailsCard = () => {
        
         
       </div>
-      <div className="flex flex-col mb-2 justify-between items-center bg-white p-2 rounded-lg shadow"
+      <div className="flex flex-col mb-6 justify-between items-center bg-white p-2 rounded-lg shadow "
               style={{ boxShadow: 'inset 0px 0px 3px #d1d1d1, 1px 1px 8px #54545466' }}>
                 <span className="font-semibold text-gray-600">Supplier's Business Information</span>
               </div>
+
+
 
       {/* Payment Terms Section */}
   
@@ -56,7 +58,26 @@ const SupplierDetailsCard = () => {
           <button className="bg-orange-500 text-white text-lg rounded-lg py-3 shadow-2xl">Sun</button>
         </div>
       </div>
-
+{/* Cut-off Time Card */}
+<div className="mb-6 ">
+  <h3 className="text-xl font-semibold text-gray-700 mb-2">Cut-Off Time</h3>
+  <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200"
+    style={{ boxShadow: 'inset 0px 0px 3px #d1d1d1, 1px 1px 8px #54545466' }}>
+    <div className="flex items-center justify-between">
+      <div>
+        <p className="text-sm text-gray-500 mb-1">Order before this time for same-day delivery</p>
+        <h4 className="text-3xl font-bold text-gray-800 tracking-wider">5:00 PM</h4>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">Active</span>
+        {/* Optional edit icon/button */}
+        <button className="text-orange-500 hover:text-orange-700 transition duration-200 text-sm underline">
+          Change
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
       {/* Delivery Fee Section */}
       <div className="mt-4">
         <h3 className="text-lg sm:text-xl font-semibold">Delivery Fee</h3>

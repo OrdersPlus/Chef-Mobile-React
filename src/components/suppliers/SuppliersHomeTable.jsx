@@ -27,7 +27,7 @@ const SuppliersHomeTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poultry</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Joe Blow</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">0404670200</td>
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-green-500">
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-blue-500">
                   damendeng <br/>2000@gmail.com
                 </td>
                 <td className="py-3">
@@ -55,7 +55,7 @@ const SuppliersHomeTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poultry</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Joe Blow</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">0404670200</td>
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-green-500">
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-blue-500">
                   damendeng <br/>2000@gmail.com
                 </td>
                 <td className="py-3">
@@ -83,7 +83,7 @@ const SuppliersHomeTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poultry</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Joe Blow</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">0404670200</td>
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-green-500">
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-blue-500">
                   damendeng <br/>2000@gmail.com
                 </td>
                 <td className="py-3">
@@ -110,7 +110,7 @@ const SuppliersHomeTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">ABC Meat & Poutry</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">Damen Deng</td>
                 <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">0404670200</td>
-                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-green-500">
+                <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-blue-500">
                   damendeng <br/>2000@gmail.com
                 </td>
                 <td className="py-3">
