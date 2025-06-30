@@ -61,7 +61,7 @@ const OrderHistoryTable = () => {
                 ABC Meat & Poutry
               </td>
               <td className="px-6 py-4 whitespace-nowrap  w-40 text-black">
-                <button class="bg-green-100 text-green-400 px-2 py-1 rounded-lg">
+                <button className="bg-green-100 text-green-400 px-2 py-1 rounded-lg">
                   Pending
                 </button>
               </td>
@@ -87,7 +87,7 @@ const OrderHistoryTable = () => {
                 ABC Meat & Poutry
               </td>
               <td className="px-6 py-4 whitespace-nowrap  w-40 text-black">
-                <button class="bg-blue-100 text-blue-400 px-5 py-1 rounded-lg">
+                <button className="bg-blue-100 text-blue-400 px-5 py-1 rounded-lg">
                   Sent
                 </button>
               </td>
@@ -113,7 +113,7 @@ const OrderHistoryTable = () => {
                 ABC Meat & Poutry
               </td>
               <td className="px-6 py-4 whitespace-nowrap  w-40 text-black">
-                <button class="bg-green-100 text-green-400 px-2 py-1 rounded-lg">
+                <button className="bg-green-100 text-green-400 px-2 py-1 rounded-lg">
                   Pending
                 </button>
               </td>

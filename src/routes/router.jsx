@@ -26,6 +26,7 @@ import { AddToCart2 } from "../pages/AddToCart2";
 import Attendance from "../pages/admin/Attendance";
 import StaffSchedule from "../pages/admin/StaffSchedule";
 import { SuppliersHome } from "../pages/suppliers/SuppliersHome";
+import StaffScheduleDay from "../pages/admin/StaffScheduleDay";
 
 const router = createBrowserRouter([
     {
@@ -140,6 +141,10 @@ const router = createBrowserRouter([
     {
       path: "/admin/roster/view",
        element: <StaffSchedule />
+     },
+    {
+      path: "/admin/roster/staff-schedule-day",
+       element: <StaffScheduleDay />
      },
 //arman
         ],

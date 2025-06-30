@@ -96,7 +96,7 @@ const StaffSchedule = () => {
   const navigate = useNavigate(); 
       
         const dayClick=() =>{
-          navigate('/day-staff')
+          navigate('/admin/roster/staff-schedule-day')
         };
 
   
@@ -115,7 +115,7 @@ const StaffSchedule = () => {
         thirdUrl= "/admin/roster/staff-attendance"
         />
         <div className="px-4 py-4">
-          <div class="flex justify start">
+          <div className="flex justify start">
   <button onClick={() => document.getElementById('edit_modal').showModal()}
   className="flex items-center px-4 py-2 gap-4 bg-orange-500 text-white rounded-md shadow-md text-xs">
     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
