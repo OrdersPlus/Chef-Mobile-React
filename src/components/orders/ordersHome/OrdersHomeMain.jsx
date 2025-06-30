@@ -1,4 +1,5 @@
 import { FaCartPlus, FaListAlt } from "react-icons/fa";
+import { MdCancel } from "react-icons/md";
 
 export const HomeMain = () => {
   return (
@@ -19,12 +20,12 @@ export const HomeMain = () => {
       {[1, 2, 3].map((item, index) => (
         <div
           key={index}
-          className="relative bg-white rounded-lg shadow-xl shadow-gray-300 p-4"
+          className="relative bg-white rounded-lg shadow-xl shadow-gray-300 p-4 mb-4"
         >
           {/* Close Button */}
-          <button className="absolute top-0 right-0 z-10 bg-white rounded-full w-8 h-8 grid place-items-center text-red-500 text-xl">
-            &times;
-          </button>
+            <button className="absolute -top-3 -right-3 z-10 bg-white rounded-full w-8 h-8 grid place-items-center text-red-500 text-xl shadow">
+              <MdCancel />
+            </button>
 
           {/* Grid Layout for Card */}
           <div className="grid grid-cols-3 gap-4 items-center">
@@ -59,7 +60,7 @@ export const HomeMain = () => {
                 <FaListAlt className="text-orange-500 h-7 w-7" />
               </button>
               <button className="h-7 w-7">
-                <FaCartPlus className="text-amber-300 h-7 w-7"/>
+                <FaCartPlus className="text-blue-500 h-7 w-7"/>
               </button>
             </div>
           </div>

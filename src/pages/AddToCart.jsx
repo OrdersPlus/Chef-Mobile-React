@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
+import { GiNotebook } from "react-icons/gi";
 import { MdDelete, MdEdit, MdOutlineDeleteOutline } from "react-icons/md";
 
 const AddToCart = () => {
-    const [quantity, setQuantity] = useState(1);
   const [fav, setFav] = useState(false);
   return (
     <div>
@@ -47,98 +47,116 @@ const AddToCart = () => {
               type="date"
               className="w-full border border-gray-300 px-2 py-1 rounded"
               value="2025-06-23"
-              readOnly
             />
           </div>
           <div className="flex-1">
             <label className="block text-xs font-semibold mb-1">
-              Order Note
+              <span className="flex items-center gap-1">
+                Order Note
+                <GiNotebook className="w-4 h-4" />
+              </span>
             </label>
+
             <input
               type="text"
               placeholder="Enter Order Note"
-              className="w-full border border-gray-300 px-2 py-1 rounded"
+              className="w-full border border-gray-300 px-2 py-1 rounded bg-blue-300"
               value="Urgent delivery"
-              readOnly
             />
           </div>
         </div>
 
         {/* Product Card */}
-    <div className="border rounded-lg shadow p-4 mb-4 relative border-gray-300">
-      <div className="flex justify-between items-start">
-        {/* Left Side - Image and Info */}
-        <div className="flex space-x-4">
-          {/* Product Image */}
-          <div
-            className="w-16 h-16 bg-white border-2 border-gray-300 rounded-lg shadow-lg flex items-center justify-center"
-            style={{
-              boxShadow: 'inset 0px 0px 3px #d1d1d1, 1px 1px 8px #54545466',
-            }}
-          >
-            <img
-              src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3"
-              alt="Beef Tenderloin"
-              className="w-12 h-12 object-cover rounded-lg"
-            />
-          </div>
-
-          {/* Product Details */}
-          <div>
-            <p className="font-semibold">Lamb Rack</p>
-            <p className="text-xs">1 kg</p>
-            <p className="text-xs text-gray-500">ABC Meat & Poultry</p>
-            <p className="text-xs text-gray-400">SKU: LMR-89012</p>
-            <p className="text-xs text-green-500">In Stock</p>
-            <p className="text-red-600 font-semibold mt-1">$ 36.00</p>
-
-            {/* Quantity Selector */}
-            <div className="mt-2">
-              <label className="text-xs text-gray-600 block mb-1 text-center">
-                Quantity
-              </label>
-              <div className="flex items-center border border-gray-300 rounded">
-                <button
-                  className="px-2 py-1 text-gray-700 hover:bg-gray-200"
-                  onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : 1))}
-                >
-                  -
-                </button>
-                <input
-                  type="text"
-                  value={quantity}
-                  readOnly
-                  className="w-10 text-center border-l border-r border-gray-300"
+        <div className="border rounded-lg shadow p-4 mb-4 relative border-gray-300">
+          <div className="flex justify-between items-start">
+            {/* Left Side - Image and Info */}
+            <div className="flex space-x-4">
+              {/* Product Image */}
+              <div
+                className="w-16 h-16 bg-white border-2 border-gray-300 rounded-lg shadow-lg flex items-center justify-center"
+                style={{
+                  boxShadow: "inset 0px 0px 3px #d1d1d1, 1px 1px 8px #54545466",
+                }}
+              >
+                <img
+                  src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3"
+                  alt="Beef Tenderloin"
+                  className="w-12 h-12 object-cover rounded-lg"
                 />
-                <button
-                  className="px-2 py-1 text-gray-700 hover:bg-gray-200"
-                  onClick={() => setQuantity((prev) => prev + 1)}
-                >
-                  +
-                </button>
+              </div>
+
+              {/* Product Details */}
+              <div>
+                <p className="font-semibold">Lamb Rack</p>
+                <p className="text-xs">1 kg</p>
+                <p className="text-xs text-gray-500">ABC Meat & Poultry</p>
+                <p className="text-xs text-gray-400">SKU: LMR-89012</p>
+                <p className="text-xs text-green-500">In Stock</p>
+                <p className="text-red-600 font-semibold mt-1">$ 36.00</p>
+
+                {/* Quantity Selector */}
+                <div className="mb-4 gap-4 ">
+                  <label className="text-sm text-gray-400 flex justify-center">
+                    Quantity
+                  </label>
+                  <div className="flex items-center border border-gray-300 rounded bg-green-500 mt-2">
+                    <button
+                      className="px-3 py-1 text-white bg-green-500"
+                      onClick={() => {
+                        const input = document.getElementById("quantityInput");
+                        let value = parseInt(input.value);
+                        if (value > 1) input.value = value - 1;
+                      }}
+                    >
+                      -
+                    </button>
+                    <input
+                      id="quantityInput"
+                      type="text"
+                      defaultValue="1"
+                      readOnly
+                      className="w-10 text-center border-l border-r border-gray-300 bg-green-500 text-gray-200"
+                    />
+                    <button
+                      className="px-3 py-1 text-white bg-green-500"
+                      onClick={() => {
+                        const input = document.getElementById("quantityInput");
+                        let value = parseInt(input.value);
+                        input.value = value + 1;
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Actions */}
+            <div className="relative flex gap-8">
+              {" "}
+              {/* Make the parent relative */}
+              <div className="absolute -top-2 -right-2">
+                <MdDelete className="text-red-700 text-lg cursor-pointer m-2" />
+              </div>
+              <div className="flex flex-col items-center justify-between h-full gap-6 mt-15">
+                {/* Action Buttons */}
+                <div className="mr-8 flex gap-2 flex-col">
+                  {/* Edit Button */}
+                  <MdEdit className="text-green-400 text-lg cursor-pointer mb-5" />
+
+                  {/* Favorite Button */}
+                  <FaHeart
+                    onClick={() => setFav((prev) => !prev)}
+                    className={`${
+                      fav ? "text-red-500" : "text-gray-500"
+                    } text-lg cursor-pointer`}
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Right Side - Actions */}
-        <div className="flex flex-col items-center justify-between h-full gap-6">
-          {/* Delete Button */}
-          <MdDelete className="text-red-700 text-lg cursor-pointer mb-4 mt-4" />
-
-          {/* Edit Button */}
-          <MdEdit className="text-green-400 text-lg cursor-pointer mb-4" />
-
-          {/* Favorite Button */}
-          <FaHeart
-            onClick={() => setFav((prev) => !prev)}
-            className={`${
-              fav ? 'text-red-500' : 'text-gray-500'
-            } text-lg cursor-pointer`}
-          />
-        </div>
-      </div>
-    </div>
 
         {/* Order Summary */}
         <div className="text-sm mb-4 p-2 shadow-2xl border-1 border-gray-300">
