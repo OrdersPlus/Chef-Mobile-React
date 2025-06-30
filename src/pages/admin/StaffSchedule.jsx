@@ -214,7 +214,7 @@ const StaffSchedule = () => {
                   <div className="flex flex-col items-center">
                     <div className="w-8 h-8 bg-gray-200 rounded-full mb-2 overflow-hidden">
                       <img 
-                        src="/api/placeholder/32/32" 
+                        src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/afrbbciydcc8tgpxgxob" 
                         alt={member.name}
                         className="w-full h-full object-cover"
                       />

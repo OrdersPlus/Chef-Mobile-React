@@ -65,7 +65,7 @@ export const KitchenPantryList = () => {
                     <ScrollableButton
                       buttonLabels={[
                         "Pan",
-                        "Lader",
+                        "Ladder",
                         "Prep-list",
                         "Bar",
                         "Pan",

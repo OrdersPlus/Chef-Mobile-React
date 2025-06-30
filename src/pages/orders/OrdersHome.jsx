@@ -24,6 +24,7 @@ export const OrdersHome = () => {
           />
         </div>
       <ScrollableButton
+        name="Suppliers"
         buttonLabels={[
           "Fardin",
           "Fardin Faiaz Khan",
