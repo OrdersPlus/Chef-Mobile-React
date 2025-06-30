@@ -47,6 +47,7 @@ const AddToCart = () => {
               type="date"
               className="w-full border border-gray-300 px-2 py-1 rounded"
               value="2025-06-23"
+              readOnly
             />
           </div>
           <div className="flex-1">

@@ -51,7 +51,8 @@ export const Profile = () => {
               </a>
               <a
                 href="#"
-                className="bg-white text-red-500 flex justify-center rounded-2xl border-2 gap-3"
+                className="bg-white flex justify-center rounded-2xl border-2 gap-3"
+                style={{ color: "#FF3333" }}
               >
                 Log out
                 <span className="flex justify-center items-center">
