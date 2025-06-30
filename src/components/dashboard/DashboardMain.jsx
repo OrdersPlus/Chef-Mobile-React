@@ -1,4 +1,5 @@
 
+import { MdWarehouse } from 'react-icons/md'
 import { Link } from 'react-router'
 
 export const DashboardMain = () => {
@@ -16,7 +17,9 @@ export const DashboardMain = () => {
       </Link>
 
       <Link to={'/suppliers/home'} className="p-5 rounded-md text-orange-500 flex flex-col items-center justify-center shadow-xl shadow-gray-400">
-        <i className="fi fi-ss-supplier-alt text-[48px] mb-2"></i>
+        {/* <i className="fi fi-ss-supplier-alt text-[48px] mb-2"></i> */}
+        <MdWarehouse className='text-[48px] mb-2' />
+
         <p className="text-xl text-black text-center">Suppliers</p>
       </Link>
 

@@ -1,9 +1,11 @@
 // import React, { useState } from 'react'
 
+import { useState } from "react";
+import { FaHeart } from "react-icons/fa";
 import { MdDelete, MdEdit, MdOutlineDeleteOutline } from "react-icons/md";
 
 const AddToCart = () => {
-  //  const [deliveryDate, setDeliveryDate] = useState("2025-06-23");
+  const [fav, setFav] = useState(false);
   return (
     <div>
       <div className="max-w-md mx-auto p-4 bg-white text-gray-700 font-sans">
@@ -91,16 +93,62 @@ const AddToCart = () => {
               </div>
             </div>
 
-            {/* Right Side - Action Buttons */}
-            <div className="flex flex-col items-center gap-2">
-              <MdDelete className="text-red-700 text-lg" />
-              <MdEdit className="text-blue-400 text-lg" />
-            </div>
+<div className="flex flex-col justify-between gap-6 items-center">
+  {/* Delete Button */}
+  <MdDelete className="text-red-700 text-lg" />
+
+  {/* Favorite and Edit Buttons */}
+  <div className="flex flex-col gap-2 items-center">
+    <FaHeart
+      onClick={() => setFav(!fav)}
+      className={`${
+        fav ? "text-red-500" : "text-gray-500"
+      } text-lg cursor-pointer`}
+    />
+    <MdEdit className="text-green-400 text-lg cursor-pointer" />
+  </div>
+
+  {/* Quantity Selector */}
+  <div className="w-full">
+    <label className="text-xs text-gray-600 text-center block mb-1">
+      Quantity
+    </label>
+    <div className="flex items-center border border-gray-300 rounded w-full">
+      <button
+        className="px-2 py-1 text-gray-700 hover:bg-gray-200 w-8"
+        onClick={() => {
+          const input = document.getElementById('quantityInput');
+          let value = parseInt(input.value);
+          if (value > 1) input.value = value - 1;
+        }}
+      >
+        -
+      </button>
+      <input
+        id="quantityInput"
+        type="text"
+        defaultValue="1"
+        readOnly
+        className="w-10 text-center border-l border-r border-gray-300"
+      />
+      <button
+        className="px-2 py-1 text-gray-700 hover:bg-gray-200 w-8"
+        onClick={() => {
+          const input = document.getElementById('quantityInput');
+          let value = parseInt(input.value);
+          input.value = value + 1;
+        }}
+      >
+        +
+      </button>
+    </div>
+  </div>
+</div>
           </div>
         </div>
 
         {/* Order Summary */}
-        <div className="text-sm mb-4">
+        <div className="text-sm mb-4 p-2 shadow-2xl">
           <h3 className="text-center font-semibold mb-2">ORDER SUMMARY</h3>
           <div className="grid grid-cols-2 gap-y-2">
             <p>Total Amount</p>
