@@ -31,8 +31,8 @@ export const OrderDetails = () => {
               Total Cost: <span className="text-green-500">$36.00</span>
             </p>
           </div>
-          <button className="bg-red-500 shadow-xl shadow-gray-400 text-white py-2 px-4 rounded-full text-sm">
-            Cancel Order
+          <button className="bg-green-500 shadow-xl shadow-gray-400 text-white py-2 px-4 rounded-full text-sm">
+            View Details
           </button>
         </div>
       </div>

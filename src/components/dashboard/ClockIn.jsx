@@ -11,7 +11,7 @@ const ClockIn = () => {
       {/* <div> */}
         <div>
           <button className={`px-4 py-2 rounded-2xl border-2 ${clock ? 'bg-orange-500 text-white' : 'text-orange-500'}`}>
-            Change Status
+            Shift Start/ End
           </button>
         </div>
         {/* Right: Status Indicator */}

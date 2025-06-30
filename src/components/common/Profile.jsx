@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CgProfile } from "react-icons/cg";
+import { FaPowerOff } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import { TbLogout } from "react-icons/tb";
 
@@ -50,10 +51,14 @@ export const Profile = () => {
               </a>
               <a
                 href="#"
-                className="bg-white text-orange-500 flex justify-center rounded-2xl border-2 gap-3"
+                className="bg-white text-red-500 flex justify-center rounded-2xl border-2 gap-3"
               >
                 Log out
-                <span className="flex justify-center items-center"><TbLogout className="w-5 h-5" /></span>
+                <span className="flex justify-center items-center">
+                  {/* <TbLogout className="w-5 h-5 " /> */}
+                  <FaPowerOff className="w-5 h-5" />
+
+                  </span>
               </a>
             </div>
           )}
