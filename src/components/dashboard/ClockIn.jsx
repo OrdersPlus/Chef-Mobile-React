@@ -42,13 +42,16 @@ const ClockIn = () => {
         <div className="mx-auto p-2 flex justify-between">
           <div>
             <button
-              className={`flex items-center gap-2 px-4 py-2 rounded-2xl border-2 ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-2xl border-2 whitespace-nowrap ${
                 clock ? "bg-orange-500 text-white" : "text-orange-500"
               }`}
             >
-              Clock In/Out
-              <FaRegClock className="mt-1" />
+              <span className="flex items-center gap-2">
+                Clock In/Out
+                <FaRegClock className="text-base" />
+              </span>
             </button>
+
             <button className="bg-orange-500 text-white px-4 py-2 rounded-2xl mt-2 inline-flex items-center gap-1">
               Take a Break
               <GiCoffeeCup className="w-4 h-4" />
