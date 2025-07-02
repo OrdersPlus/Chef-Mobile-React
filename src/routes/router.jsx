@@ -27,6 +27,7 @@ import Attendance from "../pages/admin/Attendance";
 import StaffSchedule from "../pages/admin/StaffSchedule";
 import { SuppliersHome } from "../pages/suppliers/SuppliersHome";
 import StaffScheduleDay from "../pages/admin/StaffScheduleDay";
+import { QrLogin } from "../pages/QrLogin";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
     {
         path: "/login",
         element: <Login />,
+    },
+    {
+        path: "/qr-login",
+        element: <QrLogin />,
     },
     {
         path: "/",
