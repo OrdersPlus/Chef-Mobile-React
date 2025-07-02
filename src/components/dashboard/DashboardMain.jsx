@@ -28,14 +28,14 @@ export const DashboardMain = () => {
         <p className="text-xl text-black text-center">Orders</p>
       </Link>
 
-      <Link to={'/payment'} className="p-5 inset-shadow-sm shadow-xl/30 rounded-md text-orange-500 flex flex-col items-center justify-center">
+      <Link to={'/login'} className="p-5 inset-shadow-sm shadow-xl/30 rounded-md text-orange-500 flex flex-col items-center justify-center">
         <i className="fi fi-ss-sack-dollar text-[48px] mb-2"></i>
-        <p className="text-xl text-black text-center">Payment</p>
+        <p className="text-xl text-black text-center">Payment(login(testing))</p>
       </Link>
 
-      <Link to={'/delivery'} className="p-5 inset-shadow-sm shadow-xl/30 rounded-md text-orange-500 flex flex-col items-center justify-center">
+      <Link to={'/qr-login'} className="p-5 inset-shadow-sm shadow-xl/30 rounded-md text-orange-500 flex flex-col items-center justify-center">
         <i className="fi fi-ss-shipping-fast text-[48px] mb-2"></i>
-        <p className="text-xl text-black text-center">Delivery</p>
+        <p className="text-xl text-black text-center">Delivery(qr login(testing))</p>
       </Link>
 
     </div>
