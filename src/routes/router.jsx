@@ -31,10 +31,6 @@ import { QrLogin } from "../pages/QrLogin";
 
 const router = createBrowserRouter([
     {
-        path: "*",
-        element: <NotFound />,
-    },
-    {
         path: "/login",
         element: <Login />,
     },
@@ -153,6 +149,10 @@ const router = createBrowserRouter([
      },
 //arman
         ],
+    },
+    {
+        path: "*",
+        element: <NotFound />,
     },
 
 ]);
