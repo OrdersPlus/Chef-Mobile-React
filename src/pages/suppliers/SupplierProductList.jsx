@@ -19,10 +19,10 @@ export const SupplierProductList = () => {
   return (
     <div className="m-0 p-0 pb-16">
       {/* Main Content */}
-      <div className="max-w-screen-sm mx-auto p-4 bg-white rounded-lg shadow-lg">
-        <div className="p-2 rounded-md bg-white shadow-md space-y-4">
+      <div className="max-w-screen-sm mx-auto p-4 bg-[var(--secondary-color)] rounded-lg shadow-lg">
+        <div className="p-2 rounded-md bg-[var(--secondary-color)] shadow-md space-y-4">
           {/* Header */}
-          <div className="m-4 rounded-md bg-white shadow-md space-y-4 mb-2 mt-2">
+          <div className="m-4 rounded-md bg-[var(--secondary-color)] shadow-md space-y-4 mb-2 mt-2">
             <h3 className="text-center font-bold pb-2">Product List</h3>
           </div>
 

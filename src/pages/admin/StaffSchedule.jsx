@@ -8,12 +8,12 @@ const StaffSchedule = () => {
   const [viewMode, setViewMode] = useState('week');
   
   const staff = [
-    { id: 1, name: 'Gabriel', surname: 'Greenwood', role: 'Chef', avatar: '👨‍🍳', totalHours: 40 },
-    { id: 2, name: 'Adam Co', surname: '', role: 'Head Chef', avatar: '👨‍🍳', totalHours: 45 },
-    { id: 3, name: 'Alexa Huson', surname: '', role: 'Chef de Partie', avatar: '👩‍🍳', totalHours: 38 },
-    { id: 4, name: 'Jessica Norman', surname: '', role: 'Sushi Chef', avatar: '👩‍🍳', totalHours: 35 },
-    { id: 5, name: 'Arthur Leung', surname: '', role: 'Commis Chef', avatar: '👨‍🍳', totalHours: 30 },
-    { id: 6, name: 'Sam Harris', surname: '', role: 'Section Chef', avatar: '👨‍🍳', totalHours: 42 }
+    { id: 1, name: 'Gabriel', surname: 'Greenwood', role: 'Chef', avatar: '👨‍🍳', totalHours: 40, salary: 100 },
+    { id: 2, name: 'Adam Co', surname: '', role: 'Head Chef', avatar: '👨‍🍳', totalHours: 45 , salary: 100 },
+    { id: 3, name: 'Alexa Huson', surname: '', role: 'Chef de Partie', avatar: '👩‍🍳', totalHours: 38 , salary: 100 },
+    { id: 4, name: 'Jessica Norman', surname: '', role: 'Sushi Chef', avatar: '👩‍🍳', totalHours: 35 , salary: 100 },
+    { id: 5, name: 'Arthur Leung', surname: '', role: 'Commis Chef', avatar: '👨‍🍳', totalHours: 30 , salary: 100 },
+    { id: 6, name: 'Sam Harris', surname: '', role: 'Section Chef', avatar: '👨‍🍳', totalHours: 42 , salary: 100 }
   ];
 
   const days = [
@@ -211,7 +211,7 @@ const StaffSchedule = () => {
               <div className="flex min-w-[800px]">
                 {/* Staff Info */}
                 <div className="w-32 p-3 border-r border-gray-100 bg-gray-50">
-                  <div className="flex flex-col items-center">
+                  <div className="flex gap-2 items-center">
                     <div className="w-8 h-8 bg-gray-200 rounded-full mb-2 overflow-hidden">
                       <img 
                         src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/afrbbciydcc8tgpxgxob" 
@@ -219,17 +219,21 @@ const StaffSchedule = () => {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="text-xs font-medium text-gray-900 text-center">
+                    <div className='flex flex-col items-center'>
+          <div className="text-xs font-medium text-gray-900 text-center">
                       {member.name}
                     </div>
                     <div className="text-xs text-teal-600 text-center">
                       {member.role}
                     </div>
-                    <div className="flex items-center space-x-1 mt-1">
-                      <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-                      <span className="text-xs font-medium text-gray-700">{member.totalHours}h</span>
+                   
                     </div>
+          
                   </div>
+                   <div className="flex  space-x-1 mt-1">
+                      <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                      <span className="text-xs font-medium text-gray-700">{member.totalHours}h (${member.salary})</span>
+                    </div>
                 </div>
 
                 {/* Days */}

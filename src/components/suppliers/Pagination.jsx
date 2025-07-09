@@ -13,7 +13,7 @@ const Pagination = () => {
             placeholder="Search an item"
             />
          
-            <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-orange-500">
+            <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[var(--text-primary)]">
             <i className="fi fi-rr-search"></i>
             </span>
         </div>
@@ -22,13 +22,13 @@ const Pagination = () => {
             <div className="flex justify-center">
             <nav className="inline-flex rounded-md shadow overflow-hidden border border-gray-300">
             
-                <button className="px-2 py-1 bg-white text-gray-700 hover:bg-gray-100">&lt;</button>
+                <button className="px-2 py-1 bg-[var(--secondary-color)] text-gray-700 hover:bg-gray-100">&lt;</button>
            
-                <button className="px-3 py-1 bg-orange-500 text-white font-semibold border-l border-gray-300">1</button>
+                <button className="px-3 py-1 bg-[var(--primary-color)] text-[var(--text-secondary)] font-semibold border-l border-gray-300">1</button>
         
-                <button className="px-3 py-1 bg-white text-gray-700 hover:bg-gray-100 border-l border-gray-300">2</button>
+                <button className="px-3 py-1 bg-[var(--secondary-color)] text-gray-700 hover:bg-gray-100 border-l border-gray-300">2</button>
        
-                <button className="px-2 py-1 bg-white text-gray-700 hover:bg-gray-100 border-l border-gray-300">&gt;</button>
+                <button className="px-2 py-1 bg-[var(--secondary-color)] text-gray-700 hover:bg-gray-100 border-l border-gray-300">&gt;</button>
             </nav>
             </div>
         
