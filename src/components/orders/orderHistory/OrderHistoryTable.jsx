@@ -61,6 +61,32 @@ const OrderHistoryTable = () => {
                 ABC Meat & Poutry
               </td>
               <td className="px-6 py-4 whitespace-nowrap  w-40 text-black">
+                <button className="bg-blue-300 text-blue-700 px-2 py-1 rounded-lg">
+                  Delivered
+                </button>
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
+                Jun 22, 2025
+              </td>
+              <td className="py-3 px-4">
+                <div className="flex justify-center">
+                  <Link to="/orders/delivered-orders-details">
+                    <FaSearch className="text-xl text-orange-300 cursor-pointer" />
+                  </Link>
+                </div>
+              </td>
+            </tr>
+            <tr className="rounded-lg shadow-lg shadow-gray-300">
+              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">
+                1
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
+                ABC MEAT-035
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
+                ABC Meat & Poutry
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap  w-40 text-black">
                 <button className="bg-green-100 text-green-400 px-2 py-1 rounded-lg">
                   Pending
                 </button>

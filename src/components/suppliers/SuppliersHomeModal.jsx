@@ -9,7 +9,7 @@ const SuppliersHomeModal = () => {
       {/* This button will trigger the modal */}
    <button
       onClick={() => setShowModal(true)}
-      className="bg-green-500 text-[var(--text-secondary)] mt-2 mb-2 shadow-xl shadow-gray-200 px-2 py-2 rounded-lg lg:w-2/5 w-64 flex items-center justify-center space-x-2"
+      className="bg-green-500 w-full text-[var(--text-secondary)] mt-2 mb-2 shadow-xl shadow-gray-200 px-2 py-2 rounded-lg lg:w-2/5 flex items-center justify-center space-x-2 ml-4 mr-4"
     >
      
       <span>Connect Supplier Using Token</span> {/* Text */}
