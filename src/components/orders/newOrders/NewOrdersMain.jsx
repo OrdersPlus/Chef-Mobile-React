@@ -108,7 +108,7 @@ export const NewOrdersMain = () => {
               </div>
               <div className="w-1/4"></div>
             </div>
-            {/* Add more product rows using the same block above */}
+          
           </div>
         </div>
       </div>
