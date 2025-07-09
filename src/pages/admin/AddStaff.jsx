@@ -1,3 +1,4 @@
+import { CgProfile } from "react-icons/cg";
 export const AddStaff = () => {
   return (
     <div className="bg-gray-100 min-h-screen font-sans">
@@ -10,17 +11,13 @@ export const AddStaff = () => {
 
         <div className="flex-shrink-0 flex flex-col items-center justify-center md:justify-start gap-4 p-4 md:p-0">
           <div class="profile-avatar rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="h-26 w-26 text-gray-500" viewBox="0 0 20 20"
-    fill="currentColor"
-  >
-    <path
-      fillRule="evenodd"
-      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-      clipRule="evenodd"
-    />
-  </svg>
+
+{/* <img
+  src="https://avatar.iran.liara.run/public/47"
+  alt="User Avatar"
+  className="h-26 w-26 rounded-full object-cover"
+/> */}
+<CgProfile className="h-26 w-26 bg-blue-400 text-white rounded-full object-cover"/>
 </div>
           <button className="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors text-sm">
            Upload

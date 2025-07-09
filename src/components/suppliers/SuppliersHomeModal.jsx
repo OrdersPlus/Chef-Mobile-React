@@ -9,7 +9,7 @@ const SuppliersHomeModal = () => {
       {/* This button will trigger the modal */}
    <button
       onClick={() => setShowModal(true)}
-      className="bg-green-500 text-white mt-2 mb-2 shadow-xl shadow-gray-200 px-2 py-2 rounded-lg lg:w-2/5 w-64 flex items-center justify-center space-x-2"
+      className="bg-green-500 text-[var(--text-secondary)] mt-2 mb-2 shadow-xl shadow-gray-200 px-2 py-2 rounded-lg lg:w-2/5 w-64 flex items-center justify-center space-x-2"
     >
      
       <span>Connect Supplier Using Token</span> {/* Text */}
@@ -22,7 +22,7 @@ const SuppliersHomeModal = () => {
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }} // Semi-transparent background
           className="fixed inset-0 flex items-center justify-center z-100"
         >
-          <div className="relative bg-white rounded-2xl shadow-xl p-8 w-11/12 max-w-md text-center space-y-4">
+          <div className="relative bg-[var(--secondary-color)] rounded-2xl shadow-xl p-8 w-11/12 max-w-md text-center space-y-4">
             <button
               onClick={() => setShowModal(false)} // Close the modal when clicked
               className="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl font-bold shadow-xl"
@@ -37,7 +37,7 @@ const SuppliersHomeModal = () => {
             />
             <button
               onClick={() => setShowModal(false)}  // This will close the modal
-              className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold shadow-2xl shadow-orange-700"
+              className="bg-green-500 text-[var(--text-secondary)] px-6 py-2 rounded-lg font-semibold shadow-2xl shadow-orange-700"
             >
               Verify Token
             </button>

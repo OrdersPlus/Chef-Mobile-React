@@ -2,7 +2,8 @@ import React from 'react'
 
 const SupplierDetailsBody = () => {
   return (
-    <div className='m-2 rounded-md bg-white shadow-md space-y-4 mb-2 mt-3'>
+    
+    <div className='m-2 rounded-md bg-[var(--secondary-color)] shadow-md space-y-4 mb-2 mt-3'>
    {/* Supplier Info Cards */}
         <div className="space-y-4 pt-4 pb-4  m-4">
           {[
@@ -16,7 +17,7 @@ const SupplierDetailsBody = () => {
           ].map(({ label, value }) => (
             <div
               key={label}
-              className="flex flex-col justify-between items-center bg-white p-4 rounded-lg shadow"
+              className="flex flex-col justify-between items-center bg-[var(--secondary-color)] p-4 rounded-lg shadow"
               style={{ boxShadow: 'inset 0px 0px 3px #d1d1d1, 1px 1px 8px #54545466' }}
             >
               <span className="font-semibold text-orange-400">{label}</span>

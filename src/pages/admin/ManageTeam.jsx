@@ -2,7 +2,7 @@
 
 import { FaRegEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-
+import { MdDelete } from "react-icons/md";
 export const ManageTeam = () => {
   // const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
@@ -154,6 +154,12 @@ export const ManageTeam = () => {
                 >
                   Personal Info
                 </th>
+                  <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-bold text-orange-500 uppercase tracking-wider whitespace-nowrap"
+                >
+                  Delete
+                </th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
@@ -179,6 +185,16 @@ export const ManageTeam = () => {
                     {/* Use imported image */}
                   </button>
                 </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <button
+                   
+                    className="text-orange-500 inline-block"
+                  >
+                    <MdDelete className="h-6 w-6 text-red-500" />
+
+                    
+                  </button>
+                </td>
               </tr>
               <tr className="shadow-gray-200 shadow-xl">
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
@@ -200,6 +216,16 @@ export const ManageTeam = () => {
                   >
                     <FaRegEdit  className="h-5 w-5" />
                   </a>
+                </td>
+                             <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <button
+                   
+                    className="text-orange-500 inline-block"
+                  >
+                    <MdDelete className="h-6 w-6 text-red-500" />
+
+                    
+                  </button>
                 </td>
               </tr>
               <tr className="shadow-gray-200 shadow-xl">
@@ -223,6 +249,16 @@ export const ManageTeam = () => {
                     <FaRegEdit  className="h-5 w-5" />
                   </a>
                 </td>
+                             <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <button
+                   
+                    className="text-orange-500 inline-block"
+                  >
+                    <MdDelete className="h-6 w-6 text-red-500" />
+
+                    
+                  </button>
+                </td>
               </tr>
               <tr className="shadow-gray-200 shadow-xl">
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
@@ -243,6 +279,16 @@ export const ManageTeam = () => {
                     className="text-orange-500 inline-block"
                   >
                     <FaRegEdit  className="h-5 w-5" />
+                  </button>
+                </td>
+                             <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <button
+                   
+                    className="text-orange-500 inline-block"
+                  >
+                    <MdDelete className="h-6 w-6 text-red-500" />
+
+                    
                   </button>
                 </td>
               </tr>
@@ -266,6 +312,16 @@ export const ManageTeam = () => {
                   >
                     <FaRegEdit  className="h-5 w-5" />
                   </a>
+                </td>
+                             <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <button
+                   
+                    className="text-orange-500 inline-block"
+                  >
+                    <MdDelete className="h-6 w-6 text-red-500" />
+
+                    
+                  </button>
                 </td>
               </tr>
             </tbody>
