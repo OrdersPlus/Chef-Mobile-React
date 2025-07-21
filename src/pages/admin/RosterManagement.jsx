@@ -412,33 +412,33 @@ export const RosterManagement = () => {
 
         <div className="overflow-x-auto no-scrollbar">
           <div className="flex gap-2 pb-2">
-            <div className="flex-shrink-0 w-24 p-2 bg-white rounded-lg shadow-sm text-center border border-gray-200">
-              <p className="text-sm font-medium text-gray-700">Mon</p>
-              <p className="text-xs text-gray-500">67 hrs</p>
+            <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
+              <p className="text-sm font-medium text-green-400">Mon</p>
+              <p className="text-xs text-green-700">67 hrs</p>
             </div>
-            <div className="flex-shrink-0 w-24 p-2 bg-white rounded-lg shadow-sm text-center border border-gray-200">
-              <p className="text-sm font-medium text-gray-700">Tue</p>
-              <p className="text-xs text-gray-500">67 hrs</p>
+            <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
+              <p className="text-sm font-medium text-green-400">Tue</p>
+              <p className="text-xs text-green-700">67 hrs</p>
             </div>
-            <div className="flex-shrink-0 w-24 p-2 bg-white rounded-lg shadow-sm text-center border border-gray-200">
-              <p className="text-sm font-medium text-gray-700">Wed</p>
-              <p className="text-xs text-gray-500">67 hrs</p>
+            <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
+              <p className="text-sm font-medium text-green-400">Wed</p>
+              <p className="text-xs text-green-700">67 hrs</p>
             </div>
-            <div className="flex-shrink-0 w-24 p-2 bg-white rounded-lg shadow-sm text-center border border-gray-200">
-              <p className="text-sm font-medium text-gray-700">Thus</p>
-              <p className="text-xs text-gray-500">67 hrs</p>
+            <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
+              <p className="text-sm font-medium text-green-400">Thus</p>
+              <p className="text-xs text-green-700">67 hrs</p>
             </div>
-            <div className="flex-shrink-0 w-24 p-2 bg-white rounded-lg shadow-sm text-center border border-gray-200">
-              <p className="text-sm font-medium text-gray-700">Fri</p>
-              <p className="text-xs text-gray-500">67 hrs</p>
+            <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
+              <p className="text-sm font-medium text-green-400">Fri</p>
+              <p className="text-xs text-green-700">67 hrs</p>
             </div>
-            <div className="flex-shrink-0 w-24 p-2 bg-white rounded-lg shadow-sm text-center border border-gray-200">
-              <p className="text-sm font-medium text-gray-700">Sat</p>
-              <p className="text-xs text-gray-500">67 hrs</p>
+            <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
+              <p className="text-sm font-medium text-green-400">Sat</p>
+              <p className="text-xs text-green-700">67 hrs</p>
             </div>
-            <div className="flex-shrink-0 w-24 p-2 bg-white rounded-lg shadow-sm text-center border border-gray-200">
-              <p className="text-sm font-medium text-gray-700">Sun</p>
-              <p className="text-xs text-gray-500">67 hrs</p>
+            <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
+              <p className="text-sm font-medium text-green-400">Sun</p>
+              <p className="text-xs text-green-700">67 hrs</p>
             </div>
           </div>
         </div>

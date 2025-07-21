@@ -7,7 +7,7 @@ const ProductListModal = ({ modalOpen, handleModalClose, modalTitle }) => {
       style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
       className="fixed inset-0 bg-gray-500 bg-opacity-60 flex items-center justify-center z-100"
     >
-      <div className="bg-white rounded-2xl shadow-lg pt-3 p-3 w-[85%] sm:max-w-xs sm:w-[90%] md:max-w-sm md:w-[85%] lg:max-w-md lg:w-[70%] xl:max-w-lg xl:w-[60%] max-h-[80vh] md:h-[70%] relative overflow-y-auto">
+      <div className="bg-[var(--secondary-color)] rounded-2xl shadow-lg pt-3 p-3 w-[85%] sm:max-w-xs sm:w-[90%] md:max-w-sm md:w-[85%] lg:max-w-md lg:w-[70%] xl:max-w-lg xl:w-[60%] max-h-[80vh] md:h-[70%] relative overflow-y-auto">
         <button
           onClick={handleModalClose}
           className="absolute top-4 right-4 z-10 border-2 border-gray-200 rounded-full text-gray-600 hover:text-gray-900"
@@ -25,7 +25,7 @@ const ProductListModal = ({ modalOpen, handleModalClose, modalTitle }) => {
             <img
               src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/x44vv6k8yqbppyrrjnlb"
               alt="Product"
-              className="rounded-lg w-full h-44 object-cover bg-white border-2 border-gray-400 shadow-lg"
+              className="rounded-lg w-full h-44 object-cover bg-[var(--secondary-color)] border-2 border-gray-400 shadow-lg"
             />
           </div>
 
@@ -64,7 +64,7 @@ const ProductListModal = ({ modalOpen, handleModalClose, modalTitle }) => {
         </div>
 
         <div className="flex justify-center items-center">
-          <button className="bg-orange-500 hover:bg-orange-700 text-white px-4 py-2 rounded text-sm shadow-2xl shadow-orange-700">
+          <button className="bg-[var(--primary-color)] hover:bg-orange-700 text-[var(--text-secondary)] px-4 py-2 rounded text-sm shadow-2xl shadow-orange-700">
             Add to pantry
           </button>
         </div>

@@ -17,6 +17,7 @@ import { SupplierProductList } from "../pages/suppliers/SupplierProductList";
 import { SupplierDetails } from "../pages/suppliers/SupplierDetails";
 import { OrderHistory } from "../pages/orders/OrderHistory";
 import { RepeatOrder } from "../pages/orders/RepeatOrder";
+import { DeliveredOrderDetails } from "../pages/orders/DeliveredOrderDetails";
 import { ManageTeam } from "../pages/admin/ManageTeam";
 import { AddStaff } from "../pages/admin/AddStaff";
 import { EditStaff } from "../pages/admin/EditStaff";
@@ -30,10 +31,6 @@ import StaffScheduleDay from "../pages/admin/StaffScheduleDay";
 import { QrLogin } from "../pages/QrLogin";
 
 const router = createBrowserRouter([
-    {
-        path: "*",
-        element: <NotFound />,
-    },
     {
         path: "/login",
         element: <Login />,
@@ -112,6 +109,10 @@ const router = createBrowserRouter([
       path:"/orders/repeat-orders",
       element:<RepeatOrder />,
     },
+     {
+      path:"/orders/delivered-orders-details",
+      element:<DeliveredOrderDetails />,
+    },
 //nausin
 
 //arman
@@ -130,6 +131,7 @@ const router = createBrowserRouter([
     {
       path: "/admin/roster",
       element: <RosterManagement />,
+
     },
     {
       path: "/admin/roster/hours_controls",
@@ -153,6 +155,10 @@ const router = createBrowserRouter([
      },
 //arman
         ],
+    },
+    {
+        path: "*",
+        element: <NotFound />,
     },
 
 ]);

@@ -6,7 +6,7 @@ const SupplierDetailsModal = ({ isOpen, toggleModal }) => {
       {isOpen && (
         <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
       className="fixed inset-0 bg-gray-500 bg-opacity-60 flex items-center justify-center z-100">
-          <div className="bg-white rounded-lg pt-3 p-3 relative w-11/12 sm:w-96">
+          <div className="bg-[var(--secondary-color)] rounded-lg pt-3 p-3 relative w-11/12 sm:w-96">
             <h3 className="text-2xl font-semibold text-gray-700 mb-4">
               Add New Payment Card
             </h3>
@@ -60,7 +60,7 @@ const SupplierDetailsModal = ({ isOpen, toggleModal }) => {
 <div className="flex justify-center items-center">
  <button
                 type="submit"
-                className="bg-blue-500  text-white px-4 py-2 rounded text-sm shadow-2xl shadow-blue-700 "
+                className="bg-blue-500  text-[var(--text-secondary)] px-4 py-2 rounded text-sm shadow-2xl shadow-blue-700 "
               >
                 Save Card
               </button>
@@ -97,7 +97,7 @@ const PaymentForm = () => {
       {/* Button to open modal */}
       <button
         onClick={toggleModal}
-        className="bg-orange-500 hover:bg-orange-700 text-white px-4 py-2 rounded text-sm shadow-2xl shadow-orange-700"
+        className="bg-[var(--primary-color)] hover:bg-orange-700 text-[var(--text-secondary)] px-4 py-2 rounded text-sm shadow-2xl shadow-orange-700"
       >
         + Add a new card
       </button>

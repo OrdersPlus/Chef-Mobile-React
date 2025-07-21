@@ -33,7 +33,7 @@ const ProductListButton = () => {
       <div className="flex justify-between mt-3 items-center">
         <select
           id="categories"
-          className="bg-orange-500 text-white border-2 border-orange-500 rounded-lg p-1"
+          className="bg-[var(--primary-color)] text-[var(--text-secondary)] border-2 border-[var(--border-color] rounded-lg p-1"
         >
           <option>All Category</option>
           <option>Meat</option>
@@ -45,30 +45,30 @@ const ProductListButton = () => {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="p-2 rounded-md focus:outline-none"
           >
-            <FiMenu className="bg-white border-2 border-orange-500 text-orange-500 p-1 rounded-full  text-xl h-7 w-7" />
+            <FiMenu className="bg-[var(--secondary-color)] border-2 border-[var(--border-color] text-[var(--text-primary)] p-1 rounded-full  text-xl h-7 w-7" />
           </button>
 
           {/* Dropdown Menu */}
           {mobileOpen && (
             
             <div className="absolute top-full -right-5 bg-white shadow-lg rounded-lg  pr-0  w-[380px] mt-2 z-10 p-4 grid grid-cols-2 gap-1">
-              <button className="text-left px-4 py-2 border-2 border-orange-500 text-orange-500 rounded-md hover:bg-orange-500 hover:text-white flex items-center gap-2 focus:outline-none">
-                <FiMenu className="text-orange-500 text-xl" />
+              <button className="text-left px-4 py-2 border-2 border-[var(--border-color] text-[var(--text-primary)] rounded-md hover:bg-[var(--primary-color)] hover:text-[var(--text-secondary)] flex items-center gap-2 focus:outline-none">
+                <FiMenu className="text-[var(--text-primary)] text-xl" />
                 <span>Standard Prices</span>
               </button>
 
-              <button className="text-left px-4 py-2 border-2 border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white flex items-center  gap-2 focus:outline-none">
+              <button className="text-left px-4 py-2 border-2 border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-[var(--text-secondary)] flex items-center  gap-2 focus:outline-none">
                 <FaSackDollar className="text-blue-500  text-xl" />
 
                 <span>My Prices</span>
               </button>
 
-              <button className="text-left px-4 py-2 border-2 border-green-500 text-green-500 rounded-md hover:bg-green-500 hover:text-white flex items-center gap-2 focus:outline-none">
+              <button className="text-left px-4 py-2 border-2 border-green-500 text-green-500 rounded-md hover:bg-green-500 hover:text-[var(--text-secondary)] flex items-center gap-2 focus:outline-none">
                 <FaRegStar className="text-green-500  text-xl" />
                 <span>My Special</span>
               </button>
 
-              <button className="text-left px-4 py-2 border-2 border-red-500 text-red-500 rounded-md hover:bg-red-500 hover:text-white flex items-center gap-2 focus:outline-none">
+              <button className="text-left px-4 py-2 border-2 border-red-500 text-red-500 rounded-md hover:bg-red-500 hover:text-[var(--text-secondary)] flex items-center gap-2 focus:outline-none">
                 <FaBullhorn className="text-red-500  text-xl" />
                 <span>Promotions</span>
               </button>
