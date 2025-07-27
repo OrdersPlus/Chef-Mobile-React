@@ -12,7 +12,6 @@ import { KitchenHome } from "../pages/kitchen/KitchenHome";
 import { KitchenPrepList } from "../pages/kitchen/KitchenPrepList";
 import { KitchenAddPantry } from "../pages/kitchen/KitchenAddPantry";
 import AddToCart from "../pages/AddToCart";
-
 import { SupplierProductList } from "../pages/suppliers/SupplierProductList";
 import { SupplierDetails } from "../pages/suppliers/SupplierDetails";
 import { OrderHistory } from "../pages/orders/OrderHistory";
