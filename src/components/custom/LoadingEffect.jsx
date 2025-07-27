@@ -1,4 +1,4 @@
-import '../css/loader.css';
+import '../../assets/css/loader.css';
 
 export const LoadingEffect = () => {
     return ( 
