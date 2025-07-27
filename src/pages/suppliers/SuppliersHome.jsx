@@ -32,6 +32,7 @@ export const SuppliersHome = () => {
           "Dairy",
         ]}
         />
+        
         </div>
 
         

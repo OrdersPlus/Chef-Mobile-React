@@ -8,12 +8,60 @@ import { Link } from "react-router";
 import { useState } from "react";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
-
+import { useEffect } from "react";
+import axios from "axios";
 export const KitchenHome = () => {
   const [popUp, setPopUp] = useState(false);
+  const [lastAddedSection, setLastAddedSection] = useState(null);
+  // const [selectedSectionForEdit, setSelectedSectionForEdit] = useState(null);
+  const [sections, setSections] = useState([]);
+  const [chefName, setChefName] = useState([]);
+
+            //  <ScrollableButton buttonLabels={sections} />
+useEffect(() => {
+  axios
+    .get("http://onti-mise-en.spentry.tech/api/sections")
+    .then((res) => {
+      setSections(res.data.sections);
+      console.log(res.data.sections);
+      setChefName(res.data.chefs);
+      console.log(res.data.chefs);
+
+    })
+    .catch((err) => {
+      console.error("Failed to fetch sections:", err);
+    });
+}, []);
+
+const handleAddSection = (newSection) => {
+//   setLastAddedSection(newSection);
+//   // Create a copy of the existing sections using slice and then append the new section
+//   setSections((prev) => {
+//     const newSections = prev.slice();  // Create a shallow copy of the array
+//     newSections.push(newSection);      // Add the new section to the end of the copied array
+//     return newSections;               // Return the updated array
+//   });
+};
+
+
+  // Open edit modal for last added section
+const handleEditClick = () => {
+  // const fallbackSection = sections.length > 0 ? sections[sections.length - 1] : null;
+  // const sectionToEdit = lastAddedSection || fallbackSection;
+
+  // if (!sectionToEdit) {
+  //   alert("No section available to edit!");
+  //   return;
+  // }
+  setSelectedSectionForEdit(sectionToEdit);
+  document.getElementById("edit_modal").showModal();
+};
+   // Only dynamically generated section names are included now
+  // const combinedButtonLabels = sections.map((section) => section.name);
   return (
     <div>
       <div className="pb-24 max-w-screen-lg mx-auto sm:px-6 lg:px-8">
+        {/* Top Bar */}
         <div className="mt-4 flex flex-wrap justify-between gap-2 items-center">
           <div className="relative">
             <button
@@ -22,31 +70,15 @@ export const KitchenHome = () => {
             >
               Action
             </button>
-
             {popUp && (
               <div className="absolute left-0 mt-2 w-36 p-2 rounded shadow-md flex flex-col justify-end space-y-2 z-50 bg-white">
-                <a
-                  href="#"
-                  className="bg-white text-orange-500 flex justify-center rounded-2xl border-2"
-                >
-                  Manage Order
-                </a>
-                <a
-                  href="#"
-                  className="bg-white text-orange-500 flex justify-center rounded-2xl border-2"
-                >
-                  Check Delivery
-                </a>
-                <a
-                  href="#"
-                  className="bg-white text-orange-500 flex justify-center rounded-2xl border-2"
-                >
-                  View Orders
-                </a>
+                <a href="#" className="bg-white text-orange-500 flex justify-center rounded-2xl border-2">Manage Order</a>
+                <a href="#" className="bg-white text-orange-500 flex justify-center rounded-2xl border-2">Check Delivery</a>
+                <a href="#" className="bg-white text-orange-500 flex justify-center rounded-2xl border-2">View Orders</a>
               </div>
             )}
           </div>
-          {/* skjdnjknvkafv */}
+
           <p className="font-bold text-sm sm:text-base">My Kitchen</p>
 
           <button
@@ -57,6 +89,7 @@ export const KitchenHome = () => {
           </button>
         </div>
 
+        {/* Tabs */}
         <div className="mt-7">
           <ThreeCommonButton
             firstBtn="Section"
@@ -67,40 +100,31 @@ export const KitchenHome = () => {
             thirdUrl="/kitchen/prep-list"
           />
         </div>
-        {/* Section Overview */}
-        <div className="rounded-md space-y-4 overflow-x-auto ">
-          {/* <NavButton /> */}
+
+        {/* Scrollable Buttons (Static + Dynamic) */}
+        <div className="rounded-md space-y-4 overflow-x-auto">
           <div className="mb-8">
-            <ScrollableButton
-              buttonLabels={[
-                "Pan",
-                "Lader",
-                "Prep-list",
-                "Bar",
-                "Pan",
-                "Prep-list",
-                "Prep-list",
-                "Prep-list",
-                "Prep-list",
-                "Prep-list",
-              ]}
-            />
+            <ScrollableButton sections={sections} />
           </div>
-          {/* Ladder Info + Edit Modal */}
+
+          {/* Ladder Info and Edit Button */}
           <div className="flex flex-wrap justify-between items-center mt-2 mb-6 gap-2">
-            <h2 className="text-sm font-semibold text-gray-700">
-              Ladder Detail Info :
-            </h2>
+            <h2 className="text-sm font-semibold text-gray-700">Ladder Detail Info :</h2>
             <button
               className="bg-orange-500 text-white px-2 py-2 rounded-md text-sm"
-              onClick={() => document.getElementById("edit_modal").showModal()}
+              onClick={handleEditClick}
             >
               Edit Section
             </button>
           </div>
 
-          <SectionEditModal />
-          <SectionAddModal />
+          {/* Modals */}
+          <SectionAddModal 
+           selectChef={chefName} />
+
+         <SectionEditModal 
+         selectSections={sections}
+         selectChef={chefName} />
 
           <ActiveTab />
         </div>
