@@ -2,6 +2,9 @@ import { ChevronLeft, ChevronRight, Plus, Search, Clock, Users } from 'lucide-re
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ThreeCommonButton } from '../../components/common/ThreeCommonButton';
+import SectionAddModal from '../../components/kitchen/kitchenModal/SectionAddModal';
+import AddShiftRoster from '../../components/common/AddShifRosterModal';
+import AddShiftRosterModal from '../../components/common/AddShifRosterModal';
 
 
 const StaffSchedule = () => {
@@ -253,8 +256,8 @@ const StaffSchedule = () => {
                           ))}
                         </div>
                       ) : (
-                        <button className="w-full h-full min-h-[60px] border border-dashed border-gray-200 rounded-md text-gray-400 hover:border-orange-300 hover:text-orange-500 hover:bg-orange-50 transition-all">
-                          <Plus className="w-4 h-4 mx-auto" />
+                        <button className="w-full h-full min-h-[60px] border border-dashed border-gray-200 rounded-md text-gray-400 hover:border-orange-300 hover:text-orange-500 hover:bg-orange-50 transition-all" onClick={() => document.getElementById("add_modal").showModal()}>
+                          <Plus className="w-4 h-4 mx-auto"  />
                         </button>
                       )}
                     </div>
@@ -324,6 +327,7 @@ const StaffSchedule = () => {
     </div>
   </div>
 </dialog>
+<AddShiftRosterModal />
     </div>
   );
 };
