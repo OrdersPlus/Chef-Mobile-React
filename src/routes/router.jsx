@@ -1,5 +1,4 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import App from "../App";
 import Login from "../pages/Login";
 import { Dashboard } from "../pages/Dashboard";
 import { NotFound } from "../pages/NotFound";
@@ -29,6 +28,7 @@ import StaffSchedule from "../pages/admin/StaffSchedule";
 import { SuppliersHome } from "../pages/suppliers/SuppliersHome";
 import StaffScheduleDay from "../pages/admin/StaffScheduleDay";
 import { QrLogin } from "../pages/QrLogin";
+import { Home } from "../pages/Home";
 
 const router = createBrowserRouter([
     {
@@ -156,9 +156,13 @@ const router = createBrowserRouter([
 //arman
         ],
     },
+    // {
+    //     path: "*",
+    //     element: <NotFound />,
+    // },
     {
-        path: "*",
-        element: <NotFound />,
+        path: "test",
+        element: <Home />,
     },
 
 ]);

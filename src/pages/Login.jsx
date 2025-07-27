@@ -1,4 +1,37 @@
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const userData = {
+    email: email,
+    password: password,
+  };
+const userLogin= (event)=>{
+  event.preventDefault();
+    axios.post(import.meta.env.VITE_BACK_END_URL+'login2', userData, {
+    headers: {
+      'Content-Type': 'application/json',
+      // 'Accept': 'application/json'
+    },
+  })
+  .then(res => {
+    console.log("✅ Success:", res.data.data);
+    localStorage.setItem('token', res.data.data.token);
+    // <Link to="/" />
+    navigate('/')
+  })
+  .catch(err => {
+    if (err.response) {
+      console.error("❌ API Error:", err.response.data);
+    } else {
+      console.error("❌ Network Error:", err.message);
+    }
+  });
+  }
   return (
     <div className="bg-white min-h-screen flex items-center justify-center">
       <div className="bg-white shadow-2xl rounded-2xl overflow-hidden flex flex-col md:flex-row w-full max-w-4xl mx-4">
@@ -19,25 +52,25 @@ const Login = () => {
             Chef Portal Login
           </h2>
 
-          <form action="" method="POST" className="space-y-5">
+          <form className="space-y-5" onSubmit={userLogin}> 
             <div>
-              <label for="email" className="block text-gray-700">
+              <label className="block text-gray-700">
                 Email Address
               </label>
               <input
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                name="email"
-                id="email"
                 required
                 className="w-full px-4 py-2 border-2 border-white rounded-lg shadow-[inset_4px_4px_10px_rgba(0,0,0,0.2)] focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
             <div>
-              <label for="password" className="block text-gray-700">
+              <label className="block text-gray-700">
                 Password
               </label>
               <input
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 name="password"
                 id="password"

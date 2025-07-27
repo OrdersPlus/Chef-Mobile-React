@@ -1,49 +1,39 @@
 import { useEffect, useState } from "react";
-import { HelperAxios } from "../HelperAxios";
-import { LoadingEffect } from "../custom/LoadingEffect";
 // import { toast } from "../custom/Toastify";
 import { ToastContainer, toast, Slide } from 'react-toastify';
-
+import {getAxios, postAxios} from '../helper/HelperAxios';
+import {LoadingEffect} from '../components/custom/LoadingEffect';
+import { successToast, errorToast } from "../components/custom/Toastify";
 
 
 export const Home = () => {
   const [products, setProducts] = useState([]);
   const [loader, setLoader] = useState(false);
-  const notify = () => toast.error('🦄 Wow so easy!', {
-position: "top-right",
-autoClose: 5000,
-hideProgressBar: false,
-closeOnClick: false,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "light",
-transition: Slide,
-});
-
+  const [count, setCount] = useState(1);
 
 useEffect(() => {
-    HelperAxios('https://www.course-api.com/react-store-products', setProducts, setLoader);
+  console.log("useEffect1")
+    getAxios('https://www.course-api.com/react-store-products', setLoader, setProducts);
+  console.log("useEffect2")
+
 }, []);
 
+const postData={
+  name:"fardin",
+}
+const sendPost= ()=>{postAxios('http://fardin-mise-en.spentry.tech/api/testing', setLoader, postData ), false};
 
+const addOne = ()=>{
+  (setCount(count+1))
+  console.log(count),[]}
+  
   return (
     <>
         <div>
-        <button onClick={notify}>Notify!</button>
-<ToastContainer
-position="top-right"
-autoClose={1000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick={true}
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="dark"
-transition={Slide}
-/>
+        <button onClick={() => successToast('Data Inserted Successfully!')}>successToast!</button>
+        <br/>
+        <button onClick={() => errorToast('Failed to Insert Data!')}>errorToast!</button>
+    <ToastContainer />
       </div>
       {loader && <LoadingEffect />}
         <h1>Hello How Are You</h1>
@@ -60,24 +50,13 @@ transition={Slide}
         </>
       )}
 
-
-            {/* <ToastContainer
-        position="bottom-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      /> */}
-
-
       <p>{products.length > 0 ? products[2].price : ''}</p>
       <p>{products.length > 0 && products[2].price}</p>
       {/* <button onClick={() => toast("This is a toast message!")}>Toastify</button> */}
 
+<button onClick={sendPost}>Send post request</button>
+<br/>
+<button onClick={addOne}>Add {count}</button>
     </>
   );
 };

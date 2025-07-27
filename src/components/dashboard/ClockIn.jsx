@@ -3,6 +3,7 @@ import { useState } from "react";
 import { GiCoffeeCup } from "react-icons/gi";
 import { FaRegClock } from "react-icons/fa";
 import { IoWifiOutline } from "react-icons/io5";
+import { CiClock2 } from "react-icons/ci";
 
 const ClockIn = () => {
   const [clock, setClock] = useState(false);
@@ -69,19 +70,7 @@ const ClockIn = () => {
         <div className="bg-gray-50 rounded-xl p-4 mx-2 my-4 border border-gray-200 shadow-sm">
           <div className="flex justify-around text-center text-sm font-medium text-gray-700">
             <div className="flex flex-col items-center">
-              <svg
-                className="w-7 h-6 text-green-500 mb-1"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+              <CiClock2 className="w-7 h-6 text-green-500 mb-1" />
               <span>Total Active Time</span>
               <span className="text-lg font-semibold text-gray-900">
                 4h 32m
@@ -89,19 +78,7 @@ const ClockIn = () => {
             </div>
             <div className="border-l border-gray-300 h-12 mx-4"></div>
             <div className="flex flex-col items-center">
-              <svg
-                className="w-7 h-6 text-yellow-500 mb-1"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 6v6l4 2m8-2a10 10 0 11-20 0 10 10 0 0120 0z"
-                />
-              </svg>
+              <CiClock2 className="w-7 h-6 text-yellow-500 mb-1" />
               <span>Total Break Time</span>
               <span className="text-lg font-semibold text-gray-900">
                 1h 10m
