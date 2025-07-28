@@ -12,7 +12,7 @@ const Login = () => {
   };
 const userLogin= (event)=>{
   event.preventDefault();
-    axios.post(import.meta.env.VITE_BACK_END_URL+'login2', userData, {
+    axios.post(import.meta.env.VITE_BACK_END_URL+'login', userData, {
     headers: {
       'Content-Type': 'application/json',
       // 'Accept': 'application/json'
@@ -21,7 +21,7 @@ const userLogin= (event)=>{
   .then(res => {
     console.log("✅ Success:", res.data.data);
     localStorage.setItem('token', res.data.data.token);
-    // <Link to="/" />
+    localStorage.setItem('message', 'verified');
     navigate('/')
   })
   .catch(err => {

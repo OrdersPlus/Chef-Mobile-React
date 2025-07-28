@@ -28,6 +28,7 @@ import { SuppliersHome } from "../pages/suppliers/SuppliersHome";
 import StaffScheduleDay from "../pages/admin/StaffScheduleDay";
 import { QrLogin } from "../pages/QrLogin";
 import { Home } from "../pages/Home";
+import ProtectedLayout from "../helper/useContexts/ProtectedLayout";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,19 @@ const router = createBrowserRouter([
         path: "/qr-login",
         element: <QrLogin />,
     },
+    //  <Route element={<ProtectedLayout />}>
+  //    {
+  //   element: <ProtectedLayout />, // ✅ protect this branch
+  //   children: [
+  //     {
+
+  //     }
+  //   ]
+  // }
+  {
+    element: <ProtectedLayout />, // Guard
+    children: [
+      // {
     {
         path: "/",
         element: <MainLayouts />,
@@ -154,7 +168,10 @@ const router = createBrowserRouter([
      },
 //arman
         ],
-    },
+      },
+    // },
+    ],
+  },
     // {
     //     path: "*",
     //     element: <NotFound />,

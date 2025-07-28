@@ -6,6 +6,7 @@ import PantryListDetailsModal from "../../components/kitchen/kitchenModal/Pantry
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 import { useState } from "react";
 import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
+import { SectionsProvider } from "../../helper/ScrollableButtonsContext";
 
 export const KitchenPantryList = () => {
    const [popUp, setPopUp] = useState(false)
@@ -62,20 +63,9 @@ export const KitchenPantryList = () => {
           {/* <NavButton /> */}
 
                   <div className="mb-8">
-                    <ScrollableButton
-                      buttonLabels={[
-                        "Pan",
-                        "Ladder",
-                        "Prep-list",
-                        "Bar",
-                        "Pan",
-                        "Prep-list",
-                        "Prep-list",
-                        "Prep-list",
-                        "Prep-list",
-                        "Prep-list",
-                      ]}
-                    />
+                    <SectionsProvider>
+                      <ScrollableButton />
+                    </SectionsProvider>
                   </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between px-4 py-3 gap-3">

@@ -15,7 +15,6 @@ useEffect(() => {
   console.log("useEffect1")
     getAxios('https://www.course-api.com/react-store-products', setLoader, setProducts);
   console.log("useEffect2")
-
 }, []);
 
 const postData={

@@ -10,6 +10,7 @@ import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
 import { useEffect } from "react";
 import axios from "axios";
+import { SectionsProvider } from "../../helper/ScrollableButtonsContext";
 export const KitchenHome = () => {
   const [popUp, setPopUp] = useState(false);
   const [lastAddedSection, setLastAddedSection] = useState(null);
@@ -23,9 +24,9 @@ useEffect(() => {
     .get("http://onti-mise-en.spentry.tech/api/sections")
     .then((res) => {
       setSections(res.data.sections);
-      console.log(res.data.sections);
+      // console.log(res.data.sections);
       setChefName(res.data.chefs);
-      console.log(res.data.chefs);
+      // console.log(res.data.chefs);
 
     })
     .catch((err) => {
@@ -104,7 +105,9 @@ const handleEditClick = () => {
         {/* Scrollable Buttons (Static + Dynamic) */}
         <div className="rounded-md space-y-4 overflow-x-auto">
           <div className="mb-8">
-            <ScrollableButton sections={sections} />
+            <SectionsProvider>
+              <ScrollableButton />
+            </SectionsProvider>
           </div>
 
           {/* Ladder Info and Edit Button */}
