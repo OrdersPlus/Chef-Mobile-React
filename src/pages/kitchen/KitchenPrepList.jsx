@@ -12,6 +12,7 @@ import PrepEditModal from "../../components/kitchen/kitchenModal/PrepEditModal";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 import { useState } from "react";
 import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
+import { SectionsProvider } from "../../helper/ScrollableButtonsContext";
 
 export const KitchenPrepList = () => {
    const [popUp, setPopUp] = useState(false)
@@ -66,20 +67,9 @@ export const KitchenPrepList = () => {
             />
           </div>
           <div className="mb-8">
-            <ScrollableButton
-              buttonLabels={[
-                "Pan",
-                "Lader",
-                "Prep-list",
-                "Bar",
-                "Pan",
-                "Prep-list",
-                "Prep-list",
-                "Prep-list",
-                "Prep-list",
-                "Prep-list",
-              ]}
-            />
+            <SectionsProvider>
+              <ScrollableButton />
+            </SectionsProvider>
           </div>
         </div>
 

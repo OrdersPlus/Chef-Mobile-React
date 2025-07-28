@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 const SectionAddModal = ({ selectChef }) => {
-  console.log(selectChef);
+  // console.log(selectChef);
   const [sectionName, setSectionName] = useState("");
   const [mainChef, setMainChef] = useState("");
 

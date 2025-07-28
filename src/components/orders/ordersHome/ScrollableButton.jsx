@@ -1,5 +1,7 @@
+import { useSections } from "../../../helper/ScrollableButtonsContext"
 
-export const ScrollableButton = ({sections}) => {
+export const ScrollableButton = () => {
+  const {sections} = useSections();
   // console.log("button Labels:", sections);
   return (
 <div  className="overflow-x-auto w-full mt-5 shadow mb-5">
