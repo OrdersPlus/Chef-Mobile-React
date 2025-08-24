@@ -1,9 +1,42 @@
-
+import { useEffect, useState } from "react";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
+import { getAxios } from "../../helper/HelperAxios";
+import { LoadingEffect } from "../../components/custom/LoadingEffect";
 
 export const RosterManagement = () => {
+
+  const [loader, setLoader] = useState(false);
+  const [allData, setSetAllData] = useState();
+  // const [shifts, setShifts] = useState();
+  // const [roasterHour, setRoasterHour] = useState([]);
+  // const [totalHours, setTotalHours] = useState([]);
+    function formatTime(timeStr) {
+      const [hour, minute] = timeStr.split(':');
+      const date = new Date();
+      date.setHours(+hour);
+      date.setMinutes(+minute);
+      return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+  useEffect(()=>{
+    const fetchData= async ()=>{ const res = await getAxios(import.meta.env.VITE_BACK_END_URL+'admin/roster/roaster-settings', setLoader, setSetAllData) 
+      //  if (res) {
+        // setShifts(allData)
+        // setRoasterHour(allData.roster_hours)
+        // setTotalHours(allData.total_hours)
+      // }
+    }
+    fetchData();
+
+  },[])
+  
+  console.log(allData.shifts)
+  // console.log(shifts)
+  // console.log(roasterHour)
+  // console.log(totalHours)
   return (
     <div>
+      {loader && <LoadingEffect />}
       <main className="max-w-full mx-auto p-4">
 
         <ThreeCommonButton 
@@ -42,280 +75,15 @@ export const RosterManagement = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-4 mb-6 shadow-gray-300 shadow-xl">
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Dinner
-                </h3>
-                <p className="text-sm text-gray-600">16:30 - 22:00</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Brunch
-                </h3>
-                <p className="text-sm text-gray-600">06:00 - 12:00</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
-                </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
 
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
-                </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
-                </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
-                </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
-                </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
-                </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
-                </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
-                </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4 mb-6 shadow-gray-300 shadow-xl">
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
-                </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
-              </div>
 
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
+          {allData.shifts && allData.shifts.map((value, index)=>(
+            <div key={index} className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
               <div>
                 <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
+                  {value.name}
                 </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
+                <p className="text-sm text-gray-600">{formatTime(value.from)} - {formatTime(value.to)}</p>
               </div>
               <a href="#" className="text-green-500 hover:text-orange-700">
                 <svg
@@ -330,86 +98,15 @@ export const RosterManagement = () => {
                     strokeLinejoin="round"
                     strokeWidth="2"
                     d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
+                    />
                 </svg>
               </a>
             </div>
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
-                </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Chills
-                </h3>
-                <p className="text-sm text-gray-600">14:54 - 18:30</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
+          ))} 
 
-            <div className="bg-gray-50 p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-orange-700">
-                  Snacks
-                </h3>
-                <p className="text-sm text-gray-600">17:00 - 19:00</p>
-              </div>
-              <a href="#" className="text-green-500 hover:text-orange-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                  />
-                </svg>
-              </a>
-            </div>
+
           </div>
         </div>
-
         <div className="overflow-x-auto no-scrollbar">
           <div className="flex gap-2 pb-2">
             <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">

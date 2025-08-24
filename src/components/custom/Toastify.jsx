@@ -5,7 +5,7 @@ import { toast, Slide } from 'react-toastify';
 export const successToast = (message = 'success') =>
   toast.success(message, {
     position: "bottom-right",
-    autoClose: 1000,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -18,7 +18,7 @@ export const successToast = (message = 'success') =>
 export const errorToast = (message = 'error') =>
   toast.error(message, {
     position: "bottom-right",
-    autoClose: 1000,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,

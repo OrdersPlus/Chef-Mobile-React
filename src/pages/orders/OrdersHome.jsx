@@ -1,4 +1,4 @@
-import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
+// import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
 import { SearchPagination } from "../../components/orders/ordersHome/SearchPagination";
 import { HomeMain } from "../../components/orders/ordersHome/OrdersHomeMain";
 import { FlexTwoBtn } from "../../components/common/FlexTwoBtn";
@@ -23,7 +23,7 @@ export const OrdersHome = () => {
           thirdUrl="/orders/repeat-orders"
           />
         </div>
-      <ScrollableButton
+      {/* <ScrollableButton
         name="Suppliers"
         buttonLabels={[
           "Fardin",
@@ -31,7 +31,7 @@ export const OrdersHome = () => {
           "ABC Food Wholesale",
           "ABC Meat & Poultry",
         ]}
-      />
+      /> */}
       <SearchPagination />
 
       <HomeMain />

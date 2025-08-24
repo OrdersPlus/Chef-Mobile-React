@@ -7,10 +7,12 @@ import { FiTrash2 } from "react-icons/fi";
 import { Link } from "react-router";
 import { useState } from "react";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
-import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
 import { useEffect } from "react";
 import axios from "axios";
-import { SectionsProvider } from "../../helper/ScrollableButtonsContext";
+import { SectionsProvider } from "../../helper/useContexts/ScrollableButtonsKitchenContext";
+import { ScrollableButtonKitchen } from "../../components/kitchen/common/ScrollableButtonKitchen";
+
+
 export const KitchenHome = () => {
   const [popUp, setPopUp] = useState(false);
   const [lastAddedSection, setLastAddedSection] = useState(null);
@@ -106,7 +108,7 @@ const handleEditClick = () => {
         <div className="rounded-md space-y-4 overflow-x-auto">
           <div className="mb-8">
             <SectionsProvider>
-              <ScrollableButton />
+              <ScrollableButtonKitchen />
             </SectionsProvider>
           </div>
 

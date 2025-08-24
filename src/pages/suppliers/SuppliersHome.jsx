@@ -4,7 +4,7 @@ import SuppliersScrollableButton from "../../components/suppliers/SuppliersScrol
 import Pagination from "../../components/suppliers/Pagination";
 import SuppliersHomeTable from "../../components/suppliers/SuppliersHomeTable";
 import SuppliersHomeModal from "../../components/suppliers/SuppliersHomeModal";
-import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
+// import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
 export const SuppliersHome = () => {
   return (
     <div className="font-sans w-full min-h-screen m-0 p-0 bg-[var(--secondary-color)] pb-16">
@@ -19,7 +19,7 @@ export const SuppliersHome = () => {
             <CommonMainAction />
           </div>
          
-          <ScrollableButton 
+          {/* <ScrollableButton 
           buttonLabels={[
           "Fruit & Vegetables",
           "Meat & Poultry",
@@ -31,7 +31,7 @@ export const SuppliersHome = () => {
           "Alcohol",
           "Dairy",
         ]}
-        />
+        /> */}
         
         </div>
 

@@ -7,9 +7,17 @@ export const SectionsProvider = ({ children }) => {
 //   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://onti-mise-en.spentry.tech/api/sections")
+    const token = localStorage.getItem('token')
+    axios.get(import.meta.env.VITE_BACK_END_URL+"kitchen/sections",{
+      headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+    },
+  })
+    // http://fardin-mise-en.spentry.tech/api/kitchen/sections
       .then(res => {
-        setSections(res.data.sections);
+        setSections(res.data.data);
+        // console.log(res.data.data)
       })
       .catch(err => console.error("Error fetching sections:", err))
     //   .finally(() => setLoading(false));
