@@ -5,7 +5,6 @@ import { Link } from 'react-router'
 export const DashboardMain = () => {
   return (
       <div className="grid grid-cols-2 gap-5 mt-8">
-
       <Link to={'/admin/home'} className="p-5 inset-shadow-sm shadow-xl/30 rounded-md text-orange-500 flex flex-col items-center justify-center">
         <i className="fi fi-ss-users-alt text-[48px] mb-2"></i>
         <p className="text-xl text-black text-center">Admin</p>

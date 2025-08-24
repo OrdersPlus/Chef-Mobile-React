@@ -3,9 +3,9 @@ import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedLayout = () => {
   const token = localStorage.getItem("token");
-  const message = localStorage.getItem("message");
+  const status = localStorage.getItem("status");
 
-  const isAuthenticated = token && message === "verified";
+  const isAuthenticated = token && status === "active";
 
   return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
 };

@@ -47,7 +47,7 @@ export const AddStaff = () => {
     formData.append("ec_name", emergencyContactName);
     formData.append("ec_phone_number", emergencyContactPhone);
     formData.append("residential_address", residentialAddress);
-    formData.append("access_level", "Kitchen Staff");
+    formData.append("access_level", positionRank);
 
     if (profileImage) {
       formData.append("profile_pic", profileImage);
@@ -58,7 +58,8 @@ export const AddStaff = () => {
       formData.append("token", token);
     }
 
-    axios.post("http://fardin-mise-en.spentry.tech/api/save-staff", formData, {
+    axios
+      .post("http://fardin-mise-en.spentry.tech/api/save-staff", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           // Accept: "application/json",
@@ -111,11 +112,15 @@ export const AddStaff = () => {
             />
           </label>
 
-          <select className="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors text-sm">
-            <option className="text-white">Select Access Control Level*</option>
+          <select
+            className="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors text-sm"
+            onChange={(e) => setPositionRank(e.target.value)}
+            value={positionRank}
+          >
+            <option value="">Select Access Control Level*</option>
             <option value="Head Chef">Head Chef</option>
             <option value="Section Chef">Section Chef</option>
-            <option value="kitchen Stuff">kitchen Stuff</option>
+            <option value="kitchen Stuff">Kitchen Staff</option>
           </select>
         </div>
 
@@ -158,7 +163,9 @@ export const AddStaff = () => {
               </div>
               {/* DOB */}
               <div>
-                <label className="block text-gray-700 mb-1">Date of Birth</label>
+                <label className="block text-gray-700 mb-1">
+                  Date of Birth
+                </label>
                 <input
                   onChange={(e) => setDob(e.target.value)}
                   type="date"
@@ -167,7 +174,9 @@ export const AddStaff = () => {
               </div>
               {/* Password */}
               <div>
-                <label className="block text-gray-700 mb-1">Login Password</label>
+                <label className="block text-gray-700 mb-1">
+                  Login Password
+                </label>
                 <input
                   onChange={(e) => setLoginPassword(e.target.value)}
                   type="password"
@@ -177,9 +186,12 @@ export const AddStaff = () => {
               </div>
               {/* Position / Rank */}
               <div>
-                <label className="block text-gray-700 mb-1">Position / Rank</label>
+                <label className="block text-gray-700 mb-1">
+                  Position / Rank
+                </label>
                 <input
-                  onChange={(e) => setPositionRank(e.target.value)}
+                  disabled
+                  value={positionRank}
                   type="text"
                   placeholder="Rank"
                   className="w-full px-4 py-2 border-2 border-white rounded-lg focus:ring-2 focus:ring-orange-500 mb-4 shadow-xl"
@@ -187,7 +199,9 @@ export const AddStaff = () => {
               </div>
               {/* Employment Type */}
               <div>
-                <label className="block text-gray-700 mb-1">Employment Type</label>
+                <label className="block text-gray-700 mb-1">
+                  Employment Type
+                </label>
                 <select
                   onChange={(e) => setEmploymentType(e.target.value)}
                   className="w-full px-4 py-2 border-2 border-white rounded-lg focus:ring-2 focus:ring-orange-500 mb-4 shadow-xl"
@@ -200,7 +214,9 @@ export const AddStaff = () => {
               </div>
               {/* Weekly Salary */}
               <div>
-                <label className="block text-gray-700 mb-1">Weekly Salary</label>
+                <label className="block text-gray-700 mb-1">
+                  Weekly Salary
+                </label>
                 <input
                   onChange={(e) => setWeeklySalary(e.target.value)}
                   type="number"
@@ -220,7 +236,9 @@ export const AddStaff = () => {
               </div>
               {/* Emergency Contact */}
               <div>
-                <label className="block text-gray-700 mb-1">Emergency Contact</label>
+                <label className="block text-gray-700 mb-1">
+                  Emergency Contact
+                </label>
                 <div className="flex gap-2">
                   <input
                     onChange={(e) => setEmergencyContactName(e.target.value)}
@@ -238,7 +256,9 @@ export const AddStaff = () => {
               </div>
               {/* Residential Address */}
               <div className="md:col-span-2">
-                <label className="block text-gray-700 mb-1">Residential Address</label>
+                <label className="block text-gray-700 mb-1">
+                  Residential Address
+                </label>
                 <textarea
                   onChange={(e) => setResidentialAddress(e.target.value)}
                   rows={2}

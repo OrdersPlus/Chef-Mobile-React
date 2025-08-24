@@ -1,6 +1,6 @@
 import { NewOrdersMain } from "../../components/orders/newOrders/NewOrdersMain";
 import { HomeMain } from "../../components/orders/ordersHome/OrdersHomeMain";
-import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
+// import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
 import { SearchPagination } from "../../components/orders/ordersHome/SearchPagination";
 
 
@@ -8,7 +8,7 @@ import { SearchPagination } from "../../components/orders/ordersHome/SearchPagin
 export const NewOrderItem = () => {
   return (
     <div>
-      <ScrollableButton
+      {/* <ScrollableButton
         name="Suppliers"
         buttonLabels={[
           "Fardin",
@@ -16,8 +16,8 @@ export const NewOrderItem = () => {
           "ABC Food Wholesale",
           "ABC Meat & Poultry",
         ]}
-      />
-      <ScrollableButton
+      /> */}
+      {/* <ScrollableButton
         name="Categories"
         buttonLabels={[
           "Meat",
@@ -32,7 +32,7 @@ export const NewOrderItem = () => {
           "Bakery",
           "Condiments",
         ]}
-      />
+      /> */}
       <SearchPagination />
       <NewOrdersMain />
     </div>

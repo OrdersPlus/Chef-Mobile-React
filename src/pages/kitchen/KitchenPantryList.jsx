@@ -5,8 +5,8 @@ import NavButton from "../../components/kitchen/myKitchenSection/NavButton";
 import PantryListDetailsModal from "../../components/kitchen/kitchenModal/PantryListDetailsModal";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 import { useState } from "react";
-import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
-import { SectionsProvider } from "../../helper/ScrollableButtonsContext";
+import { SectionsProvider } from "../../helper/useContexts/ScrollableButtonsKitchenContext";
+import { ScrollableButtonKitchen } from "../../components/kitchen/common/ScrollableButtonKitchen";
 
 export const KitchenPantryList = () => {
    const [popUp, setPopUp] = useState(false)
@@ -64,7 +64,7 @@ export const KitchenPantryList = () => {
 
                   <div className="mb-8">
                     <SectionsProvider>
-                      <ScrollableButton />
+                      <ScrollableButtonKitchen />
                     </SectionsProvider>
                   </div>
 
