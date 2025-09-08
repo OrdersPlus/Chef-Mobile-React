@@ -28,7 +28,7 @@ import { SuppliersHome } from "../pages/suppliers/SuppliersHome";
 import StaffScheduleDay from "../pages/admin/StaffScheduleDay";
 import { QrLogin } from "../pages/QrLogin";
 import { Home } from "../pages/Home";
-import ProtectedLayout from "../helper/useContexts/ProtectedLayout";
+import ProtectedLayout from "../helper/middleware/ProtectedLayout";
 
 const router = createBrowserRouter([
     {
@@ -49,16 +49,16 @@ const router = createBrowserRouter([
   //   ]
   // }
   {
-    element: <ProtectedLayout />, // Guard
+    path: "/",
+    element: <MainLayouts />,
     children: [
+      {
+          index: true,
+          element: <Dashboard />,
+      },
     {
-        path: "/",
-        element: <MainLayouts />,
+        element: <ProtectedLayout />,
         children: [
-        {
-            index: true,
-            element: <Dashboard />,
-        },
         {
             path: "/orders/home",
             element: <OrdersHome />,
@@ -129,28 +129,28 @@ const router = createBrowserRouter([
 
 //arman
     {
-      path:"/admin/home",
+      path:"admin/home",
       element:<ManageTeam />,
     },
     {//done
-      path: "/admin/add-staff",
+      path: "admin/add-staff",
       element: <AddStaff />,
     },
     {
-      path: "/admin/edit-staff",
+      path: "admin/edit-staff",
       element: <EditStaff />
     },
     {
-      path: "/admin/roster",
+      path: "admin/roster",
       element: <RosterManagement />,
 
     },
     {
-      path: "/admin/roster/hours_controls",
+      path: "admin/roster/hours_controls",
       element: <EditRoster />
     },
     {
-      path: "/admin/roster/staff-attendance",
+      path: "admin/roster/staff-attendance",
       element: <Attendance />
     },
     // {
@@ -158,11 +158,11 @@ const router = createBrowserRouter([
     //   element: <Attendance />
     // },
     {
-      path: "/admin/roster/view",
+      path: "admin/roster/view",
        element: <StaffSchedule />
      },
     {
-      path: "/admin/roster/staff-schedule-day",
+      path: "admin/roster/staff-schedule-day",
        element: <StaffScheduleDay />
      },
 //arman

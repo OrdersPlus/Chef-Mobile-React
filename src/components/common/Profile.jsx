@@ -19,9 +19,7 @@ export const Profile = () => {
       localStorage.clear();
       navigate("/login");
     } else {
-      localStorage.clear();
-      alert("Returning to Login Page");
-      window.location.reload();
+
     }
   };
   return (

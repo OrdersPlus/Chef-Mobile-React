@@ -59,7 +59,7 @@ export const AddStaff = () => {
     }
 
     axios
-      .post("http://fardin-mise-en.spentry.tech/api/save-staff", formData, {
+      .post(import.meta.env.VITE_BACK_END_URL+"save-staff", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           // Accept: "application/json",

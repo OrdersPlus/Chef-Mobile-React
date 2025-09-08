@@ -4,13 +4,16 @@ import { FaRegEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { MdDelete } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { getAxios } from "../../helper/HelperAxios";
+import { deleteAxios, getAxios } from "../../helper/HelperAxios";
 import { LoadingEffect } from "../../components/custom/LoadingEffect";
+import { CommonPagination } from "../../components/custom/CommonPagination";
 export const ManageTeam = () => {
   // const [mobileOpen, setMobileOpen] = useState(false);
-  const [loader, setLoader] = useState(false);
-  const [manageTeam, setManageTeam] = useState([]);
   const navigate = useNavigate();
+  const [loader, setLoader] = useState(false);
+  const [manageTeamObj, setManageTeamObj] = useState();
+  const [manageTeamPagination, setManageTeamPagination] = useState();
+  const [manageTeam, setManageTeam] = useState();
 
   const handleClick = () => {
     navigate("/admin/add-staff");
@@ -22,10 +25,50 @@ export const ManageTeam = () => {
     navigate("/admin/edit-staff");
   };
   useEffect(()=>{
-    const fetchData= async ()=>{ await getAxios(import.meta.env.VITE_BACK_END_URL+'admin/home', setLoader, setManageTeam) }
+    const fetchData= async ()=>{ await getAxios(import.meta.env.VITE_BACK_END_URL+'admin/home', setManageTeamObj, setLoader) }
     fetchData();
   },[])
-    // console.log(manageTeam)
+
+  useEffect(() => {
+    if (manageTeamObj?.data) {
+      setManageTeamPagination({
+        current_page: manageTeamObj.data.current_page,
+        first_page_url: manageTeamObj.data.first_page_url,
+        from: manageTeamObj.data.from,
+        last_page: manageTeamObj.data.last_page,
+        last_page_url: manageTeamObj.data.last_page_url,
+        links: manageTeamObj.data.links,
+        next_page_url: manageTeamObj.data.next_page_url,
+        path: manageTeamObj.data.path,
+        per_page: manageTeamObj.data.per_page,
+        prev_page_url: manageTeamObj.data.prev_page_url,
+        to: manageTeamObj.data.to,
+        total: manageTeamObj.data.total,
+      });
+      setManageTeam(manageTeamObj?.data?.data);
+    }
+  }, [manageTeamObj]);
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDebouncedSearch(searchTerm);
+    }, 1000);
+
+    return () => clearTimeout(timeout);
+  }, [searchTerm]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = `${import.meta.env.VITE_BACK_END_URL}admin/home?search=${debouncedSearch}`;
+      await getAxios(url, setManageTeamObj, setLoader);
+    };
+    fetchData();
+  }, [debouncedSearch]);
+
+
+  // console.log(manageTeamPagination)
   return (
     <div className="bg-white-100 min-h-screen font-sans">
       <header className="bg-white shadow-sm py-3 px-4 flex items-center justify-between border-b border-gray-200">
@@ -49,7 +92,7 @@ export const ManageTeam = () => {
           </button>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <button
             onClick={handleClick}
             className="flex items-center gap-2 px-6 py-2 bg-orange-500 text-white rounded-md shadow-md text-sm"
@@ -71,7 +114,7 @@ export const ManageTeam = () => {
             New Staff
           </button>
         </div>
-        <div className="flex items-center justify-end mt-4">
+        {/* <div className="flex items-center justify-end mt-4">
           <nav
             className="relative z-0 inline-flex shadow-sm -space-x-px"
             aria-label="Pagination"
@@ -127,9 +170,16 @@ export const ManageTeam = () => {
               </svg>
             </a>
           </nav>
-        </div>
-
-                  {loader && <LoadingEffect />}
+        </div> */}
+        <CommonPagination
+          paginationData={manageTeamPagination}
+          onPageChange={(page) => {
+            getAxios(`${import.meta.env.VITE_BACK_END_URL}admin/home?page=${page}&search=${debouncedSearch}`, setManageTeamObj, setLoader);
+          }}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
+        {loader && <LoadingEffect />}
         <div className="bg-white rounded-lg shadow-md overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
@@ -188,8 +238,12 @@ export const ManageTeam = () => {
                       </button>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                      <button className="text-orange-500 inline-block">
-                        <MdDelete className="h-6 w-6 text-red-500" />
+                      <button className="text-orange-500 inline-block ">
+                        <MdDelete 
+                          onClick={() => deleteAxios(
+                              `${import.meta.env.VITE_BACK_END_URL}admin/staff`,`${user.id}`, setManageTeam, setLoader,"User Deleted Successfully")
+                            }
+                        className="h-6 w-6 text-red-500 cursor-pointer" />
                       </button>
                     </td>
                   </tr>
