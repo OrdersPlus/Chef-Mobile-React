@@ -129,28 +129,28 @@ const router = createBrowserRouter([
 
 //arman
     {
-      path:"admin/home",
+      path:"/admin/home",
       element:<ManageTeam />,
     },
     {//done
-      path: "admin/add-staff",
+      path: "/admin/add-staff",
       element: <AddStaff />,
     },
     {
-      path: "admin/edit-staff",
+      path: "/admin/edit-staff/:id",
       element: <EditStaff />
     },
     {
-      path: "admin/roster",
+      path: "/admin/roster",
       element: <RosterManagement />,
 
     },
     {
-      path: "admin/roster/hours_controls",
+      path: "/admin/roster/hours_controls",
       element: <EditRoster />
     },
     {
-      path: "admin/roster/staff-attendance",
+      path: "/admin/roster/staff-attendance",
       element: <Attendance />
     },
     // {
@@ -158,11 +158,11 @@ const router = createBrowserRouter([
     //   element: <Attendance />
     // },
     {
-      path: "admin/roster/view",
+      path: "/admin/roster/view",
        element: <StaffSchedule />
      },
     {
-      path: "admin/roster/staff-schedule-day",
+      path: "/admin/roster/staff-schedule-day",
        element: <StaffScheduleDay />
      },
 //arman
@@ -176,7 +176,7 @@ const router = createBrowserRouter([
     //     element: <NotFound />,
     // },
     {
-        path: "test",
+        path: "/test",
         element: <Home />,
     },
 

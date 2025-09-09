@@ -63,10 +63,13 @@ export async function postAxios(url, setLoader, setObject, token = true, content
     // }
     const response = await axios.post(url, setObject, { headers });
     // await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log(response.data);
-     return response.data;
+    // console.log(response.data);
+    //  return response.data;
+    successToast(response?.data?.message);
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error fetching data:', error?.response?.data);
+    errorToast(error?.response?.data?.message);
+
   } finally {
     setLoader(false);
   }
