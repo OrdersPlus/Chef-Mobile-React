@@ -13,14 +13,9 @@ export const Profile = () => {
   const [loader, setLoader] = useState(false)
   // const [object, setObject] = useState([])
   const handleLogout = async () => {
-    const res = await postAxios(
-      import.meta.env.VITE_BACK_END_URL + "logout", setLoader, {}, true, true);
-    if (res?.status === 'success') {
+    const res = await postAxios( import.meta.env.VITE_BACK_END_URL + "logout", setLoader, {}, false, true);
       localStorage.clear();
       navigate("/login");
-    } else {
-
-    }
   };
   return (
 <div>

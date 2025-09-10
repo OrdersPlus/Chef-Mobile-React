@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
 
 import { FaRegEdit } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import { MdDelete } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { deleteAxios, getAxios } from "../../helper/HelperAxios";
@@ -21,9 +21,9 @@ export const ManageTeam = () => {
   const rosterClick = () => {
     navigate("/admin/roster");
   };
-  const editClick = () => {
-    navigate("/admin/edit-staff");
-  };
+  // const editClick = () => {
+  //   navigate("/admin/edit-staff");
+  // };
   useEffect(()=>{
     const fetchData= async ()=>{ await getAxios(import.meta.env.VITE_BACK_END_URL+'admin/home', setManageTeamObj, setLoader) }
     fetchData();
@@ -233,9 +233,9 @@ export const ManageTeam = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.phone_no}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.ec_name} ({user.ec_phone_number})</td>
                     <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                      <button onClick={editClick} className="text-orange-500 inline-block">
-                        <FaRegEdit className="h-5 w-5" />
-                      </button>
+                        <Link to={`/admin/edit-staff/${user.id}`} className="text-orange-500 inline-block">
+                          <FaRegEdit className="h-5 w-5 cursor-pointer" />
+                        </Link>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                       <button className="text-orange-500 inline-block ">
