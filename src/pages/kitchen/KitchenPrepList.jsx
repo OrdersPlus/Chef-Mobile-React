@@ -10,14 +10,82 @@ import { SearchPagination } from "../../components/orders/ordersHome/SearchPagin
 import PrepAddModal from "../../components/kitchen/kitchenModal/PrepAddModal";
 import PrepEditModal from "../../components/kitchen/kitchenModal/PrepEditModal";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SectionsProvider } from "../../helper/useContexts/ScrollableButtonsKitchenContext";
 import { ScrollableButtonKitchen } from "../../components/kitchen/common/ScrollableButtonKitchen";
+import { deleteAxios, getAxios } from "../../helper/HelperAxios";
+import { LoadingEffect } from "../../components/custom/LoadingEffect";
+import { CommonPagination } from "../../components/custom/CommonPagination";
 // import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
 
 export const KitchenPrepList = () => {
    const [popUp, setPopUp] = useState(false)
+
+   
+  
+   const [loader, setLoader] = useState(false);
+   
+   const [PrepItemsObj, setPrepItemsObj] = useState();
+   const [PrepItemsPagination, setPrepItemsPagination] = useState();
+   const [prepItems, setPrepItems] = useState();
+
+  useEffect(() => {
+     const fetchData = async () => {
+       await getAxios(
+         import.meta.env.VITE_BACK_END_URL + `kitchen/prep-list/assign-task`,
+         setPrepItemsObj,
+         setLoader
+       );
+     };
+     fetchData();
+  }, []);
+
+    useEffect(() => {
+    if (PrepItemsObj) {
+      setPrepItemsPagination({
+        current_page: PrepItemsObj?.data?.current_page,
+        first_page_url: PrepItemsObj?.data?.first_page_url,
+        from: PrepItemsObj?.data?.from,
+        last_page: PrepItemsObj?.data?.last_page,
+        last_page_url: PrepItemsObj?.data?.last_page_url,
+        links: PrepItemsObj?.data?.links,
+        next_page_url: PrepItemsObj?.data?.next_page_url,
+        path: PrepItemsObj?.data?.path,
+        per_page: PrepItemsObj?.data?.per_page,
+        prev_page_url: PrepItemsObj?.data?.prev_page_url,
+        to: PrepItemsObj?.data?.to,
+        total: PrepItemsObj?.data?.total,
+      });
+      setPrepItems(PrepItemsObj?.data?.data);
+    }
+  }, [PrepItemsObj]);
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDebouncedSearch(searchTerm);
+    }, 1000);
+
+    return () => clearTimeout(timeout);
+  }, [searchTerm]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = `${import.meta.env.VITE_BACK_END_URL}kitchen/prep-list/assign-task?search=${debouncedSearch}`;
+      await getAxios(url, setPrepItemsObj, setLoader);
+    };
+    fetchData();
+  }, [debouncedSearch]);
+
+console.log(prepItems)
+
+
+
+  
   return (
+    <>
+      {loader && <LoadingEffect />}
     <div>
       <div className="pb-24 max-w-screen-lg mx-auto ">
         <div className="mt-4 flex flex-wrap justify-between gap-2 items-center">
@@ -74,7 +142,15 @@ export const KitchenPrepList = () => {
           </div>
         </div>
 
-        <SearchPagination />
+        {/* <SearchPagination /> */}
+        <CommonPagination
+          paginationData={PrepItemsPagination}
+          onPageChange={(page) => {
+            getAxios(`${import.meta.env.VITE_BACK_END_URL}kitchen/prep-list/assign-task?page=${page}&search=${debouncedSearch}`, setPrepItemsObj, setLoader);
+          }}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
 
         <h1 className="text-xl font-semibold text-center">Ladder Prep List</h1>
 
@@ -113,33 +189,50 @@ export const KitchenPrepList = () => {
                 </tr>
               </thead>
               <tbody className="text-sm">
-                {[1, 2, 3, 4].map((_, index) => (
+
+              {Array.isArray(prepItems) &&
+                prepItems?.map((item, index) => (
                   <tr
-                    key={index}
-                    className="rounded-lg shadow-xl shadow-gray-300"
+                  key={index}
+                  className="rounded-lg shadow-xl shadow-gray-300"
                   >
                     <td className="py-3 px-4"></td>
                     <td className="py-3 font-semibold w-full text-black px-2">
-                      22-05-2024
+                      {item.date}
                     </td>
-                    <td className="py-2 w-40 text-black px-4">Alex</td>
-                    <td className="py-3 px-4">Wash potato </td>
+                    <td className="py-2 w-40 text-black px-4">{item?.assigned_to?.full_name}</td>
+                    <td className="py-3 px-4">{item.prep_item}</td>
                     <td className="py-3 font-semibold w-40 text-black px-4">
-                      10 Kg
+                      {item.qtyRequired}
                     </td>
                     <td className="py-3 font-semibold w-40 text-black px-4">
-                      01:18
+                      {item.start_time}
                     </td>
-                    <td className="py-3 px-4">3 min</td>
-                    <td className="  py-3 px-4">01:21</td>
+                    <td className="py-3 px-4">{item.end_time}</td>
+                    <td className="  py-3 px-4">{item.time_count}</td>
                     <td className="py-3 px-4 flex gap-12 my-2">
                       <FaRegEdit
                         className="text-amber-500 w-5 h-5"
                         onClick={() =>
+
+                        
                           document.getElementById("add_modal2").showModal()
                         }
                       />
-                      <MdDelete className="text-red-500 w-5 h-5" />
+                      <MdDelete
+                        onClick={() =>
+                          deleteAxios(
+                            import.meta.env.VITE_BACK_END_URL +
+                              `kitchen/prep-list/delete-task`,
+                              item?.id,
+                              setPrepItems,
+                               setLoader,
+                               true,
+                               "Prep item Deleted Successfully"
+                          )
+                        }
+                        className="text-red-500 w-5 h-5"
+                      />
                     </td>
                   </tr>
                 ))}
@@ -151,5 +244,7 @@ export const KitchenPrepList = () => {
       <PrepAddModal />
       <PrepEditModal />
     </div>
+
+    </>
   );
 };

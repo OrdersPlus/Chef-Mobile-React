@@ -16,25 +16,12 @@ import { ScrollableButtonKitchen } from "../../components/kitchen/common/Scrolla
 export const KitchenHome = () => {
   const [popUp, setPopUp] = useState(false);
   const [lastAddedSection, setLastAddedSection] = useState(null);
-  // const [selectedSectionForEdit, setSelectedSectionForEdit] = useState(null);
+  const [selectedSectionForEdit, setSelectedSectionForEdit] = useState(null);
   const [sections, setSections] = useState([]);
   const [chefName, setChefName] = useState([]);
 
             //  <ScrollableButton buttonLabels={sections} />
-useEffect(() => {
-  axios
-    .get("http://onti-mise-en.spentry.tech/api/sections")
-    .then((res) => {
-      setSections(res.data.sections);
-      // console.log(res.data.sections);
-      setChefName(res.data.chefs);
-      // console.log(res.data.chefs);
 
-    })
-    .catch((err) => {
-      console.error("Failed to fetch sections:", err);
-    });
-}, []);
 
 const handleAddSection = (newSection) => {
 //   setLastAddedSection(newSection);
@@ -56,8 +43,9 @@ const handleEditClick = () => {
   //   alert("No section available to edit!");
   //   return;
   // }
-  setSelectedSectionForEdit(sectionToEdit);
+  // setSelectedSectionForEdit(sectionToEdit);
   document.getElementById("edit_modal").showModal();
+  console.log("sections")
 };
    // Only dynamically generated section names are included now
   // const combinedButtonLabels = sections.map((section) => section.name);

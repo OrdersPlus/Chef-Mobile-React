@@ -1,6 +1,10 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 const PrepEditModal = () => {
+
+  const {task} = useParams();
+
   return (
   <dialog id="add_modal2" className="modal">
         <div className="modal-box">
