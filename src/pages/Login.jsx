@@ -25,8 +25,10 @@ const userLogin= (event)=>{
     },
   })
   .then(res => {
-    // console.log("✅ Success:", res.data.message.token);
-    localStorage.setItem('token', res.data.data.token);
+
+    // console.log("✅ Success:", res.data);
+    localStorage.setItem('token', res?.data?.data?.token);
+
     localStorage.setItem('status', 'active');
     // successToast("login succesfull");
     // setTimeout(()=>{
