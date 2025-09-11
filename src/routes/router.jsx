@@ -105,12 +105,12 @@ const router = createBrowserRouter([
       element: <SuppliersHome />,
     },
     {
-      path: "/suppliers/product_list",
+      path: "/suppliers/product-list/:id",
       element: <SupplierProductList />,
     },
 
     {
-      path: "/suppliers/details",
+      path: "/suppliers/details/:id",
       element: <SupplierDetails />,
     },
     {
