@@ -36,7 +36,7 @@ const ProductListButton = () => {
           className="bg-[var(--primary-color)] text-[var(--text-secondary)] border-2 border-[var(--border-color] rounded-lg p-1"
         >
           <option>All Category</option>
-          <option>Meat</option>
+          {/* <option>Meat</option> */}
         </select>
 
         <div className="relative " ref={menuRef}>

@@ -1,19 +1,19 @@
-import React from 'react'
-
-const SupplierDetailsBody = () => {
+const SupplierDetailsBody = ({details}) => {
+  const data = details?.data;
+  const warehouse = JSON.parse(data?.warehouse_address || '{}');
+  // console.log(warehouse)
   return (
-    
     <div className='m-2 rounded-md bg-[var(--secondary-color)] shadow-md space-y-4 mb-2 mt-3'>
    {/* Supplier Info Cards */}
         <div className="space-y-4 pt-4 pb-4  m-4">
           {[
-            { label: "Company Name", value: "ABC Meat & Poultry" },
-            { label: "Trading Name", value: "Damen" },
-            { label: "Account Manager", value: "Md Hasan" },
-            { label: "Email", value: "md@orderplus.com" },
-            { label: "Phone Number", value: "040404041" },
-            { label: "Office Address", value: "New South Wales - Sydney - Belmore - 45 Yangooro road" },
-            { label: "Warehouse Address", value: "- - -" },
+            { label: "Company Name", value: data?.company_name },
+            { label: "Trading Name", value: data?.alias_name },
+            { label: "Account Manager", value: data?.abn_number },
+            { label: "Email", value: data?.email },
+            { label: "Phone Number", value: data?.phone_number },
+            { label: "Office Address", value: data?.office_street_address },
+            { label: "Warehouse Address", value: `${warehouse?.street_address}, ${warehouse?.suburb}, ${warehouse?.city}, ${warehouse?.state}, ${warehouse?.post_code}, ` },
           ].map(({ label, value }) => (
             <div
               key={label}

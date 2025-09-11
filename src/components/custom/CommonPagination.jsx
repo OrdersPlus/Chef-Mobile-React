@@ -6,7 +6,7 @@ export const CommonPagination = ({ paginationData, onPageChange, searchTerm, set
   const { current_page, last_page, links, from, to, total } = paginationData;
 
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white py-3">
+    <div className="m-1 flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white py-3">
       {/* Pagination controls */}
       <div className="flex justify-between gap-3">
         {/* Search Bar Container */}
