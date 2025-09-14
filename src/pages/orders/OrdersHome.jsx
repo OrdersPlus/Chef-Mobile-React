@@ -32,7 +32,7 @@ export const OrdersHome = () => {
           "ABC Meat & Poultry",
         ]}
       /> */}
-      <SearchPagination />
+      {/* <SearchPagination /> */}
 
       <HomeMain />
     </div>

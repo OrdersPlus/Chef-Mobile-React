@@ -105,12 +105,27 @@ export async function deleteAxios( url, id, setObjects, setLoader, token = false
 export const confirmDelete = async () => {
     const result = await Swal.fire({
       title: "Are you sure?",
-      text: "You won’t be able to revert this!",
+      text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#d33", // red
       cancelButtonColor: "#3085d6", // blue
       confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "Cancel",
+      reverseButtons: true,
+    });
+  return result.isConfirmed;
+}
+
+export const confirmAction = async (text="You won't be able to revert this!") => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: text,
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#008000", // red
+      cancelButtonColor: "#3085d6", // blue
+      confirmButtonText: "Yes, Confirm!",
       cancelButtonText: "Cancel",
       reverseButtons: true,
     });

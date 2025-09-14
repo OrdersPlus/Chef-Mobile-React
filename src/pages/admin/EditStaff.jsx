@@ -88,7 +88,7 @@ export const EditStaff = () => {
     const file = e.target.files[0];
     setProfileImage(file);
   };
-console.log(taxFileNumber)
+// console.log(taxFileNumber)
   return (
     <>
       {loader && <LoadingEffect />}
