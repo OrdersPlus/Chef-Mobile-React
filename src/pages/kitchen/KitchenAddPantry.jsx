@@ -7,8 +7,29 @@ import NavButton from "../../components/kitchen/myKitchenSection/NavButton";
 import { SearchPagination } from "../../components/orders/ordersHome/SearchPagination";
 import EditPentryDetailsModal from "../../components/kitchen/kitchenModal/EditPentryDetailsModal";
 import EditPantryCartModal from "../../components/kitchen/kitchenModal/EditPantryCartModal";
+import { useEffect, useState } from "react";
+import { getAxios } from "../../helper/HelperAxios";
 
 export const KitchenAddPantry = () => {
+
+    const [store, setStore] = useState()
+    const [loader, setLoader] = useState(false);
+
+    const[show,setShow] = useState();
+  
+    useEffect(() => {
+     const fetchData = async () => {
+       await getAxios(
+         import.meta.env.VITE_BACK_END_URL + `kitchen/add-to-pantry`,
+         setStore,
+        setLoader
+       );
+     };
+     fetchData();
+  
+    }, []);
+  
+     console.log("data", store);
   return (
     <div>
       <h1 className="text-xl font-bold text-center mb-2">Add to Pantry</h1>
@@ -77,7 +98,7 @@ export const KitchenAddPantry = () => {
               </tr>
             </thead>
             <tbody className="text-sm">
-              {[1, 2, 3].map((_, index) => (
+              {store?.data?.data?.map((item, index) => (
                 <tr
                   key={index}
                   className="rounded-lg shadow-xl shadow-gray-300"
@@ -91,34 +112,35 @@ export const KitchenAddPantry = () => {
                       }}
                     >
                       <img
-                        src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3"
+                        src= {item?.product_image}
                         alt="Beef Tenderloin"
                         className="w-12 h-12 object-cover rounded-lg"
                       />
                     </div>
                   </td>
                   <td className="py-3 font-semibold w-40 text-black px-2">
-                    BTL-12345
+                   { item?.sku }
                   </td>
                   <td className="py-2 w-40 text-black px-4">
                     <div className="flex flex-col">
-                      <span className="font-semibold">Beef Tenderloin</span>
-                      <span className="text-gray-600">1 kg</span>
+                      <span className="font-semibold">{item?.name}</span>
+                      <span className="text-gray-600"></span>
                     </div>
                   </td>
                   <td className="py-3 px-4"></td>
                   <td className="py-3 font-semibold w-40 text-black px-4">
-                    Meat
+                    { item?.category }
                   </td>
                   <td className="py-3 font-semibold w-40 text-black px-4">
-                    $54.00
+                    { item?.rrp}
                   </td>
                   <td className="py-3 px-4">
                     <CiSearch
                       className="w-6 h-6"
-                      onClick={() =>
-                        document.getElementById("searchModal").showModal()
-                      }
+                      onClick={() => {
+                        setShow(item);
+                        document.getElementById("searchModal").showModal();
+                      }}
                     />
                   </td>
                   <td className="  py-3 px-4">
@@ -127,9 +149,10 @@ export const KitchenAddPantry = () => {
                   <td className="py-3 px-4">
                     <AiOutlineShoppingCart
                       className="w-6 h-6 text-amber-500"
-                      onClick={() =>
+                      onClick={() => {
+                      
                         document.getElementById("productModal2").showModal()
-                      }
+                      }}
                     />
                   </td>
                 </tr>
@@ -139,8 +162,12 @@ export const KitchenAddPantry = () => {
         </div>
       </div>
 
-      <EditPantryCartModal />
-      <EditPentryDetailsModal />
+      <EditPantryCartModal
+           />
+      <EditPentryDetailsModal
+       items={show} 
+
+      />
     </div>
   );
 };

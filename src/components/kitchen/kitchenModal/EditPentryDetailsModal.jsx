@@ -1,6 +1,8 @@
 import React from "react";
 
-const EditPentryDetailsModal = () => {
+const EditPentryDetailsModal = ({items}) => {
+
+  console.log("items",items)
   return (
     <dialog id="searchModal" className="modal">
       <div className="modal-box w-[90%] sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg h-auto rounded-2xl shadow-lg relative pt-4 p-4">
@@ -13,7 +15,7 @@ const EditPentryDetailsModal = () => {
 
         {/* Title */}
         <h2 className="text-2xl font-semibold text-orange-500 mb-4 text-center sm:text-left">
-          Beef Tenderloin
+        {items?.name}
         </h2>
 
         {/* Content Area */}
@@ -21,7 +23,7 @@ const EditPentryDetailsModal = () => {
           {/* Image (Smaller, Aligned) */}
           <div className="w-full sm:w-[40%] flex justify-center sm:justify-start">
             <img
-              src="https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3"
+              src={items?.product_image}
               alt="Beef Tenderloin"
               className="rounded-lg w-28 h-20 object-cover border-2 border-gray-400 shadow"
               style={{
@@ -34,19 +36,19 @@ const EditPentryDetailsModal = () => {
           <div className="w-full sm:w-[60%] space-y-1 text-sm text-center">
             <div>
               <strong className="text-gray-700">Brand:</strong>{" "}
-              <span className="text-gray-600">A1C Traming</span>
+              <span className="text-gray-600">{items?.product_brand}</span>
             </div>
             <div>
               <strong className="text-gray-700">Cost:</strong>{" "}
-              <span className="text-gray-600">1 kg</span>
+              <span className="text-gray-600">{items?.cost_price}</span>
             </div>
             <div>
               <strong className="text-gray-700">SKU:</strong>{" "}
-              <span className="text-gray-600">EFL-3,855</span>
+              <span className="text-gray-600">{items?.sku}</span>
             </div>
             <div className="flex items-center space-x-2 mt-2 justify-center">
               <strong className="text-gray-700">Price:</strong>
-              <span className="text-lg font-semibold text-gray-900">$7.02</span>
+              <span className="text-lg font-semibold text-gray-900">${items?.rrp}</span>
             </div>
           </div>
         </div>

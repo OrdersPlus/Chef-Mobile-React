@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Footer } from "../common/Footer";
 import { Nav } from "../common/Nav";
 import { CiSearch } from "react-icons/ci";
@@ -10,8 +10,11 @@ import NavButton from "./NavButton";
 import SearchPagination from "../common/SearchPagination";
 import EditPantryCartModal from "../common/modal/EditPantryCartModal";
 import EditPentryDetailsModal from "../common/modal/EditPentryDetailsModal";
+import { getAxios } from "../../../helper/HelperAxios";
 
 const AddToPantry = () => {
+
+
   return (
     <div>
       <Nav />
@@ -81,7 +84,7 @@ const AddToPantry = () => {
               </tr>
             </thead>
             <tbody className="text-sm">
-              {[1, 2, 3].map((_, index) => (
+              {.map((_, index) => (
                 <tr
                   key={index}
                   className="rounded-lg shadow-xl shadow-gray-300"
