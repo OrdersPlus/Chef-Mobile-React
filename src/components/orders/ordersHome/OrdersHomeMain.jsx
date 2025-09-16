@@ -1,11 +1,12 @@
 import { FaCartPlus, FaListAlt } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
-import PantryListDetailsModal from "../../kitchen/kitchenModal/PantryListDetailsModal";
+// import PantryListDetailsModal from "../../kitchen/kitchenModal/PantryListDetailsModal";
 import { CommonPagination } from "../../custom/CommonPagination";
 import { LoadingEffect } from "../../custom/LoadingEffect";
 import { useEffect, useState } from "react";
 import { confirmAction, deleteAxios, getAxios, postAxios } from "../../../helper/HelperAxios";
 import { ScrollableButton } from "../../common/ScrollableButton";
+import AddToCartModal from "../commonForOrder/AddToCartModal";
 
 export const HomeMain = () => {
   // const navigate = useNavigate();
@@ -201,7 +202,7 @@ export const HomeMain = () => {
           </div>
         ))}
 
-        <PantryListDetailsModal
+        <AddToCartModal
         items={sendModalItems}
         />
       </div>
