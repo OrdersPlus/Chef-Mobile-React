@@ -19,15 +19,23 @@ import { CommonPagination } from "../../components/custom/CommonPagination";
 // import { ScrollableButton } from "../../components/orders/ordersHome/ScrollableButton";
 
 export const KitchenPrepList = () => {
+
+
+  const [prep, setPrep] = useState()
+   const [selectedTask, setSelectedTask] = useState(); 
+
    const [popUp, setPopUp] = useState(false)
 
    
+
+  const [prepShow, setPrepShow] = useState();
   
    const [loader, setLoader] = useState(false);
    
    const [PrepItemsObj, setPrepItemsObj] = useState();
    const [PrepItemsPagination, setPrepItemsPagination] = useState();
    const [prepItems, setPrepItems] = useState();
+   const [sections, setSections] = useState();
 
   useEffect(() => {
      const fetchData = async () => {
@@ -43,20 +51,21 @@ export const KitchenPrepList = () => {
     useEffect(() => {
     if (PrepItemsObj) {
       setPrepItemsPagination({
-        current_page: PrepItemsObj?.data?.current_page,
-        first_page_url: PrepItemsObj?.data?.first_page_url,
-        from: PrepItemsObj?.data?.from,
-        last_page: PrepItemsObj?.data?.last_page,
-        last_page_url: PrepItemsObj?.data?.last_page_url,
-        links: PrepItemsObj?.data?.links,
-        next_page_url: PrepItemsObj?.data?.next_page_url,
-        path: PrepItemsObj?.data?.path,
-        per_page: PrepItemsObj?.data?.per_page,
-        prev_page_url: PrepItemsObj?.data?.prev_page_url,
-        to: PrepItemsObj?.data?.to,
-        total: PrepItemsObj?.data?.total,
+        current_page: PrepItemsObj?.prepLists?.current_page,
+        first_page_url: PrepItemsObj?.prepLists?.first_page_url,
+        from: PrepItemsObj?.prepLists?.from,
+        last_page: PrepItemsObj?.prepLists?.last_page,
+        last_page_url: PrepItemsObj?.prepLists?.last_page_url,
+        links: PrepItemsObj?.prepLists?.links,
+        next_page_url: PrepItemsObj?.prepLists?.next_page_url,
+        path: PrepItemsObj?.prepLists?.path,
+        per_page: PrepItemsObj?.prepLists?.per_page,
+        prev_page_url: PrepItemsObj?.prepLists?.prev_page_url,
+        to: PrepItemsObj?.prepLists?.to,
+        total: PrepItemsObj?.prepLists?.total,
       });
-      setPrepItems(PrepItemsObj?.data?.data);
+      setPrepItems(PrepItemsObj?.prepLists?.data);
+      setSections(PrepItemsObj?.sections);
     }
   }, [PrepItemsObj]);
 
@@ -77,11 +86,6 @@ export const KitchenPrepList = () => {
     };
     fetchData();
   }, [debouncedSearch]);
-
-console.log(prepItems)
-
-
-
   
   return (
     <>
@@ -196,6 +200,7 @@ console.log(prepItems)
                   key={index}
                   className="rounded-lg shadow-xl shadow-gray-300"
                   >
+                  
                     <td className="py-3 px-4"></td>
                     <td className="py-3 font-semibold w-full text-black px-2">
                       {item.date}
@@ -213,11 +218,10 @@ console.log(prepItems)
                     <td className="py-3 px-4 flex gap-12 my-2">
                       <FaRegEdit
                         className="text-amber-500 w-5 h-5"
-                        onClick={() =>
-
-                        
-                          document.getElementById("add_modal2").showModal()
-                        }
+                        onClick={() => {
+                           setSelectedTask(item);
+                          document.getElementById("add_modal2").showModal();
+                        }}
                       />
                       <MdDelete
                         onClick={() =>
@@ -241,8 +245,11 @@ console.log(prepItems)
           </div>
         </div>
       </div>
-      <PrepAddModal />
-      <PrepEditModal />
+      <PrepAddModal
+        sections={sections}
+      
+      />
+      <PrepEditModal sections={sections} task={selectedTask} />
     </div>
 
     </>
