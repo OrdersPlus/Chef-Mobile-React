@@ -163,8 +163,10 @@ export const HomeMain = () => {
                 >
                   <img
                     src={
-                      item?.product?.product_image ??
-                      "https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/b8eiofak8bph9can0voh"
+                      item?.product?.product_image?.startsWith("http")
+                        ? item?.product?.product_image
+                        : 
+                      `https://res.cloudinary.com/dnawewlz7/image/upload/v1/${item?.product?.product_image}`
                     }
                     alt={item?.product?.name || "Unnamed Product"}
                     className="w-12 h-12 object-cover rounded-lg"

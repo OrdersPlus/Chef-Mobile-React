@@ -254,7 +254,7 @@ export const KitchenPrepList = () => {
                             onClick={() =>
                               deleteAxios(
                                 import.meta.env.VITE_BACK_END_URL +
-                                  `kitchen/prep-list/delete-task`,
+                                  `kitchen/prep-lists/delete-task`,
                                 item?.id,
                                 setPrepItems,
                                 setLoader,
