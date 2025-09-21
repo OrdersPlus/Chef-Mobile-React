@@ -11,25 +11,23 @@ import { useEffect, useState } from "react";
 import { getAxios } from "../../helper/HelperAxios";
 
 export const KitchenAddPantry = () => {
+  const [store, setStore] = useState();
+  const [loader, setLoader] = useState(false);
 
-    const [store, setStore] = useState()
-    const [loader, setLoader] = useState(false);
+  const [show, setShow] = useState();
 
-    const[show,setShow] = useState();
-  
-    useEffect(() => {
-     const fetchData = async () => {
-       await getAxios(
-         import.meta.env.VITE_BACK_END_URL + `kitchen/add-to-pantry`,
-         setStore,
+  useEffect(() => {
+    const fetchData = async () => {
+      await getAxios(
+        import.meta.env.VITE_BACK_END_URL + `kitchen/add-to-pantry`,
+        setStore,
         setLoader
-       );
-     };
-     fetchData();
-  
-    }, []);
-  
-     console.log("data", store);
+      );
+    };
+    fetchData();
+  }, []);
+
+  console.log("data", store);
   return (
     <div>
       <h1 className="text-xl font-bold text-center mb-2">Add to Pantry</h1>
@@ -42,7 +40,7 @@ export const KitchenAddPantry = () => {
         <div className="flex gap-2">
           {/* Active Tab */}
           <button className="px-4 py-2 text-sm font-semibold rounded border border-orange-500 bg-orange-500 text-white">
-            ABC Meat & Poultry 
+            ABC Meat & Poultry
           </button>
 
           {/* Inactive Tab */}
@@ -112,14 +110,18 @@ export const KitchenAddPantry = () => {
                       }}
                     >
                       <img
-                        src= {item?.product_image}
+                        src={
+                          item?.product_image?.startsWith("http")
+                            ? item?.product_image
+                            : `https://res.cloudinary.com/dnawewlz7/image/upload/v1/${item?.product_image}`
+                        }
                         alt="Beef Tenderloin"
                         className="w-12 h-12 object-cover rounded-lg"
                       />
                     </div>
                   </td>
                   <td className="py-3 font-semibold w-40 text-black px-2">
-                   { item?.sku }
+                    {item?.sku}
                   </td>
                   <td className="py-2 w-40 text-black px-4">
                     <div className="flex flex-col">
@@ -129,10 +131,10 @@ export const KitchenAddPantry = () => {
                   </td>
                   <td className="py-3 px-4"></td>
                   <td className="py-3 font-semibold w-40 text-black px-4">
-                    { item?.category }
+                    {item?.category}
                   </td>
                   <td className="py-3 font-semibold w-40 text-black px-4">
-                    { item?.rrp}
+                    {item?.rrp}
                   </td>
                   <td className="py-3 px-4">
                     <CiSearch
@@ -150,8 +152,7 @@ export const KitchenAddPantry = () => {
                     <AiOutlineShoppingCart
                       className="w-6 h-6 text-amber-500"
                       onClick={() => {
-                      
-                        document.getElementById("productModal2").showModal()
+                        document.getElementById("productModal2").showModal();
                       }}
                     />
                   </td>
@@ -162,12 +163,8 @@ export const KitchenAddPantry = () => {
         </div>
       </div>
 
-      <EditPantryCartModal
-           />
-      <EditPentryDetailsModal
-       items={show} 
-
-      />
+      <EditPantryCartModal />
+      <EditPentryDetailsModal items={show} />
     </div>
   );
 };

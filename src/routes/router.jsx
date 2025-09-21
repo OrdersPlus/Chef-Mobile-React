@@ -27,7 +27,6 @@ import StaffSchedule from "../pages/admin/StaffSchedule";
 import { SuppliersHome } from "../pages/suppliers/SuppliersHome";
 import StaffScheduleDay from "../pages/admin/StaffScheduleDay";
 import { QrLogin } from "../pages/QrLogin";
-import { Home } from "../pages/Home";
 import ProtectedLayout from "../helper/middleware/ProtectedLayout";
 
 const router = createBrowserRouter([
@@ -174,10 +173,6 @@ const router = createBrowserRouter([
     // {
     //     path: "*",
     //     element: <NotFound />,
-    // },
-    // {
-    //     path: "/test",
-    //     element: <Home />,
     // },
 
 ]);

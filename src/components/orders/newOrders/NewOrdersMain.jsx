@@ -94,8 +94,9 @@ export const NewOrdersMain = ({ products, sections }) => {
                   >
                     <img
                       src={
-                        product?.product_image ??
-                        "https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/b8eiofak8bph9can0voh"
+                        product?.product_image?.startsWith("http")
+                        ? product?.product_image
+                        : `https://res.cloudinary.com/dnawewlz7/image/upload/v1/${product?.product_image}`
                       }
                       alt={product?.product_image || "Unnamed Product"}
                       className="w-12 h-12 object-cover rounded-lg"
