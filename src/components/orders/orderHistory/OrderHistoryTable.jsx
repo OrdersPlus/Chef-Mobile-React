@@ -1,7 +1,7 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-const OrderHistoryTable = () => {
+const OrderHistoryTable = ({ history }) => {
   return (
     <div className="container mt-2 p-4 mx-auto overflow-auto ">
       <div className="overflow-x-auto shadow-lg rounded-lg bg-white">
@@ -50,110 +50,42 @@ const OrderHistoryTable = () => {
             </tr>
           </thead>
           <tbody className="text-sm">
-            <tr className="rounded-lg shadow-lg shadow-gray-300">
+            {history?.map((item, index)=>(
+
+            <tr key={index} className="rounded-lg shadow-lg shadow-gray-300">
               <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">
-                1
+                {index+1}
               </td>
               <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                ABC MEAT-035
+                {/* ABC MEAT-035 {item?.order_no} */}
+                {item?.order_no || "None"}
               </td>
               <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                ABC Meat & Poutry
+                {/* ABC Meat & Poutry {item?.supplier?.company_name} */}
+                {/* {console.log(item?.supplier?.company_name)} */}
+              {item?.supplier?.company_name}
               </td>
               <td className="px-6 py-4 whitespace-nowrap  w-40 text-black">
-                <button className="bg-blue-300 text-blue-700 px-2 py-1 rounded-lg">
-                  Delivered
+                <button className={`${item?.status == "Delivered" ? "bg-blue-300 text-blue-700" : "" } ${item?.status == "Sent" ? "bg-green-100 text-green-400" : "bg-blue-100 text-blue-400" } px-2 py-1 rounded-lg`}>
+                  {/* Delivered */}
+                  {item?.status}
                 </button>
               </td>
               <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                Jun 22, 2025
+                {/* Jun 22, 2025 */}
+                {item?.delivery_date}
               </td>
               <td className="py-3 px-4">
                 <div className="flex justify-center">
-                  <Link to="/orders/delivered-orders-details">
+                  <Link to={`/orders/delivered-orders-details/${item?.id}`}>
                     <FaSearch className="text-xl text-orange-300 cursor-pointer" />
                   </Link>
                 </div>
               </td>
             </tr>
-            <tr className="rounded-lg shadow-lg shadow-gray-300">
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">
-                1
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                ABC MEAT-035
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                ABC Meat & Poutry
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap  w-40 text-black">
-                <button className="bg-green-100 text-green-400 px-2 py-1 rounded-lg">
-                  Pending
-                </button>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                Jun 22, 2025
-              </td>
-              <td className="py-3 px-4">
-                <div className="flex justify-center">
-                  <Link to="/orders/order-details">
-                    <FaSearch className="text-xl text-orange-300 cursor-pointer" />
-                  </Link>
-                </div>
-              </td>
-            </tr>
-            <tr className="rounded-lg shadow-lg shadow-gray-300">
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">
-                1
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                ABC MEAT-035
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                ABC Meat & Poutry
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap  w-40 text-black">
-                <button className="bg-blue-100 text-blue-400 px-5 py-1 rounded-lg">
-                  Sent
-                </button>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                Jun 22, 2025
-              </td>
-              <td className="py-3 px-4">
-                <div className="flex justify-center">
-                  <Link to="/orders/order-details">
-                    <FaSearch className="text-xl text-orange-300 cursor-pointer" />
-                  </Link>
-                </div>
-              </td>
-            </tr>
-            <tr className="rounded-lg shadow-lg shadow-gray-300">
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black ">
-                1
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                ABC MEAT-035
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                ABC Meat & Poutry
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap  w-40 text-black">
-                <button className="bg-green-100 text-green-400 px-2 py-1 rounded-lg">
-                  Pending
-                </button>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap font-semibold w-40 text-black">
-                Jun 22, 2025
-              </td>
-              <td className="py-3 px-4">
-                <div className="flex justify-center">
-                  <Link to="/orders/order-details">
-                    <FaSearch className="text-xl text-orange-300 cursor-pointer" />
-                  </Link>
-                </div>
-              </td>
-            </tr>
+
+            ))}
+
           </tbody>
         </table>
       </div>

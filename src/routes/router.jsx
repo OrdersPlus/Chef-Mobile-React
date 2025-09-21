@@ -49,6 +49,9 @@ const router = createBrowserRouter([
   //   ]
   // }
   {
+      element: <ProtectedLayout />,
+      children: [
+  {
     path: "/",
     element: <MainLayouts />,
     children: [
@@ -56,9 +59,6 @@ const router = createBrowserRouter([
           index: true,
           element: <Dashboard />,
       },
-    {
-        element: <ProtectedLayout />,
-        children: [
         {
             path: "/orders/home",
             element: <OrdersHome />,
@@ -93,10 +93,10 @@ const router = createBrowserRouter([
             path: "/add-to-cart",
             element: <AddToCart />,
         },
-        {
-            path: "/add-to-cart2",
-            element: <AddToCart2 />,
-        },
+        // {
+        //     path: "/add-to-cart2",
+        //     element: <AddToCart2 />,
+        // },
 //safaet
 
 //nausin
@@ -122,7 +122,7 @@ const router = createBrowserRouter([
       element:<RepeatOrder />,
     },
      {
-      path:"/orders/delivered-orders-details",
+      path:"/orders/delivered-orders-details/:id",
       element:<DeliveredOrderDetails />,
     },
 //nausin
@@ -175,10 +175,10 @@ const router = createBrowserRouter([
     //     path: "*",
     //     element: <NotFound />,
     // },
-    {
-        path: "/test",
-        element: <Home />,
-    },
+    // {
+    //     path: "/test",
+    //     element: <Home />,
+    // },
 
 ]);
 export default router;

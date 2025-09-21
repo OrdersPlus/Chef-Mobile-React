@@ -7,6 +7,7 @@ import { getAxios } from "../../helper/HelperAxios";
 import { useNavigate } from "react-router-dom";
 import { LoadingEffect } from "../../components/custom/LoadingEffect";
 import { CommonPagination } from "../../components/custom/CommonPagination";
+import { ScrollableButtonSuppliers } from "../../components/common/ScrollableButtonSuppliers";
 
 export const NewOrderItem = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export const NewOrderItem = () => {
   const [newOrder, setNewOrder] = useState();
 
   const [sections, setSections] = useState();
-
+  const [suppliers, setSuppliers] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,7 +47,8 @@ export const NewOrderItem = () => {
         total: newOrderObj.products.total,
       });
       setNewOrder(newOrderObj?.products?.data);
-      setSections(newOrderObj?.sections)
+      setSections(newOrderObj?.sections);
+      setSuppliers(newOrderObj?.suppliers);
     }
   }, [newOrderObj]);
 
@@ -70,11 +72,26 @@ export const NewOrderItem = () => {
     fetchData();
   }, [debouncedSearch]);
 
-  console.log(sections)
+  // console.log(suppliers)
 
   return (
     <div>
       {loader && <LoadingEffect />}
+
+<ScrollableButtonSuppliers
+  buttonLabels={suppliers}
+  categoryFilter={(supplierId) => {
+    let url = `${import.meta.env.VITE_BACK_END_URL}orders/products`;
+
+    if (supplierId) {
+      url += `?supplier_id=${supplierId}`;
+    }
+
+    getAxios(url, setNewOrderObj, setLoader);
+  }}
+/>
+
+
       <CommonPagination
         paginationData={newOrderPagination}
         onPageChange={(page) => {
@@ -89,10 +106,7 @@ export const NewOrderItem = () => {
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
       />
-      <NewOrdersMain 
-        products={newOrder}
-        sections={sections}
-      />
+      <NewOrdersMain products={newOrder} sections={sections} />
     </div>
   );
 };

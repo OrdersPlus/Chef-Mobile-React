@@ -13,19 +13,19 @@
 // export default ProtectedLayout;
 
 
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 
 const ProtectedLayout = () => {
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const status = localStorage.getItem("status");
 
   const isAuthenticated = token && status === "active";
-
     if (isAuthenticated) {
       return <Outlet />;
     } else {
       localStorage.clear();
-      return <Navigate to="/login" replace />;
+      navigate("/login", { replace: true });
     }
 };
 export default ProtectedLayout;
