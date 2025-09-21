@@ -2,6 +2,7 @@ import axios from 'axios';
 import { errorToast, successToast } from '../components/custom/Toastify';
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
 // export async function getAxios(url, setLoader, setObject) {
 //   try {
 //     setLoader(true);
@@ -24,21 +25,24 @@ import { toast } from "react-toastify";
 //     setLoader(false);
 //   }
 // }
-export async function getAxios(url, setObject, setLoader) {
+export async function getAxios(url, setObject, setLoader, navigate) {
   try {
-    setLoader(true)
+    setLoader(true);
     const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login", { replace: true });
+      return;
+    }
+
     const response = await axios.get(url, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     });
+
     setObject(response?.data);
-    // console.log(response.data.data);
-    // alert("Login Successful")
   } catch (error) {
-    // alert("Login Error")
     console.error("Error fetching data:", error);
   } finally {
     setLoader(false);
@@ -46,34 +50,35 @@ export async function getAxios(url, setObject, setLoader) {
 }
 
 
-export async function postAxios(url, setLoader, setObject, token = true, contentType = true) {
+
+export async function postAxios(url, setLoader, setObject, navigate, useToken = true, contentType = true) {
   try {
     setLoader(true);
-    const token = localStorage.getItem('token')
+
+    const token = localStorage.getItem('token');
+    if (useToken && !token) {
+      navigate("/login", { replace: true });
+      return;
+    }
+
     const headers = {};
-    if (token) {
+    if (useToken && token) {
       headers["Authorization"] = `Bearer ${token}`;
     }
-    contentType ? headers["Content-Type"] = "application/json" : headers["Content-Type"] = "multipart/form-data"
-    // if (contentType) {
-    //   headers["Content-Type"] = "application/json";
-    // } else {
-    //   headers["Content-Type"] = "multipart/form-data";
-    //   // headers["Accept"] = "application/json"; // Optional
-    // }
+
+    headers["Content-Type"] = contentType ? "application/json" : "multipart/form-data";
+
     const response = await axios.post(url, setObject, { headers });
-    // await new Promise(resolve => setTimeout(resolve, 1000));
-    // console.log(response.data);
-    //  return response.data;
+
     successToast(response?.data?.message);
   } catch (error) {
     console.error('Error fetching data:', error?.response?.data);
     errorToast(error?.response?.data?.message);
-
   } finally {
     setLoader(false);
   }
 }
+
 
 
 export async function deleteAxios( url, id, setObjects, setLoader, token = false, message = "Data Deleted" ) {
@@ -89,7 +94,7 @@ export async function deleteAxios( url, id, setObjects, setLoader, token = false
       const res = await axios.delete(`${url}/${id}`, { headers });
       if (res.status === 200) {
         setObjects((prev) => prev.filter((data) => data.id !== Number(id)));
-        successToast(message);
+        successToast(res.data.message || message);
       } else {
         errorToast("Failed to delete!");
       }

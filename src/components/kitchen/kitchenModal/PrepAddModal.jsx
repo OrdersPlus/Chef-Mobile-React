@@ -3,12 +3,14 @@ import { postAxios } from "../../../helper/HelperAxios";
 import { LoadingEffect } from "../../custom/LoadingEffect";
 
 const PrepAddModal = ({sections}) => {
+
   const [loader, setLoader] = useState(false);
   const [sectionId, setSectionId] = useState();
   const [date, setDate] = useState();
   const [prepItem, setPrepItem] = useState();
   const [qtyRequired, setQtyRequired] = useState();
   const [unit, setUnit] = useState();
+
 
   const formData = new FormData();
   formData.append("section_id", sectionId ?? "");
@@ -51,10 +53,9 @@ const PrepAddModal = ({sections}) => {
               className="w-full px-4 py-2 border-2 border-white rounded-lg mb-4 shadow-xl"
             >
               <option>Select Task Section</option>
-
-              {sections?.map((section, index) => (
-                <option key={index} value={section.id}>
-                  {section.name}
+              {sections?.map((task, index) => (
+                <option key={index} value={task.id}>
+                  {task.name}
                 </option>
               ))}
             </select>
@@ -89,9 +90,12 @@ const PrepAddModal = ({sections}) => {
               Save Task
             </button>
             <div className="modal-action">
-              <form method="dialog">
-                <button className="btn">Close</button>
-              </form>
+              <button type="button" formMethod="dialog" className="btn"
+                onClick={()=>document.getElementById("add_modal").close()}
+              >
+                Close
+              </button>
+
             </div>
           </form>
         </dialog>

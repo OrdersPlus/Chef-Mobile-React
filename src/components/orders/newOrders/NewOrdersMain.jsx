@@ -6,6 +6,7 @@ import AddToPantryCartModalOrders from "./AddToPantryCartModalOrders";
 import { confirmAction, postAxios } from "../../../helper/HelperAxios";
 import PantryListDetailsModal from "../../kitchen/kitchenModal/PantryListDetailsModal";
 import AddToCartModalNewOrder from "../commonForOrder/AddToCartModalNewOrder";
+import { LoadingEffect } from "../../custom/LoadingEffect";
 
 export const NewOrdersMain = ({ products, sections }) => {
   // console.log(products)sections
@@ -32,7 +33,7 @@ export const NewOrdersMain = ({ products, sections }) => {
   };
 
   const handleAddToOrderList = async (item) => {
-    console.log(item)
+    // console.log(item)
     const payload = {
       product_id: item?.id,
       supplier_id: item?.supplier?.id,
@@ -49,7 +50,11 @@ export const NewOrdersMain = ({ products, sections }) => {
     }
   };
 
+  // console.log("products",products)
+  // console.log("sections",sections)
   return (
+    <>
+    {loader && <LoadingEffect />}
     <div className="container mx-auto mt-4 mb-25">
       <div className="overflow-x-auto shadow-lg rounded-lg bg-white">
         {/* Header Row */}
@@ -147,5 +152,6 @@ export const NewOrdersMain = ({ products, sections }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
