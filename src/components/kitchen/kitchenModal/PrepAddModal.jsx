@@ -3,7 +3,7 @@ import { postAxios } from "../../../helper/HelperAxios";
 import { LoadingEffect } from "../../custom/LoadingEffect";
 
 const PrepAddModal = ({sections}) => {
-  const [addTask, setAddTask] = useState();
+
   const [loader, setLoader] = useState(false);
   const [sectionId, setSectionId] = useState();
   const [date, setDate] = useState();
@@ -34,7 +34,7 @@ const PrepAddModal = ({sections}) => {
       document.getElementById("add_modal").close();
     }
   };
-
+  console.log(sections);
   return (
     <>
       {loader && <LoadingEffect />}
@@ -53,7 +53,6 @@ const PrepAddModal = ({sections}) => {
               className="w-full px-4 py-2 border-2 border-white rounded-lg mb-4 shadow-xl"
             >
               <option>Select Task Section</option>
-
               {sections?.map((task, index) => (
                 <option key={index} value={task.id}>
                   {task.name}
@@ -96,6 +95,7 @@ const PrepAddModal = ({sections}) => {
               >
                 Close
               </button>
+
             </div>
           </form>
         </dialog>
