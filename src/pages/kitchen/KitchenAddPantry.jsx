@@ -15,6 +15,7 @@ import { ScrollableButton } from "../../components/common/ScrollableButton";
 import { ScrollableButtonKitchen } from "../../components/kitchen/common/ScrollableButtonKitchen";
 import { ScrollableButtonSuppliers } from "../../components/kitchen/common/ScrollableButtonSuppliers";
 import AddToPantryCartModalOrders from "../../components/orders/newOrders/AddToPantryCartModalOrders";
+import AddToCartModal from "../../components/orders/commonForOrder/AddToCartModal";
 
 export const KitchenAddPantry = () => {
   const [loader, setLoader] = useState(false);
@@ -258,7 +259,7 @@ export const KitchenAddPantry = () => {
                         className="w-6 h-6 text-amber-500"
                         onClick={() => {
                           setSingleProcuct(item)
-                          document.getElementById("productModal2").showModal();
+                          document.getElementById("productModal").showModal();
                         }}
                       />
                     </td>
@@ -273,7 +274,10 @@ export const KitchenAddPantry = () => {
           modalData={singleProcuct}
           sections={sections} 
         />
-        <EditPentryDetailsModal item={singleProcuct} />
+        {/* <EditPentryDetailsModal item={singleProcuct} /> */}
+        <AddToCartModal
+        items={singleProcuct}
+        />
       </div>
     </>
   );
