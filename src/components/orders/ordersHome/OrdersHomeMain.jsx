@@ -70,7 +70,6 @@ export const HomeMain = () => {
     fetchData();
   }, [debouncedSearch]);
 
-  console.log(category)
 
   const handleAddToCart = async (item) => {
   const payload = {
@@ -205,7 +204,7 @@ export const HomeMain = () => {
         ))}
 
         <AddToCartModal
-        items={sendModalItems}
+        item={sendModalItems}
         />
       </div>
     </>
