@@ -1,31 +1,31 @@
-// components/ProtectedLayout.js
-// import { Navigate, Outlet } from "react-router-dom";
-
-// const ProtectedLayout = () => {
-//   const token = localStorage.getItem("token");
-//   const status = localStorage.getItem("status");
-
-//   const isAuthenticated = token && status === "active";
-
-//   return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
-// };
-
-// export default ProtectedLayout;
-
-
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const ProtectedLayout = () => {
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  const status = localStorage.getItem("status");
+  const [checkedAuth, setCheckedAuth] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const isAuthenticated = token && status === "active";
-    if (isAuthenticated) {
-      return <Outlet />;
-    } else {
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const status = localStorage.getItem("status");
+
+    const auth = token && status === "active";
+    setIsAuthenticated(auth);
+    setCheckedAuth(true);
+
+    if (!auth) {
       localStorage.clear();
       navigate("/login", { replace: true });
     }
+  }, [navigate]);
+
+  if (!checkedAuth) {
+    // Optional: Add loading spinner here
+    return null;
+  }
+
+  return isAuthenticated ? <Outlet /> : null;
 };
+
 export default ProtectedLayout;

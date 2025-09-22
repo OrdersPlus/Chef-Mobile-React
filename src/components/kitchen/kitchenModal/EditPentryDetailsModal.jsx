@@ -1,8 +1,7 @@
 import React from "react";
 
-const EditPentryDetailsModal = ({items}) => {
-
-  // console.log("items",items)
+const EditPentryDetailsModal = ({ item }) => {
+  // console.log("item", item);
   return (
     <dialog id="searchModal" className="modal">
       <div className="modal-box w-[90%] sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg h-auto rounded-2xl shadow-lg relative pt-4 p-4">
@@ -15,15 +14,19 @@ const EditPentryDetailsModal = ({items}) => {
 
         {/* Title */}
         <h2 className="text-2xl font-semibold text-orange-500 mb-4 text-center sm:text-left">
-        {items?.name}
+          {item?.name}
         </h2>
 
         {/* Content Area */}
-        <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+        <div className="flex flex-col sm:flex-row sm:item-start gap-4">
           {/* Image (Smaller, Aligned) */}
           <div className="w-full sm:w-[40%] flex justify-center sm:justify-start">
             <img
-              src={items?.product_image}
+              src={
+                item?.product_image?.startsWith("http")
+                  ? item?.product_image
+                  : `https://res.cloudinary.com/dnawewlz7/image/upload/v1/${item?.product_image}`
+              }
               alt="Beef Tenderloin"
               className="rounded-lg w-28 h-20 object-cover border-2 border-gray-400 shadow"
               style={{
@@ -36,19 +39,21 @@ const EditPentryDetailsModal = ({items}) => {
           <div className="w-full sm:w-[60%] space-y-1 text-sm text-center">
             <div>
               <strong className="text-gray-700">Brand:</strong>{" "}
-              <span className="text-gray-600">{items?.product_brand}</span>
+              <span className="text-gray-600">{item?.product_brand}</span>
             </div>
             <div>
               <strong className="text-gray-700">Cost:</strong>{" "}
-              <span className="text-gray-600">{items?.cost_price}</span>
+              <span className="text-gray-600">{item?.cost_price}</span>
             </div>
             <div>
               <strong className="text-gray-700">SKU:</strong>{" "}
-              <span className="text-gray-600">{items?.sku}</span>
+              <span className="text-gray-600">{item?.sku}</span>
             </div>
-            <div className="flex items-center space-x-2 mt-2 justify-center">
+            <div className="flex item-center space-x-2 mt-2 justify-center">
               <strong className="text-gray-700">Price:</strong>
-              <span className="text-lg font-semibold text-gray-900">${items?.rrp}</span>
+              <span className="text-lg font-semibold text-gray-900">
+                ${item?.rrp}
+              </span>
             </div>
           </div>
         </div>
@@ -63,7 +68,7 @@ const EditPentryDetailsModal = ({items}) => {
           />
         </div>
 
-        <div className="flex justify-center gap-3 pt-4 items-center">
+        <div className="flex justify-center gap-3 pt-4 item-center">
           <button className="bg-orange-500 hover:bg-orange-700 text-white px-4 py-2 rounded text-sm shadow-2xl shadow-orange-700">
             {" "}
             Add to Pantry

@@ -70,7 +70,7 @@ export const HomeMain = () => {
     fetchData();
   }, [debouncedSearch]);
 
-  // console.log(category)
+  console.log(category)
 
   const handleAddToCart = async (item) => {
   const payload = {
@@ -180,7 +180,7 @@ export const HomeMain = () => {
                   {item?.product?.name || "Unnamed Product"}
                 </div>
                 <div className="text-gray-600 text-sm">
-                  ${item?.product?.cost_price || "0.00"}/kg
+                  ${item?.product?.rrp || "0.00"}/kg
                 </div>
               </div>
 

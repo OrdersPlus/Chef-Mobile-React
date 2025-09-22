@@ -107,7 +107,7 @@ export const NewOrdersMain = ({ products, sections }) => {
                   <div className="flex flex-col">
                     <span className="font-semibold">{product?.name}</span>
                     <span className="text-gray-600">
-                      ${product?.cost_price}/{product?.unit_of_measurement}
+                      ${product?.rrp}/{product?.unit_of_measurement}
                     </span>
                   </div>
                 </div>
