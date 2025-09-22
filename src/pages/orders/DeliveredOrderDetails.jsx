@@ -88,6 +88,7 @@ export const DeliveredOrderDetails = () => {
     fetchData();
   }, [debouncedSearch]);
 
+  console.log(data)
   return (
     <>
       {loader && <LoadingEffect />}

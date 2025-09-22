@@ -34,7 +34,7 @@ const PrepAddModal = ({sections}) => {
       document.getElementById("add_modal").close();
     }
   };
-  console.log(sections);
+  // console.log(sections);
   return (
     <>
       {loader && <LoadingEffect />}

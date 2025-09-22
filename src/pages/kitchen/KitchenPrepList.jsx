@@ -175,7 +175,7 @@ export const KitchenPrepList = () => {
           />
 
           <h1 className="text-xl font-semibold text-center">
-            Ladder Prep List
+            Prep List
           </h1>
 
           <div className="container mx-auto mt-4">

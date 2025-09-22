@@ -22,6 +22,8 @@ const AddToCartModalNewOrder = ({ items }) => {
       setLoader,
       payload
     );
+
+    document.getElementById("productModal")?.close();
   };
 
   return (

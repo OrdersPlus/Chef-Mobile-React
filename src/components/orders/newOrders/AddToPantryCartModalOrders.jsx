@@ -52,8 +52,12 @@ const AddToPantryCartModalOrders = ({ modalData, sections }) => {
             {/* Image (Smaller, Aligned) */}
             <div className="w-full sm:w-[40%] flex justify-center sm:justify-start">
               <img
-                src={modalData?.product_image}
-                alt="Beef Tenderloin"
+                src={
+                modalData?.product_image?.startsWith("http")
+                  ? modalData?.product_image
+                  : `https://res.cloudinary.com/dnawewlz7/image/upload/v1/${modalData?.product_image}`
+              }
+                alt={modalData?.name}
                 className="rounded-lg w-28 h-20 object-cover border-2 border-gray-400 shadow"
                 style={{
                   boxShadow: "inset 0px 0px 3px #d1d1d1, 1px 1px 6px #54545466",
