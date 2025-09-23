@@ -10,8 +10,8 @@ const AddToPantryCartModalOrders = ({ modalData, sections }) => {
     const selectedSection = document.querySelector("select").value;
 
     const payload = {
-      product_id: modalData?.id, // or whatever ID you have
-      list_type: 0, // or 1 if you're using supplier list
+      product_id: modalData?.id,
+      list_type: 0,
       note: note,
     };
 
@@ -26,10 +26,11 @@ const AddToPantryCartModalOrders = ({ modalData, sections }) => {
         setLoader,
         payload
       );
+      document.getElementById("searchModal").close();
     }
 
 
-  // console.log(sections);
+  // console.log(modalData);
   return (
     <>
       {loader && <LoadingEffect />}

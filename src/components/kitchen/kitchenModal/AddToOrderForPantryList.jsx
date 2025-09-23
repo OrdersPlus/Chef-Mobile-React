@@ -3,7 +3,7 @@ import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { postAxios } from "../../../helper/HelperAxios";
 import { LoadingEffect } from "../../custom/LoadingEffect";
 
-const AddToCartModal = ({ item }) => {
+const AddToOrderForPantryList = ({ item }) => {
   // console.log(item);
 
   const [loader, setLoader] = useState();
@@ -12,7 +12,7 @@ const AddToCartModal = ({ item }) => {
     const note = document.querySelector("textarea").value;
 
     const payload = {
-      product_id: item?.product_id,
+      product_id: item?.id,
       supplier_id: item?.supplier_id,
       quantity: quantity,
       note: note,
@@ -45,15 +45,15 @@ const AddToCartModal = ({ item }) => {
           </button>
 
           <h2 className="text-lg font-bold text-gray-800 mb-2">
-            {item?.product?.name}
+            {item?.name}
           </h2>
 
           <div className="flex flex-row gap-10 mb-1">
             {/* Main Image */}
             <img
               id="mainProductImage"
-              src={getImageUrl(item?.product?.product_image)}
-              alt={item?.product?.name}
+              src={getImageUrl(item?.product_image)}
+              alt={item?.name}
               className="w-40 h-24 object-cover rounded border border-amber-50 shadow-lg shadow-gray-400"
             />
 
@@ -62,19 +62,19 @@ const AddToCartModal = ({ item }) => {
                 {item?.supplier?.company_name}
               </p>
               <p className="text-gray-600">
-                SKU: <span className="font-medium">{item?.product?.sku}</span>
+                SKU: <span className="font-medium">{item?.sku}</span>
               </p>
               <p className="text-gray-500 text-xs">
                 {/* Next Del: <span className="font-medium">26/05/2023</span> */}
               </p>
               <p className="text-gray-700">
-                Unit: {item?.product?.unit_qty} {item?.product?.unit_of_measurement}
+                Unit: {item?.unit_qty} {item?.unit_of_measurement}
               </p>
               <p className="text-gray-700">
-                Price: {item?.product?.rrp}
+                Price: {item?.rrp}
               </p>
               <p className="text-green-600 font-semibold">
-                {item?.product?.stock_quantity > 0
+                {item?.stock_quantity > 0
                   ? "In Stock"
                   : "out of stock"}
               </p>
@@ -85,13 +85,13 @@ const AddToCartModal = ({ item }) => {
           <div className="flex item-center justify-between">
             <div className="gap-3 flex item-center">
               <img
-                src={getImageUrl(item?.product?.product_image)}
+                src={getImageUrl(item?.product_image)}
                 alt="Thumbnail 1"
                 className="w-10 h-10 object-cover border border-gray-300 rounded cursor-pointer hover:border-orange-500"
                 onClick={() => {
                   const mainImage = document.getElementById("mainProductImage");
                   if (mainImage) {
-                    mainImage.src = getImageUrl(item?.product?.product_image);
+                    mainImage.src = getImageUrl(item?.product_image);
                   }
                 }}
               />
@@ -105,13 +105,13 @@ const AddToCartModal = ({ item }) => {
                 }
               />
               <img
-                src={getImageUrl(item?.product?.product_image)}
+                src={getImageUrl(item?.product_image)}
                 alt="Thumbnail 3"
                 className="w-10 h-10 object-cover border border-gray-300 rounded cursor-pointer hover:border-orange-500"
                 onClick={() => {
                   const mainImage = document.getElementById("mainProductImage");
                   if (mainImage) {
-                    mainImage.src = getImageUrl(item?.product?.product_image);
+                    mainImage.src = getImageUrl(item?.product_image);
                   }
                 }}
               />
@@ -186,4 +186,4 @@ const AddToCartModal = ({ item }) => {
   );
 };
 
-export default AddToCartModal;
+export default AddToOrderForPantryList;
