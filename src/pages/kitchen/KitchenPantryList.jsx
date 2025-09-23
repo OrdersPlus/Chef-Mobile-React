@@ -4,11 +4,12 @@ import { Link } from "react-router";
 import NavButton from "../../components/kitchen/myKitchenSection/NavButton";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
 import { useEffect, useState } from "react";
-import { getAxios } from "../../helper/HelperAxios";
+import { confirmDelete, deleteAxios, getAxios } from "../../helper/HelperAxios";
 import { LoadingEffect } from "../../components/custom/LoadingEffect";
 import { ScrollableButton } from "../../components/common/ScrollableButton";
-import AddToCartModal from "../../components/orders/commonForOrder/AddToCartModal";
-
+import AddToOrderForPantryList from "../../components/kitchen/kitchenModal/AddToOrderForPantryList";
+import axios from "axios";
+import { errorToast, successToast } from "../../components/custom/Toastify";
 
 export const KitchenPantryList = () => {
   const [popUp, setPopUp] = useState(false);
@@ -59,8 +60,34 @@ export const KitchenPantryList = () => {
     fetchData();
   }, [debouncedSearch]);
 
-
   // console.log(sections)
+
+  const handleClearList = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const confirm = await confirmDelete();
+      if (confirm) {
+        setLoader(true);
+        const headers = {};
+        if (token) {
+          headers["Authorization"] = `Bearer ${token}`;
+        }
+        const res = await axios.delete(`${import.meta.env.VITE_BACK_END_URL}kitchen/clear-pantry-list`, { headers });
+        if (res.status === 200) {
+          successToast(res.data.message || message);
+          setPantryList("");
+        } else {
+          errorToast("Failed to delete!");
+        }
+      }
+    } catch (error) {
+      console.error("Delete error:", error);
+      errorToast(error?.response?.data?.message || "Something went wrong");
+    } finally {
+      setLoader(false);
+    }
+  };
+
   return (
     <>
       {loader && <LoadingEffect />}
@@ -168,7 +195,10 @@ export const KitchenPantryList = () => {
               Pan Pantry List
             </div>
 
-            <button className="border border-orange-500 text-orange-500 font-medium px-4 py-2 rounded-md hover:bg-orange-50 w-full sm:w-auto inset-shadow-sm shadow-xl/30">
+            <button
+              className="border border-orange-500 text-orange-500 font-medium px-4 py-2 rounded-md hover:bg-orange-50 w-full sm:w-auto inset-shadow-sm shadow-xl/30"
+              onClick={handleClearList}
+            >
               Clear List
             </button>
           </div>
@@ -185,34 +215,49 @@ export const KitchenPantryList = () => {
                     src={
                       item?.product?.product_image?.startsWith("http")
                         ? item?.product?.product_image
-                        : 
-                      `https://res.cloudinary.com/dnawewlz7/image/upload/v1/${item?.product?.product_image}`
+                        : `https://res.cloudinary.com/dnawewlz7/image/upload/v1/${item?.product?.product_image}`
                     }
                     alt={item?.product?.name}
                     className="w-16 h-16 rounded-md object-cover border border-amber-50 shadow-lg shadow-gray-400"
                   />
 
                   <div className="flex-1 px-3 ml-2">
-                    <p className="font-semibold text-gray-800">{item?.product?.name}</p>
+                    <p className="font-semibold text-gray-800">
+                      {item?.product?.name}
+                    </p>
                     <p className="text-sm text-gray-500">{`${item?.product?.unit_qty} / ${item?.product?.unit_of_measurement}`}</p>
                   </div>
 
                   <div className="flex-1 px-2">
                     <p className="font-semibold text-gray-800">Price</p>
-                    <p className="text-sm text-red-500">${item?.product?.rrp}</p>
+                    <p className="text-sm text-red-500">
+                      ${item?.product?.rrp}
+                    </p>
                   </div>
 
                   <div className="flex items-center gap-10">
                     <button
-                      onClick={() =>{
-                        setSendModalItems(item?.product)
+                      onClick={() => {
+                        setSendModalItems(item?.product);
                         document.getElementById("productModal").showModal();
                       }}
                       className="border-2 border-blue-500 text-blue-500 rounded p-1 hover:bg-orange-100"
                     >
                       <AiOutlineInfoCircle className="h-5 w-5" />
                     </button>
-                    <button className="border-2 border-orange-500 text-orange-500 rounded p-1 hover:bg-orange-100">
+                    <button
+                      className="border-2 border-orange-500 text-orange-500 rounded p-1 hover:bg-orange-100"
+                      onClick={() =>
+                        deleteAxios(
+                          import.meta.env.VITE_BACK_END_URL +
+                          "kitchen/pantry-list",
+                          item.id,
+                          setPantryList,
+                          setLoader,
+                          true
+                        )
+                      }
+                    >
                       <AiOutlineClose className="h-5 w-5" />
                     </button>
                   </div>
@@ -223,10 +268,7 @@ export const KitchenPantryList = () => {
             )}
           </div>
 
-
-        <AddToCartModal
-         items={sendModalItems}
-        />
+          <AddToOrderForPantryList item={sendModalItems} />
         </div>
       </div>
     </>

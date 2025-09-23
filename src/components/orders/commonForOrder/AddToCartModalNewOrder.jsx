@@ -3,8 +3,8 @@ import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { postAxios } from "../../../helper/HelperAxios";
 import { LoadingEffect } from "../../custom/LoadingEffect";
 
-const AddToCartModalNewOrder = ({ items }) => {
-  // console.log(items)
+const AddToCartModalNewOrder = ({ item }) => {
+  // console.log(item);
 
   const [loader, setLoader] = useState();
   const handleAddToCart = async () => {
@@ -12,8 +12,8 @@ const AddToCartModalNewOrder = ({ items }) => {
     const note = document.querySelector("textarea").value;
 
     const payload = {
-      product_id: items?.id,
-      supplier_id: items?.supplier_id,
+      product_id: item?.id,
+      supplier_id: item?.supplier_id,
       quantity: quantity,
       note: note,
     };
@@ -25,6 +25,13 @@ const AddToCartModalNewOrder = ({ items }) => {
 
     document.getElementById("productModal")?.close();
   };
+
+const getImageUrl = (imagePath) => {
+  return imagePath?.startsWith("http")
+    ? imagePath
+    : `https://res.cloudinary.com/dnawewlz7/image/upload/v1/${imagePath}`;
+};
+
 
   return (
     <>
@@ -39,57 +46,55 @@ const AddToCartModalNewOrder = ({ items }) => {
           </button>
 
           <h2 className="text-lg font-bold text-gray-800 mb-2">
-            {items?.product?.name}
+            {item?.name}
           </h2>
 
           <div className="flex flex-row gap-10 mb-1">
             {/* Main Image */}
             <img
               id="mainProductImage"
-              src={
-                items?.product?.product_image ||
-                "https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3"
-              }
+              src={getImageUrl(item?.product_image)}
               alt="Product"
               className="w-40 h-24 object-cover rounded border border-amber-50 shadow-lg shadow-gray-400"
             />
 
             <div className="text-sm space-y-1">
               <p className="font-semibold text-gray-900">
-                {items?.supplier?.company_name}
+                {item?.supplier?.company_name}
               </p>
               <p className="text-gray-600">
-                SKU: <span className="font-medium">{items?.product?.sku}</span>
-              </p>
-              <p className="text-green-600 font-semibold">
-                {items?.product?.stock_quantity > 0
-                  ? "In Stock"
-                  : "out of stock"}
+                SKU: <span className="font-medium">{item?.sku}</span>
               </p>
               <p className="text-gray-500 text-xs">
-                Next Del: <span className="font-medium">26/05/2023</span>
+                {/* Next Del: <span className="font-medium">26/05/2023</span> */}
               </p>
               <p className="text-gray-700">
-                {items?.product?.unit_qty} {items?.product?.unit_of_measurement}
+                Unit: {item?.unit_qty} {item?.unit_of_measurement}
+              </p>
+              <p className="text-gray-700">
+                Price: {item?.rrp}
+              </p>
+              <p className="text-green-600 font-semibold">
+                {item?.stock_quantity > 0
+                  ? "In Stock"
+                  : "out of stock"}
               </p>
             </div>
           </div>
 
           {/* Multiple Image Thumbnails */}
-          <div className="flex items-center justify-between">
-            <div className="gap-3 flex items-center">
+          <div className="flex item-center justify-between">
+            <div className="gap-3 flex item-center">
               <img
-                src={
-                  items?.product?.product_image ||
-                  "https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3"
-                }
+                src={getImageUrl(item?.product_image)}
                 alt="Thumbnail 1"
                 className="w-10 h-10 object-cover border border-gray-300 rounded cursor-pointer hover:border-orange-500"
-                onClick={() =>
-                  (document.getElementById("mainProductImage").src =
-                    items?.product?.product_image ||
-                    "https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3")
-                }
+                onClick={() => {
+                  const mainImage = document.getElementById("mainProductImage");
+                  if (mainImage) {
+                    mainImage.src = getImageUrl(item?.product_image);
+                  }
+                }}
               />
               <img
                 src={"https://i.pravatar.cc/100"}
@@ -101,17 +106,15 @@ const AddToCartModalNewOrder = ({ items }) => {
                 }
               />
               <img
-                src={
-                  items?.product?.product_image ||
-                  "https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3"
-                }
+                src={getImageUrl(item?.product_image)}
                 alt="Thumbnail 3"
                 className="w-10 h-10 object-cover border border-gray-300 rounded cursor-pointer hover:border-orange-500"
-                onClick={() =>
-                  (document.getElementById("mainProductImage").src =
-                    items?.product?.product_image ||
-                    "https://res.cloudinary.com/dnawewlz7/image/upload/v1/Restaurant%20Tech%20Files/ordersplus/uqxjazvsq0rgwrwnsvd3")
-                }
+                onClick={() => {
+                  const mainImage = document.getElementById("mainProductImage");
+                  if (mainImage) {
+                    mainImage.src = getImageUrl(item?.product_image);
+                  }
+                }}
               />
             </div>
 
@@ -121,7 +124,7 @@ const AddToCartModalNewOrder = ({ items }) => {
               <label className="text-sm text-gray-600 flex justify-center">
                 Quantity
               </label>
-              <div className="flex items-center border border-gray-300 rounded bg-green-500">
+              <div className="flex item-center border border-gray-300 rounded bg-green-500">
                 <button
                   className="px-3 py-1 text-gray-700 hover:bg-gray-200 bg-green-500"
                   onClick={() => {
@@ -161,7 +164,7 @@ const AddToCartModalNewOrder = ({ items }) => {
             ></textarea>
           </div>
 
-          <div className="flex justify-center gap-3 pt-4 items-center">
+          <div className="flex justify-center gap-3 pt-4 item-center">
             <button className="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded text-sm shadow-2xl shadow-green-700">
               Save Notes
             </button>

@@ -143,7 +143,7 @@ export const NewOrdersMain = ({ products, sections }) => {
                     <FaCartPlus className="text-blue-500 h-7 w-7 ml-4" />
                   </button>
                   <AddToCartModalNewOrder 
-                    items={modalData}
+                    item={modalData}
                     className="text-amber-300 h-7 w-7" />
                 </div>
                 <div className="w-1/4"></div>

@@ -15,7 +15,7 @@ import { ScrollableButton } from "../../components/common/ScrollableButton";
 import { ScrollableButtonKitchen } from "../../components/kitchen/common/ScrollableButtonKitchen";
 import { ScrollableButtonSuppliers } from "../../components/kitchen/common/ScrollableButtonSuppliers";
 import AddToPantryCartModalOrders from "../../components/orders/newOrders/AddToPantryCartModalOrders";
-import AddToCartModal from "../../components/orders/commonForOrder/AddToCartModal";
+import AddToOrderForPantryList from "../../components/kitchen/kitchenModal/AddToOrderForPantryList";
 
 export const KitchenAddPantry = () => {
   const [loader, setLoader] = useState(false);
@@ -275,8 +275,8 @@ export const KitchenAddPantry = () => {
           sections={sections} 
         />
         {/* <EditPentryDetailsModal item={singleProcuct} /> */}
-        <AddToCartModal
-        items={singleProcuct}
+        <AddToOrderForPantryList
+        item={singleProcuct}
         />
       </div>
     </>
