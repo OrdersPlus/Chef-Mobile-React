@@ -28,6 +28,10 @@ import { SuppliersHome } from "../pages/suppliers/SuppliersHome";
 import StaffScheduleDay from "../pages/admin/StaffScheduleDay";
 import { QrLogin } from "../pages/QrLogin";
 import ProtectedLayout from "../helper/middleware/ProtectedLayout";
+import { SupplierOrdersList } from '../pages/orders/SupllierOrdersList';
+import { SupllierOrderCheckList } from '../pages/orders/SupllierOrderCheckList';
+import { SupplierOrdersBreakdown } from "../pages/orders/SupplierOrdersBreakdown";
+
 
 const router = createBrowserRouter([
     {
@@ -66,10 +70,31 @@ const router = createBrowserRouter([
             path: "/orders/new-order-item",
             element: <NewOrderItem />,
         },
+       
         {
             path: "/orders/order-details",
             element: <OrderDetails />,
         },
+
+        {
+          path: "/orders/supplier-orders-list",
+          element:<SupplierOrdersList />,
+
+        },
+        {
+          path: "/orders/supplier-orders-checklist",
+          element:<SupllierOrderCheckList/>
+        },
+
+        {
+          path: "/orders/supplier-orders-breakdown",
+          element:<SupplierOrdersBreakdown />
+        },
+        
+
+    
+   
+    
 
 // Safaet
         {
@@ -124,6 +149,8 @@ const router = createBrowserRouter([
       path:"/orders/delivered-orders-details/:id",
       element:<DeliveredOrderDetails />,
     },
+    /* new feature end */
+
 //nausin
 
 //arman
