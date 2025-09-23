@@ -1,9 +1,14 @@
 import React from 'react'
+import { MdOutlineCalendarMonth } from 'react-icons/md'
 
 const Sentorder = ({order, supplier}) => {
   // console.log("order", order)
   // console.log("supplier", supplier)
   return (
+    <div>
+         {/* <div className="rounded-lg shadow-lg "> */}
+       {/* className="rounded-md bg-white shadow-md " */}
+
     <div>
          {/* <div className="rounded-lg shadow-lg "> */}
       <div className="m-3 p-4 pt-0 rounded-md bg-white shadow-md space-y-4 mb-2 ">
@@ -36,6 +41,10 @@ const Sentorder = ({order, supplier}) => {
           </button>
         </div>
       </div>
+    </div>
+  
+     
+
     </div>
   )
 }
