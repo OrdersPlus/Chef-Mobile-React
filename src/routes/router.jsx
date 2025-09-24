@@ -172,7 +172,7 @@ const router = createBrowserRouter([
 
     },
     {
-      path: "/admin/roster/hours_controls",
+      path: "/admin/roster/hours-controls",
       element: <EditRoster />
     },
     {
