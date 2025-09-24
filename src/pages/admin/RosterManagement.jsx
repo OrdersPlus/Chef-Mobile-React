@@ -10,12 +10,7 @@ import { RosterShiftModal } from "./RosterShiftModal";
 
 export const RosterManagement = () => {
 
-
-
-
-
-
-
+  const [rosterHours, setRosterHours] = useState();
 
   const [value, setValue] = useState()
    const [editShift, setEditShift] = useState();
@@ -29,13 +24,22 @@ export const RosterManagement = () => {
   const [break_end_time, setBreakEndTime] = useState();
  
 const [modalData, setModalData] = useState();
+
+
+//rosterhours
+
+    useEffect(() => {
+      getAxios(import.meta.env.VITE_BACK_END_URL + `roster/get-roster-hours`, setRosterHours, setLoader);
+    }, []);
+
+    console.log('roster er mal ', rosterHours)
 // const [shifts, setShifts] = useState();
 
     useEffect(() => {
       getAxios(import.meta.env.VITE_BACK_END_URL + "roster/get-shift", setValue, setLoader);
     }, []);
 
-    console.log(value)
+    console.log("asdasd",value)
 
     // console.log(value);
 
@@ -132,7 +136,7 @@ const [modalData, setModalData] = useState();
         <div className="max-h-[50vh] max-w-[100vw] overflow-y-auto  grid grid-cols-1 gap-4 mb-6 shadow-gray-300 shadow-xl">
           <div className="flex justify start p-4">
             <button
-              className="flex items-center px-2 py-1 bg-orange-500 text-white rounded-md shadow-md text-xs"
+              className="flex items-center px-6 py-2 bg-orange-500 text-white rounded-md shadow-md text-xs"
               onClick={() =>
                 document.getElementById("create_shift_modal").showModal()
               }
@@ -163,9 +167,10 @@ const [modalData, setModalData] = useState();
 {value?.data?.map((item, index) => (
 
             <div  key={index} className={`border-4 border-${item?.label} p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between `}>
+              {console.log('item label', item?.label)}
               <div>
                 <h3 className={`text-lg font-semibold text-orange-700`}>
-                  {item?.label}
+                  {item?.name}
                 </h3>
                 <p className="text-sm text-gray-600">{(item?.break_start_time)} - {(item?.break_end_time)}</p>
               </div>
@@ -185,38 +190,59 @@ const [modalData, setModalData] = useState();
 
           </div>
         </div>
-        <div className="overflow-x-auto no-scrollbar">
+
+        <div className="flex items-center justify-between mb-4">
+           <h2 className="text-xl font-semibold mb-4">Roster Hours Controls</h2>
+
+           <Link to="hours-controls" className="text-black hover:text-orange-700">
+              <FaPen />
+           </Link>
+
+        </div>
+
+        
+
+      
+        <div className="overflow-x-auto no-scrollbar" key={rosterHours?.data?.id}>
           <div className="flex gap-2 pb-2">
             <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
               <p className="text-sm font-medium text-green-400">Mon</p>
-              <p className="text-xs text-green-700">67 hrs</p>
+              <p className="text-xs text-green-700">{rosterHours?.data?.mon} hrs</p>
             </div>
             <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
               <p className="text-sm font-medium text-green-400">Tue</p>
-              <p className="text-xs text-green-700">67 hrs</p>
+              <p className="text-xs text-green-700">{rosterHours?.data?.tue} hrs</p>
             </div>
             <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
               <p className="text-sm font-medium text-green-400">Wed</p>
-              <p className="text-xs text-green-700">67 hrs</p>
+              <p className="text-xs text-green-700">{rosterHours?.data?.wed} hrs</p>
             </div>
             <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
-              <p className="text-sm font-medium text-green-400">Thus</p>
-              <p className="text-xs text-green-700">67 hrs</p>
+              <p className="text-sm font-medium text-green-400">Thu</p>
+              <p className="text-xs text-green-700">{rosterHours?.data?.thu} hrs</p>
             </div>
             <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
               <p className="text-sm font-medium text-green-400">Fri</p>
-              <p className="text-xs text-green-700">67 hrs</p>
+              <p className="text-xs text-green-700">{rosterHours?.data?.fri} hrs</p>
             </div>
             <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
               <p className="text-sm font-medium text-green-400">Sat</p>
-              <p className="text-xs text-green-700">67 hrs</p>
+              <p className="text-xs text-green-700">{rosterHours?.data?.sat} hrs</p>
             </div>
             <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
               <p className="text-sm font-medium text-green-400">Sun</p>
-              <p className="text-xs text-green-700">67 hrs</p>
+              <p className="text-xs text-green-700">{rosterHours?.data?.sun} hrs</p>
+            </div>
+            <div className="flex-shrink-0 w-24 p-2 bg-green-100 rounded-lg shadow-sm text-center border border-gray-200">
+              <p className="text-sm font-medium text-green-400">Total Hours</p>
+              <p className="text-xs text-green-700">{rosterHours?.data?(rosterHours?.data?.mon + rosterHours?.data?.tue + rosterHours?.data?.wed + rosterHours?.data?.thu + rosterHours?.data?.fri + rosterHours?.data?.sat + rosterHours?.data?.sun): 0} hrs</p>
             </div>
           </div>
         </div>
+       
+    
+
+       
 
       </main>
 <dialog id="create_shift_modal" className="modal">

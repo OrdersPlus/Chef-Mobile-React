@@ -1,8 +1,24 @@
 import { NavLink } from "react-router-dom";
 import { ThreeCommonButton } from "../../components/common/ThreeCommonButton";
+import { use, useEffect, useState } from "react";
+import { getAxios } from "../../helper/HelperAxios";
 
 
 export const EditRoster = () => {
+
+  const [hourRoster, setHourRoster] =useState();
+  const [loader, setLoader] = useState(false);
+
+    useEffect(() => {
+      getAxios(import.meta.env.VITE_BACK_END_URL + `roster/get-roster-hours`, setHourRoster, setLoader);
+    }, []);
+
+    console.log('ssss',hourRoster);
+
+
+
+
+
   return (
     <div> 
         <main className="max-w-full mx-auto p-4">
@@ -21,7 +37,7 @@ export const EditRoster = () => {
         thirdUrl= "/admin/roster/staff-attendance"
         />
 
-      <div className="bg-white rounded-lg shadow-md overflow-x-auto">
+      <div className="bg-white rounded-lg shadow-md overflow-x-auto mt-4">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr className="shadow-gray-200 shadow-xl">
@@ -35,46 +51,34 @@ export const EditRoster = () => {
                       <th scope="col" className="px-6 py-3 text-left text-xs font-bold text-orange-500 uppercase tracking-wider whitespace-nowrap">Sun</th>
                     </tr>
                   </thead>
+                  
                   <tbody className="bg-white divide-y divide-gray-200">
                     <tr className="shadow-gray-200 shadow-xl">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Breakfast</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">36</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">30</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">45</td>
+                      
+   {}
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {hourRoster?.data?.map((item, index) => (
+                          <div key={index}>
+                            {item.shift}
+                          </div>
+                        ))}
+                      </td>
+                   
+
+
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.mon}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.tue}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.wed}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.thu}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.fri}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.sat}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.sun}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                         
                       </td>
                     </tr>
-                    <tr className="shadow-gray-200 shadow-xl">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Lunch</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">36</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">30</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">45</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                        
-                      </td>
-                    </tr>
-                    <tr className="shadow-gray-200 shadow-xl">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Snacks</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">36</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">30</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">40</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">45</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                        
-                      </td>
-                    </tr>
+                    
+                    
                     </tbody>
           </table>
         </div>
