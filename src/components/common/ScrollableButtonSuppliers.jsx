@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-export const ScrollableButtonKitchen = ({ buttonLabels, categoryFilter }) => {
+export const ScrollableButtonSuppliers = ({ buttonLabels, categoryFilter }) => {
   const [activeCategory, setActiveCategory] = useState('');
 
-  const handleCategoryClick = (category) => {
-    setActiveCategory(category);
-    categoryFilter(category); // Call parent with selected category
+  const handleCategoryClick = (id) => {
+    setActiveCategory(id);
+    categoryFilter(id);
   };
 
   return (
@@ -26,11 +26,11 @@ export const ScrollableButtonKitchen = ({ buttonLabels, categoryFilter }) => {
           <div
             key={index}
             className={`p-1 px-4 rounded-md shadow flex justify-center items-center whitespace-nowrap min-w-max cursor-pointer
-              ${activeCategory === item ? 'bg-orange-500 text-white' : 'bg-white text-orange-500'}
+              ${activeCategory === item.id ? 'bg-orange-500 text-white' : 'bg-white text-orange-500'}
             `}
-            onClick={() => handleCategoryClick(item)}
+            onClick={() => handleCategoryClick(item.id)}
           >
-            {item}
+            {item?.company_name}
           </div>
         ))}
       </div>

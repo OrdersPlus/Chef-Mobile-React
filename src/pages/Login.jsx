@@ -9,7 +9,7 @@ import { LoadingEffect } from "../components/custom/LoadingEffect";
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("masktrend@gmail.com");
-  const [password, setPassword] = useState("Admin123");
+  const [password, setPassword] = useState("123456");
   const [loader, setLoader] = useState();
   const userData = {
     email: email,
@@ -25,8 +25,10 @@ const userLogin= (event)=>{
     },
   })
   .then(res => {
-    // console.log("✅ Success:", res.data.data);
-    localStorage.setItem('token', res.data.data.token);
+
+    // console.log("✅ Success:", res.data);
+    localStorage.setItem('token', res?.data?.data?.token);
+
     localStorage.setItem('status', 'active');
     // successToast("login succesfull");
     // setTimeout(()=>{

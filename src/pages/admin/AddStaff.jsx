@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { CgProfile } from "react-icons/cg";
+import { postAxios } from "../../helper/HelperAxios";
+import { LoadingEffect } from "../../components/custom/LoadingEffect";
 
 export const AddStaff = () => {
   const [fullName, setFullName] = useState("");
@@ -16,7 +18,7 @@ export const AddStaff = () => {
   const [emergencyContactPhone, setEmergencyContactPhone] = useState("");
   const [residentialAddress, setResidentialAddress] = useState("");
   const [profileImage, setProfileImage] = useState(null);
-
+  const [loader, setLoader] = useState(false);
   // For cleaning up the object URL to prevent memory leaks
   useEffect(() => {
     return () => {
@@ -58,27 +60,13 @@ export const AddStaff = () => {
       formData.append("token", token);
     }
 
-    axios
-      .post("http://fardin-mise-en.spentry.tech/api/save-staff", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          // Accept: "application/json",
-        },
-        // withCredentials: true,
-      })
-      .then((res) => {
-        console.log("✅ Success:", res.data);
-      })
-      .catch((err) => {
-        if (err.response) {
-          console.error("❌ API Error:", err.response.data);
-        } else {
-          console.error("❌ Network Error:", err.message);
-        }
-      });
+    postAxios(import.meta.env.VITE_BACK_END_URL+"admin/save-staff", setLoader, formData, true, false)
+
   };
 
   return (
+    <>
+    {loader && <LoadingEffect />}
     <div className="bg-gray-100 min-h-screen font-sans">
       <div className="bg-white shadow-md rounded-lg p-4 md:p-8 max-w-6xl mx-auto my-8 pb-18">
         <div className="flex items-center justify-center pb-4 border-b border-gray-200 mb-6">
@@ -120,7 +108,7 @@ export const AddStaff = () => {
             <option value="">Select Access Control Level*</option>
             <option value="Head Chef">Head Chef</option>
             <option value="Section Chef">Section Chef</option>
-            <option value="kitchen Stuff">Kitchen Staff</option>
+            <option value="kitchen Staff">Kitchen Staff</option>
           </select>
         </div>
 
@@ -209,7 +197,7 @@ export const AddStaff = () => {
                   <option>Select Employment Type</option>
                   <option value="Full Time">Full Time</option>
                   <option value="Part Time">Part Time</option>
-                  <option value="Contract">Contract</option>
+                  <option value="Casual">Casual</option>
                 </select>
               </div>
               {/* Weekly Salary */}
@@ -278,5 +266,6 @@ export const AddStaff = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };

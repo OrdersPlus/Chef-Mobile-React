@@ -25,14 +25,14 @@ export const OrdersHome = () => {
         </div>
       {/* <ScrollableButton
         name="Suppliers"
-        buttonLabels={[
+        buttonLabels={[a
           "Fardin",
           "Fardin Faiaz Khan",
           "ABC Food Wholesale",
           "ABC Meat & Poultry",
         ]}
       /> */}
-      <SearchPagination />
+      {/* <SearchPagination /> */}
 
       <HomeMain />
     </div>

@@ -27,8 +27,11 @@ import StaffSchedule from "../pages/admin/StaffSchedule";
 import { SuppliersHome } from "../pages/suppliers/SuppliersHome";
 import StaffScheduleDay from "../pages/admin/StaffScheduleDay";
 import { QrLogin } from "../pages/QrLogin";
-import { Home } from "../pages/Home";
-import ProtectedLayout from "../helper/useContexts/ProtectedLayout";
+import ProtectedLayout from "../helper/middleware/ProtectedLayout";
+import { SupplierOrdersList } from '../pages/orders/SupllierOrdersList';
+import { SupllierOrderCheckList } from '../pages/orders/SupllierOrderCheckList';
+import { SupplierOrdersBreakdown } from "../pages/orders/SupplierOrdersBreakdown";
+
 
 const router = createBrowserRouter([
     {
@@ -49,16 +52,16 @@ const router = createBrowserRouter([
   //   ]
   // }
   {
-    element: <ProtectedLayout />, // Guard
+      element: <ProtectedLayout />,
+      children: [
+  {
+    path: "/",
+    element: <MainLayouts />,
     children: [
-    {
-        path: "/",
-        element: <MainLayouts />,
-        children: [
-        {
-            index: true,
-            element: <Dashboard />,
-        },
+      {
+          index: true,
+          element: <Dashboard />,
+      },
         {
             path: "/orders/home",
             element: <OrdersHome />,
@@ -67,10 +70,31 @@ const router = createBrowserRouter([
             path: "/orders/new-order-item",
             element: <NewOrderItem />,
         },
+       
         {
             path: "/orders/order-details",
             element: <OrderDetails />,
         },
+
+        {
+          path: "/orders/supplier-orders-list",
+          element:<SupplierOrdersList />,
+
+        },
+        {
+          path: "/orders/supplier-orders-checklist",
+          element:<SupllierOrderCheckList/>
+        },
+
+        {
+          path: "/orders/supplier-orders-breakdown",
+          element:<SupplierOrdersBreakdown />
+        },
+        
+
+    
+   
+    
 
 // Safaet
         {
@@ -93,10 +117,10 @@ const router = createBrowserRouter([
             path: "/add-to-cart",
             element: <AddToCart />,
         },
-        {
-            path: "/add-to-cart2",
-            element: <AddToCart2 />,
-        },
+        // {
+        //     path: "/add-to-cart2",
+        //     element: <AddToCart2 />,
+        // },
 //safaet
 
 //nausin
@@ -105,12 +129,12 @@ const router = createBrowserRouter([
       element: <SuppliersHome />,
     },
     {
-      path: "/suppliers/product_list",
+      path: "/suppliers/product-list/:id",
       element: <SupplierProductList />,
     },
 
     {
-      path: "/suppliers/details",
+      path: "/suppliers/details/:id",
       element: <SupplierDetails />,
     },
     {
@@ -122,9 +146,11 @@ const router = createBrowserRouter([
       element:<RepeatOrder />,
     },
      {
-      path:"/orders/delivered-orders-details",
+      path:"/orders/delivered-orders-details/:id",
       element:<DeliveredOrderDetails />,
     },
+    /* new feature end */
+
 //nausin
 
 //arman
@@ -137,7 +163,7 @@ const router = createBrowserRouter([
       element: <AddStaff />,
     },
     {
-      path: "/admin/edit-staff",
+      path: "/admin/edit-staff/:id",
       element: <EditStaff />
     },
     {
@@ -146,7 +172,7 @@ const router = createBrowserRouter([
 
     },
     {
-      path: "/admin/roster/hours_controls",
+      path: "/admin/roster/hours-controls",
       element: <EditRoster />
     },
     {
@@ -175,10 +201,6 @@ const router = createBrowserRouter([
     //     path: "*",
     //     element: <NotFound />,
     // },
-    {
-        path: "test",
-        element: <Home />,
-    },
 
 ]);
 export default router;
