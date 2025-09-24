@@ -53,32 +53,29 @@ export const EditRoster = () => {
                   </thead>
                   
                   <tbody className="bg-white divide-y divide-gray-200">
+                    {hourRoster?.data?.map((item, index) => (
                     <tr className="shadow-gray-200 shadow-xl">
                       
-   {}
+   
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {hourRoster?.data?.map((item, index) => (
-                          <div key={index}>
-                            {item.shift}
-                          </div>
-                        ))}
+                   
                       </td>
                    
 
 
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.mon}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.tue}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.wed}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.thu}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.fri}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.sat}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hourRoster?.data?.sun}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
                       <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                         
                       </td>
                     </tr>
                     
-                    
+                    ))}
                     </tbody>
           </table>
         </div>
