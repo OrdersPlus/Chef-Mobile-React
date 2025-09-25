@@ -1,0 +1,28 @@
+name: Deploy ChefPro Frontend App on Dev Server
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy ChefPro Frontend App
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.LOCAL_HOST }}
+          username: ${{ secrets.LOCAL_USER }}
+          key: ${{ secrets.LOCAL_SSH_KEY }}
+          port: ${{ secrets.LOCAL_SSH_PORT }}
+          script: |
+            cd /home/${{ secrets.LOCAL_USER }}/apps/chefpro/frontend
+            git reset --hard HEAD
+            git pull origin development
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            npm install
+            npm run build
+            pm2 restart chefpro-frontend
