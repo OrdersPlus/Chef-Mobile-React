@@ -29,7 +29,7 @@ export const DashboardMain = () => {
 
       <Link to={'/login'} className="p-5 inset-shadow-sm shadow-xl/30 rounded-md text-orange-500 flex flex-col items-center justify-center">
         <i className="fi fi-ss-sack-dollar text-[48px] mb-2"></i>
-        <p className="text-xl text-black text-center">Payment(login)</p>
+        <p className="text-xl text-black text-center">Hourly Salary</p>
       </Link>
 
       <Link to={'/qr-login'} className="p-5 inset-shadow-sm shadow-xl/30 rounded-md text-orange-500 flex flex-col items-center justify-center">

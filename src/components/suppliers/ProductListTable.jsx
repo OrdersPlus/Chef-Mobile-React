@@ -144,16 +144,16 @@ const ProductListTable = ({ suppliers }) => {
                 </td>
                 <td className="py-3 px-4">
                   <FaSearch
-                    className="text-xl text-orange-300 cursor-pointer"
+                    className="text-xl text-orange-300 "
                     onClick={() => handleModalOpen(supplier?.name, supplier)}
                   />
                 </td>
-                <td className="py-3">
+                <td className="py-3 px-4">
                   <button
-                    className="py-1 px-4 text-sm text-[var(--text-secondary)] bg-[var(--primary-color)] rounded border border-[var(--border-color] hover:bg-[var(--secondary-color)] hover:text-gray-900 mt-2 flex items-center space-x-2"
+                    className="py-1 px-2 text-sm text-[var(--text-secondary)] bg-[var(--primary-color)] rounded border border-[var(--border-color] hover:bg-[var(--secondary-color)] hover:text-gray-900   "
                     onClick={() => handleAddToOrderList(supplier)}
                   >
-                    <FaShoppingBag className="text-xl" />
+                    <FaShoppingBag className="text-xl " />
                   </button>
                 </td>
               </tr>

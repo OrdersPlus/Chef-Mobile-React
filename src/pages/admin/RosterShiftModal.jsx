@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { deleteAxios, getAxios, postAxios } from '../../helper/HelperAxios';
 import axios from 'axios';
+import { errorToast, successToast } from '../../components/custom/Toastify';
+import { getAxios, postAxios } from '../../helper/HelperAxios';
 
-export const RosterShiftModal = ({modalData,shifts}) => {
-
+export const RosterShiftModal = ({modalData, shifts, setValue}) => {
+// const [modalValue, setModalValue] = useState(value);
   const id = modalData?.id;
   const[editData,setEditData] =useState();
   const [loader, setLoader] = useState(false);
@@ -23,7 +24,7 @@ export const RosterShiftModal = ({modalData,shifts}) => {
     );
   }, [id]);
 
-  // initialize local state from modalData so inputs are editable
+ 
   useEffect(() => {
     if (modalData) {
       setName(modalData?.name ?? "");
@@ -35,74 +36,109 @@ export const RosterShiftModal = ({modalData,shifts}) => {
     }
   }, [modalData]);
 
-  console.log('dd',shifts);
+  // console.log('dd',shifts);
 
-  const updateShift = async (event) => {
-    event.preventDefault();
+const updateShift = async (event) => {
+  event.preventDefault();
 
-    const formData = new FormData();
-    formData.append("name", name ?? "");
-    formData.append("from", from ?? "");
-    formData.append("to", to ?? "");
-    formData.append("label", label ?? "");
-    formData.append("break_start_time", break_start_time ?? "");
-    formData.append("break_end_time", break_end_time ?? "");
-    // If your Laravel route expects PUT/PATCH, uncomment:
-    // formData.append(''_method'', ''PUT'');
+  const formData = new FormData();
+  formData.append("name", name ?? "");
+  formData.append("from", from ?? "");
+  formData.append("to", to ?? "");
+  formData.append("label", label ?? "");
+  formData.append("break_start_time", break_start_time ?? "");
+  formData.append("break_end_time", break_end_time ?? "");
 
-    try {
-      const res = await postAxios(
-        import.meta.env.VITE_BACK_END_URL + `roster/update-shift/${id}`,
-        setLoader,
-        formData,
-        true,
-        true
-      );
-
-      console.log('postAxios response:', res?.data);
-
-      if (res) {
-        document.getElementById("update_shift_modal").close();
-      }
-    } catch (error) {
-      console.error("Error creating shift:", error);
-    }
-  };
-
-
-//   const deleteShift = async () => {
-//   try {
-//     const res = await axios.delete(
-//       import.meta.env.VITE_BACK_END_URL + `roster/delete-shift/${id}`
-//     );
-//     console.log("Shift deleted:", res.data);
-
-//     // close modal after delete
-//     document.getElementById("update_shift_modal").close();
-//   } catch (error) {
-//     console.error("Error deleting shift:", error);
-//   }
-// };
-
-  const deleteShift = async (id) => {
-  try {
-    
-    const token = localStorage.getItem('token')
-    await axios.delete(
-   import.meta.env.VITE_BACK_END_URL + `roster/delete-shift/${id}`,
+ try {
+   
+    const response = await axios.post(
+      `${import.meta.env.VITE_BACK_END_URL}roster/update-shift/${id}`,
+      formData,
       {
         headers: {
-          Accept: "application/json",
-          "Authorization": `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       }
     );
-    console.log(" Shift deleted successfully");
-    document.getElementById("update_shift_modal").close();
-  } catch (err) {
-    console.error(" Delete failed:", err.response?.data || err.message);
+
+  
+    if (response.status === 200) {
+      
+      setValue((prevValue) => {
+        const updatedData = prevValue?.data?.map((item) =>
+          item.id === id ? { ...item, ...response.data } : item
+        );
+        return { ...prevValue, data: updatedData };
+      });
+
+
+      getAxios(import.meta.env.VITE_BACK_END_URL + "roster/get-shift", setValue, setLoader);
+
+  
+      successToast(response.data.message || "Shift updated successfully!");
+
+
+      document.getElementById("update_shift_modal").close();
+    } else {
+    
+      errorToast("Failed to update shift.");
+    }
+  } catch (error) {
+    console.error("Error updating shift:", error);
+ 
+    errorToast(error?.response?.data?.message || "Something went wrong");
+  } finally {
+    setLoader(false);
   }
 };
+
+
+
+
+
+const deleteShift = async (id, setValue, setLoader) => {
+  try {
+    const token = localStorage.getItem('token');
+    
+
+    const headers = {
+      Accept: "application/json",
+      "Authorization": `Bearer ${token}`,
+    };
+
+    const response = await axios.delete(
+      `${import.meta.env.VITE_BACK_END_URL}roster/delete-shift/${id}`,
+      { headers }
+    );
+
+    if (response.status === 200) {
+      console.log("Shift deleted successfully");
+
+      
+      setValue((prevValue) => {
+   
+        if (prevValue && Array.isArray(prevValue.data)) {
+          const updatedData = prevValue.data.filter((item) => item.id !== id);
+          
+          return { ...prevValue, data: updatedData };
+        }
+        return prevValue; 
+      });
+
+   
+      successToast(response.data.message || "Data deleted successfully!");
+    } else {
+      errorToast("Failed to delete the shift.");
+    }
+  } catch (error) {
+    console.error("Delete error:", error);
+    errorToast(error?.response?.data?.message || "Something went wrong");
+  } finally {
+    setLoader(false);  
+  }
+};
+
 
 
   return (
@@ -171,7 +207,7 @@ export const RosterShiftModal = ({modalData,shifts}) => {
       </div>
     </div>
 
-    {/* Save Button */}
+  
     <div className='flex gap-2'>
       <button
         type="submit"
@@ -182,11 +218,19 @@ export const RosterShiftModal = ({modalData,shifts}) => {
       </button>
 
       <button
+    
         type="button"
         className="btn block mx-auto w-1/2 mt-4 bg-red-500 text-white shadow-2xl shadow-red-700"
-        onClick={() => deleteShift(id)}
-                                  
-      >
+        // onClick={() => deleteShift(id)}
+ onClick={() => {
+    if (id) {
+      document.getElementById("update_shift_modal").close(); 
+      deleteShift(id, setValue, setLoader);
+    } else {
+      console.error('ID is missing');
+    }
+  }}
+>
         Delete Shift
       </button>
     </div>
