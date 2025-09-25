@@ -8,8 +8,8 @@ import { LoadingEffect } from "../components/custom/LoadingEffect";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("masktrend@gmail.com");
-  const [password, setPassword] = useState("123456");
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const [loader, setLoader] = useState();
   const userData = {
     email: email,
