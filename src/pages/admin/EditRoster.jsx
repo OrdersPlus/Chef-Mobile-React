@@ -16,6 +16,9 @@ export const EditRoster = () => {
     console.log('ssss',hourRoster);
 
 
+    
+
+
 
 
 
@@ -49,36 +52,58 @@ export const EditRoster = () => {
                       <th scope="col" className="px-6 py-3 text-left text-xs font-bold text-orange-500 uppercase tracking-wider whitespace-nowrap">Fri</th>
                       <th scope="col" className="px-6 py-3 text-left text-xs font-bold text-orange-500 uppercase tracking-wider whitespace-nowrap">Sat</th>
                       <th scope="col" className="px-6 py-3 text-left text-xs font-bold text-orange-500 uppercase tracking-wider whitespace-nowrap">Sun</th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-bold text-orange-500 uppercase tracking-wider whitespace-nowrap">Total</th>
                     </tr>
                   </thead>
                   
                   <tbody className="bg-white divide-y divide-gray-200">
-                    {hourRoster?.data?.map((item, index) => (
-                    <tr className="shadow-gray-200 shadow-xl">
-                      
-   
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                   
-                      </td>
-                   
+                   {hourRoster?.roster_hours?.map((item, index) => (
+                <tr key={index} className="shadow-gray-200 shadow-xl">
+                  {/* Shift Name */}
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    {item?.shift?.name}
 
 
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
-                      <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                        
-                      </td>
-                    </tr>
-                    
-                    ))}
+                  </td>
+
+                  {/* Days Data */}
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    {item?.mon} hrs
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    {item?.tue} hrs
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    {item?.wed} hrs
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    {item?.thu} hrs
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    {item?.fri} hrs
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    {item?.sat} hrs
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    {item?.sun} hrs
+
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    {item?.mon + item?.tue + item?.wed + item?.thu + item?.fri + item?.sat + item?.sun} hrs
+                  </td> 
+                  
+                </tr>
+              ))}
                     </tbody>
           </table>
+
+        
         </div>
+
+          <div className="mt-4  items-center">
+            <button className="px-4 py-2 bg-orange-500 text-white rounded-md">Save Changes</button>
+          </div>
       </main>
     </div>
   );

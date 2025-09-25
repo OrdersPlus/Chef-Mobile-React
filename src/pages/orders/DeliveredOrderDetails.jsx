@@ -302,7 +302,7 @@ export const DeliveredOrderDetails = () => {
             </div>
           </div>
         </div> */}
-                        <div className="max-w-xl mx-auto mt-2 border border-gray-200 rounded-lg shadow-md p-6 bg-white">
+                        {/* <div className="max-w-xl mx-auto mt-2 border border-gray-200 rounded-lg shadow-md p-6 bg-white">
       <h2 className="text-center text-lg font-semibold mb-4">
         Select Order Item to Check Delivery:
       </h2>
@@ -425,7 +425,108 @@ export const DeliveredOrderDetails = () => {
           
         </div>
       </div>
-    </div>
+    </div> */}
+
+            {order?.status === "Delivered" && (
+          <div className="max-w-xl mx-auto mt-2 border border-gray-200 rounded-lg shadow-md p-6 bg-white">
+            <h2 className="text-center text-lg font-semibold mb-4">Select Order Item to Check Delivery:</h2>
+            <div className="border-t border-gray-200 pt-4">
+              <div className="flex items-center justify-between mb-4 w-full px-4 py-2 border-2 border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4 shadow-xl">
+                <span className="text-gray-700">Wrong Item</span>
+                <input
+                  type="checkbox"
+                  className="form-checkbox text-yellow-500 h-4 w-4 border-yellow-500"
+                  onClick={() => document.getElementById("wrong_items_modal").showModal()}
+                />
+                <WrongItemsmodal />
+              </div>
+
+              <div className="flex items-center justify-between mb-4 w-full px-4 py-2 border-2 border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4 shadow-xl">
+                <span className="text-gray-700">Short & Missing</span>
+                <input
+                  type="checkbox"
+                  className="form-checkbox text-yellow-500 h-4 w-4 border-yellow-500"
+                  onClick={() => document.getElementById("short_missing_modal").showModal()}
+                />
+                <ShortMissingModal />
+              </div>
+
+              <div className="items-center w-full px-4 py-2 border-2 border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4 shadow-xl">
+                <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleUpload('poorQuality')}>
+                  <span className="text-gray-700">Poor Quality</span>
+                  <span className="text-gray-600 text-lg">{showUpload.poorQuality ? '▲' : '▼'}</span>
+                </div>
+                {showUpload.poorQuality && (
+                  <div className="mt-4">
+                    <label className="block text-sm text-gray-600 mb-1">Upload Picture of Item:</label>
+                    <input
+                      type="file"
+                      className="text-sm text-gray-600 file:mr-4 file:py-1 file:px-3 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
+                    />
+                  </div>
+                )}
+              </div>
+
+              <div className="flex items-center justify-between mb-4 w-full px-4 py-2 border-2 border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4 shadow-xl">
+                <span className="text-gray-700">Underweight</span>
+                <input
+                  type="checkbox"
+                  onClick={() => document.getElementById("under_weight_modal").showModal()}
+                  className="form-checkbox text-yellow-500 h-4 w-4 border-yellow-500"
+                />
+                <UderWeightModal />
+              </div>
+
+              <div className="flex items-center justify-between mb-4 w-full px-4 py-2 border-2 border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4 shadow-xl">
+                <span className="text-gray-700">Overweight</span>
+                <input
+                  onClick={() => document.getElementById("over_weight_modal").showModal()}
+                  type="checkbox"
+                  className="form-checkbox text-yellow-500 h-4 w-4 border-yellow-500"
+                />
+                <OverWeightModal />
+              </div>
+
+              <div className="flex items-center justify-between mb-4 w-full px-4 py-2 border-2 border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4 shadow-xl">
+                <span className="text-gray-700">Wrong Substitute</span>
+                <input
+                  type="checkbox"
+                  onClick={() => document.getElementById("short_missing_modal").showModal()}
+                  className="form-checkbox text-yellow-500 h-4 w-4 border-yellow-500"
+                />
+              </div>
+
+              <div className="items-center justify-between w-full px-4 py-2 border-2 border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4 shadow-xl">
+                <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleUpload('damaged')}>
+                  <span className="text-gray-700">Damaged</span>
+                  <span className="text-gray-600 text-lg">{showUpload.damaged ? '▲' : '▼'}</span>
+                </div>
+                {showUpload.damaged && (
+                  <div className="mt-4">
+                    <label className="block text-sm text-gray-600 mb-1">Upload Picture of Item:</label>
+                    <input
+                      type="file"
+                      className="text-sm text-gray-600 file:mr-4 file:py-1 file:px-3 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
+                    />
+                  </div>
+                )}
+              </div>
+
+              <div className="flex-col gap-2">
+                <div className="flex justify-center">
+                  <button className="bg-green-500 text-white shadow-2xl shadow-green-700 w-[80%] h-10 hover:bg-green-600 font-semibold py-2 px-4 rounded">
+                    Product In Good Condition
+                  </button>
+                </div>
+                <div className="flex justify-center">
+                  <button className="bg-blue-500 mt-2 shadow-blue-700 shadow-2xl hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+                    Save Complaint
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
       </div>
     </>

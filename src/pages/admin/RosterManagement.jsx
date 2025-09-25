@@ -11,6 +11,7 @@ import { RosterShiftModal } from "./RosterShiftModal";
 export const RosterManagement = () => {
 
   const [rosterHours, setRosterHours] = useState();
+  
 
   const [value, setValue] = useState()
    const [editShift, setEditShift] = useState();
@@ -32,14 +33,14 @@ const [modalData, setModalData] = useState();
       getAxios(import.meta.env.VITE_BACK_END_URL + `roster/get-roster-hours`, setRosterHours, setLoader);
     }, []);
 
-    console.log('roster er mal ', rosterHours)
+    // console.log('roster er mal ', rosterHours)
 // const [shifts, setShifts] = useState();
 
     useEffect(() => {
       getAxios(import.meta.env.VITE_BACK_END_URL + "roster/get-shift", setValue, setLoader);
     }, []);
 
-    console.log("asdasd",value)
+    // console.log("asdasd",value)
 
     // console.log(value);
 
@@ -66,7 +67,7 @@ const [modalData, setModalData] = useState();
             true
           );
 
-   console.log('postAxios response:', res.data);
+  //  console.log('postAxios response:', res.data);
 
           if (res) {
             document.getElementById("create_shift_modal").close();
@@ -119,6 +120,7 @@ const [modalData, setModalData] = useState();
   // console.log(shifts)
   // console.log(roasterHour)
   // console.log(totalHours)
+  console.log(value)
   return (
     <div>
       {/* {loader && <LoadingEffect />} */}
@@ -167,7 +169,6 @@ const [modalData, setModalData] = useState();
 {value?.data?.map((item, index) => (
 
             <div  key={index} className={`border-4 border-${item?.label} p-4 rounded-lg shadow-gray-300 shadow-xl flex items-center justify-between `}>
-              {console.log('item label', item?.label)}
               <div>
                 <h3 className={`text-lg font-semibold text-orange-700`}>
                   {item?.name}
@@ -334,6 +335,7 @@ const [modalData, setModalData] = useState();
   <RosterShiftModal 
     modalData={modalData}
     shifts={value?.shifts}
+    setValue={setValue}
   />
 
     </div>
